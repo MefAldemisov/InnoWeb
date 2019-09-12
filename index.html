@@ -231,10 +231,12 @@
         <!-- Submition Form -->
         <form stype="width:300px;">
             <div>
-                <input type="text" value="Defalt_name" name="name" placeholder="Имя*">
+                <label for="input_name">Enter your name:</label>
+                <input id="input_name" type="text" value="Defalt_name" name="name" placeholder="Имя*">
             </div>
             <div>
-                <select aria-placeholder="Amount">
+                <label for="option_select">Select the option</label>
+                <select id="option_select" name="option">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -250,7 +252,8 @@
                 <button type="submit">Отправить</button>
             </div>
             <div>
-                <textarea>
+                <label for="comment">Оставьте свой комментарий</label>
+                <textarea id="comment">
                 Комментарий
             </textarea>
             </div>
