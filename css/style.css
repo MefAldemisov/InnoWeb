@@ -1,0 +1,48 @@
+p, h1, h2, h3, h4, h5, h6 {
+
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+@font-face{
+    font: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+.movie-list{
+    padding: 100px 0;
+}
+
+.movie-list__header{
+    font-size: 50px;
+    color: #252525;
+    font-weight: 700;
+    margin: 0 0 76px;
+    text-align: center;
+
+}
+.table-container{
+    max-width: 1030px;
+    margin: 0 auto;
+}
+
+.movie-list__table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.movie-list__table_th{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700px;
+    background: #a3cc40;
+    color: #fff;
+    padding: 18px 0;
+}

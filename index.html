@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>Webpack Boilerplate</title>
     <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="build/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
@@ -68,54 +68,59 @@
                 illum itaque molestiae mollitia nemo, nostrum officia quas ratione tempora temporibus veritatis vero
                 voluptates.</p>
         </div>
+
     </section>
 
     <section>
-        <h2>Выберите фильм</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Начало сеанса</th>
-                    <th>Название фильма</th>
-                    <th>Жанр</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>10:00</td>
-                    <td><a href="https://www.kinopoisk.ru/film/838/" target="_blank"
-                            title="Кинопоиск: Человек-паук">Человек-паук</a></td>
-                    <td>фантастика, боевик, приключения</td>
-                </tr>
-                <tr>
-                    <td>12:00</td>
-                    <td>
-                        <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank"
-                            title="Кинопоиск: Собачья жизнь 2">Собачья жизнь 2 </a>
-                    <td>фэнтези, драма, комедия</td>
-                </tr>
-                <tr>
-                    <td>14:00</td>
-                    <td><a herf="https://www.kinopoisk.ru/film/846824/" target="_blank"
-                            title="Кинопоиск: История игрушек 4">История игрушек 4</a></td>
-                    <td>мультфильм, фэнтези, комедия</td>
-                </tr>
-                <tr>
-                    <td>16:00</td>
-                    <td><a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
-                            title="Кинопоиск: Люди в черном: Интернэшнл">Люди в черном: Интернэшнл</a>/td>
-                    <td>фантастика, боевик, комедия</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eum facere obcaecati quam rem
-                    repellendus
-                    veritatis. Aliquam beatae, delectus dignissimos enim exercitationem mollitia nisi pariatur quaerat
-                    quam, qui
-                    quibusdam sunt!</p>
-            </tfoot>
-        </table>
-
+        <div class="movie-list">
+            <h2 class="movie-list__header">Выберите фильм</h2>
+            <div class="table-container">
+            <table class=movie-list__table>
+                <thead>
+                    <tr class="movie-list__table_th">
+                        <th>Начало сеанса</th>
+                        <th>Название фильма</th>
+                        <th>Жанр</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10:00</td>
+                        <td><a href="https://www.kinopoisk.ru/film/838/" target="_blank"
+                                title="Кинопоиск: Человек-паук">Человек-паук</a></td>
+                        <td>фантастика, боевик, приключения</td>
+                    </tr>
+                    <tr>
+                        <td>12:00</td>
+                        <td>
+                            <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank"
+                                title="Кинопоиск: Собачья жизнь 2">Собачья жизнь 2 </a>
+                        <td>фэнтези, драма, комедия</td>
+                    </tr>
+                    <tr>
+                        <td>14:00</td>
+                        <td><a herf="https://www.kinopoisk.ru/film/846824/" target="_blank"
+                                title="Кинопоиск: История игрушек 4">История игрушек 4</a></td>
+                        <td>мультфильм, фэнтези, комедия</td>
+                    </tr>
+                    <tr>
+                        <td>16:00</td>
+                        <td><a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
+                                title="Кинопоиск: Люди в черном: Интернэшнл">Люди в черном: Интернэшнл</a></td>
+                        <td>фантастика, боевик, комедия</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eum facere obcaecati quam rem
+                        repellendus
+                        veritatis. Aliquam beatae, delectus dignissimos enim exercitationem mollitia nisi pariatur
+                        quaerat
+                        quam, qui
+                        quibusdam sunt!</p>
+                </tfoot>
+            </table>
+        </div>
+        </div>
     </section>
     <section>
 
