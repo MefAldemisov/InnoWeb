@@ -112,7 +112,7 @@
             <h2 class="movie-list__header">Выберите фильм</h2>
             <div class="table-container">
 
-                <table class="movie-list__table" border="1" cellpadding="15px" cellspacing="100px">
+                <table class="movie-list__table" cellpadding="15px" cellspacing="10px">
                     <thead>
                         <tr class="movie-list__table_th">
                             <th>Начало сеанса</th>
@@ -293,42 +293,54 @@
 
     </section>
 
-    <footer>
+    <footer style="width:300px; margin-top:50px;">
         <!-- Submition Form -->
-        <form stype="width:300px;">
+        <form autocomplete="off" method="POST">
             <div>
                 <label for="input_name">Enter your name:</label>
                 <input id="input_name" type="text" value="Defalt_name" name="name" placeholder="Имя*">
             </div>
+
             <div>
                 <label for="option_select">Select the option</label>
                 <select id="option_select" name="option">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                    <option>Выбор 1</option>
+                    <option>Выбор 2</option>
+                    <option>Выбор 3</option>
                 </select>
             </div>
+
+            <label>
+                Make a choice:
+                <label>
+                    <input type="radio" value="1" name="variant">
+                    Выбор 1
+                </label>
+                <label>
+                    <input type="radio" value="2" name="variant">
+                    Выбор 2
+                </label>
+            </label>
+
+
+            <label>Оставьте свой комментарий
+                <textarea>
+                    Комментарий
+                </textarea>
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Я согласен на обработку персональных данных
+            </label>
+
+
             <div>
-                <input id="first" type="radio" value="1" name="variant">
-                <label for="first">Вариант 1</label>
-                <input id="second" type="radio" value="2" name="variant">
-                <label for="second">Вариант 2</label>
-            </div>
-            <div>
-                <button type="submit">Отправить</button>
-            </div>
-            <div>
-                <label for="comment">Оставьте свой комментарий</label>
-                <textarea id="comment">
-                Комментарий
-            </textarea>
-            </div>
-            <div>
-                <input id="agree" type="checkbox">
-                <label for="agree">Я согласен на обработку персональных данных</label>
+                <label for="file_selector">Загрузить файл</label>
+                <input id="file_selector" type="file">
+                <input type="submit" value="Отправить">
             </div>
         </form>
-        <button>Загрузить файл</button>
     </footer>
 </body>
 
