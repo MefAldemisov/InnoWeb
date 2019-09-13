@@ -9,6 +9,30 @@
     <title>Webpack Boilerplate</title>
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <style>
+        h2 {
+            color: greenyellow;
+        }
+        a {
+            color: white;
+            text-transform: uppercase;
+            text-decoration: none;
+
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: inline;
+            margin: 0 0 0 15px;
+        }
+
+        nav {
+            background-color: darkgray;
+        }
+    </style>
 </head>
 
 <body>
@@ -293,22 +317,35 @@
 
     </section>
 
-    <footer style="width:300px; margin-top:50px;">
+    <footer style="width:400px; margin-top:50px;">
         <!-- Submition Form -->
-        <form autocomplete="off" method="POST">
+        <form autocomplete="off" method="GET" action="order.php">
+
             <div>
-                <label for="input_name">Enter your name:</label>
-                <input id="input_name" type="text" value="Defalt_name" name="name" placeholder="Имя*">
+                <label for="input_name">Укажите ваше имя</label>
+                <input id="input_name" type="text" value="Defalt_name" name="name" placeholder="Имя"
+                    required="required">
             </div>
 
             <div>
-                <label for="option_select">Select the option</label>
-                <select id="option_select" name="option">
+                <label for="input_mail">Укажите email </label>
+                <input id="input_mail" type="email" placeholder="something@gmail.com" required autocomplete="on">
+            </div>
+
+            <label for="option_select">Выберите место
+                <select id="option_select" name="option" required="required">
                     <option>Выбор 1</option>
                     <option>Выбор 2</option>
                     <option>Выбор 3</option>
+                    <option>Выбор 4</option>
+                    <option>Выбор 5</option>
+                    <option>Выбор 6</option>
+                    <option>Выбор 7</option>
+                    <option>Выбор 8</option>
+                    <option>Выбор 9</option>
+                    <option>Выбор 10</option>
                 </select>
-            </div>
+            </label>
 
             <fieldset>
                 <legend>Make a choice:</legend>
@@ -329,17 +366,23 @@
                 </textarea>
             </label>
 
-            <label>
-                <input type="checkbox">
-                Я согласен на обработку персональных данных
-            </label>
+            <div>
+                <label>
+                    <input type="checkbox" required="required" name="agree">
+                    Я согласен на обработку персональных данных
+                </label>
+            </div>
 
 
             <div>
                 <label for="file_selector">Загрузить файл</label>
                 <input id="file_selector" type="file">
-                <input type="submit" value="Отправить">
             </div>
+            <!-- https://stackoverflow.com/questions/3543615/difference-between-input-type-submit-and-button-type-submittext-butto -->
+           <!-- When the tag is used outside the form even with suitable arguments it does not always work (form attibute of botton is not supported in IE)-->
+           
+            <button type="submit">Закрыть</button>
+            <!-- <input type="submit" value="Заказать"> -->
         </form>
     </footer>
 </body>
