@@ -51,32 +51,6 @@
         <h1>Закажите билет в кино</h1>
         <h2>Всем покупателям подарок!</h2>
     </header>
-    <section>
-        <h3>Lists example</h3>
-        <ul>
-            <!-- Type of ul is not supported in HTML5 -->
-            <li>Cat</li>
-            <li>Dog</li>
-            <li>Lion</li>
-        </ul>
-        <ol reversed="reversed" type="I">
-            <li>First</li>
-            <li>Second</li>
-            <ol type="a">
-                <li>item</li>
-                <li>object</li>
-            </ol>
-            <li>Last</li>
-        </ol>
-        <dl>
-            <dt>HTML</dt>
-            <dd>for page marking</dd>
-            <dt>CSS</dt>
-            <dd>for styles</dd>
-            <dt>JS</dt>
-            <dd>for actions</dd>
-        </dl>
-    </section>
     <section id="section__welcome">
         <h2>Добро пожаловать!</h2>
         <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis quibusdam
@@ -105,7 +79,6 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </article>
         </div>
-
         <div>
             <article>
                 <h3>Удобные кресла</h3>
@@ -121,7 +94,6 @@
         <div class="movie-list">
             <h2 class="movie-list__header">Выберите фильм</h2>
             <div class="table-container">
-
                 <table class="movie-list__table" cellpadding="15px" cellspacing="10px">
                     <thead>
                         <tr class="movie-list__table_th">
@@ -231,7 +203,6 @@
                 <q>Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
-
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank" title="Кинопоиск: Собачья жизнь">
@@ -283,7 +254,9 @@
         </div>
     </section>
     <footer style="width:400px; margin-top:50px;">
-        <!-- Submition Form -->
+        <!-- It is better to use post method due to the safity reasons and data-compression,
+        however, the GET method is better for development (to track the data, passed to the
+        server) -->
         <form autocomplete="off" method="GET" action="order.php">
             <div>
                 <label for="input_name">Укажите ваше имя</label>
@@ -292,7 +265,7 @@
             </div>
             <div>
                 <label for="input_mail">Укажите email </label>
-                <input id="input_mail" type="email" placeholder="something@gmail.com" required autocomplete="on">
+                <input id="input_mail" type="email" placeholder="something@gmail.com" required="required" autocomplete="on">
             </div>
             <label for="option_select">Выберите место
                 <select id="option_select" name="option" required="required">
@@ -320,9 +293,7 @@
                 </label>
             </fieldset>
             <label>Оставьте свой комментарий
-                <textarea>
-                    Комментарий
-                </textarea>
+                <textarea name="comment" placeholder="Комментарий"></textarea>
             </label>
             <div>
                 <label>
@@ -332,12 +303,12 @@
             </div>
             <div>
                 <label for="file_selector">Загрузить файл</label>
-                <input id="file_selector" type="file">
+                <input id="file_selector" type="file" name="file_input">
             </div>
             <!-- https://stackoverflow.com/questions/3543615/difference-between-input-type-submit-and-button-type-submittext-butto -->
             <!-- When the tag is used outside the form even with suitable arguments it does not always work (form attibute of botton is not supported in IE)
             button with type="submit" is also preferable due to the increasing of semantics and compatability-->
-            <button type="submit">Закрыть</button>
+            <button type="submit">Заказать</button>
         </form>
     </footer>
 </body>
