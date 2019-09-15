@@ -4,10 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Webpack Boilerplate</title>
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <meta name="author" content="Bogdanova Alina">
+    <title>Cinema</title>
+<!--
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,400,700&display=swap&subset=cyrillic" rel="stylesheet">
+    -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!--
     <style>
         h2 {
             color: greenyellow;
@@ -27,31 +30,31 @@
         nav {
             background-color: darkgray;
         }
-    </style>
+    </style>-->
 </head>
 <body>
-    <div>
-        <!-- Navigation panel -->
-        <nav>
-            <a href="http://university.innopolis.ru"><img src="images/logo_inno.png" alt="logo of Innopolis"
-                    height="24px" width="100px" style="background:black; align-items: center; padding: 2px;"
-                    target="_blank" title="Университет Иннополис"></a>
-            <ul>
-                <!-- b, i, u tags are here -->
-                <li><a href="#section__welcome"><b>ЗАКАЗАТЬ БИЛЕТ</b></a></li>
-                <li><a href="#section__benefits"><i>ПРЕИМУЩЕСТВА</i></a></li>
-                <li><a href="#section__films">ФИЛЬМЫ</a></li>
-                <li><a href="#section__contacts">КОНТАКТЫ</a></li>
-            </ul>
-        </nav>
-        <div>
-            Ваш город: <u>Москва</u>
+    <div class="div__top-nav-header">
+        <div class="div__top-nav">
+            <nav>
+                <a href="http://university.innopolis.ru"><img class="inno_logo" src="images/logo_inno.png" alt="logo of Innopolis"
+                        height="24px" width="100px" style="background:black; align-items: center; padding: 2px;"
+                        target="_blank" title="Университет Иннополис"></a>
+                <ul class="ul__nav">
+                    <li class="li__nav"><a href="#section__welcome">ЗАКАЗАТЬ БИЛЕТ</a></li>
+                    <li class="li__nav"><a href="#section__benefits">ПРЕИМУЩЕСТВА</a></li>
+                    <li class="li__nav"><a href="#section__films">ФИЛЬМЫ</a></li>
+                    <li class="li__nav"><a href="#section__contacts">КОНТАКТЫ</a></li>
+                </ul>
+            </nav>
+            <div class="div__loc">
+                Ваш город: <u>Москва</u>
+            </div>
         </div>
+        <header>
+            <h1 class="h1__header">Закажите билет в кино</h1>
+            <h2 class="h2__header">Всем покупателям подарок!</h2>
+        </header>
     </div>
-    <header>
-        <h1>Закажите билет в кино</h1>
-        <h2>Всем покупателям подарок!</h2>
-    </header>
     <section id="section__welcome">
         <h2>Добро пожаловать!</h2>
         <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis quibusdam
@@ -95,51 +98,48 @@
         <div class="movie-list">
             <h2 class="movie-list__header">Выберите фильм</h2>
             <div class="table-container">
-                <table class="movie-list__table" cellpadding="15px" cellspacing="10px">
+                
+                <table class="movie-list__table">
+                    
+                    
                     <thead>
-                        <tr class="movie-list__table_th">
-                            <th>Начало сеанса</th>
-                            <th>Название фильма</th>
-                            <th>Жанр</th>
+
+                        <tr class="movie-list__table_tr0">
+                            <th class="movie-list__table_th movie-list__table_td_col1">Time</th>
+                            <th class="movie-list__table_th movie-list__table_td_col2">Stuff that will happen</th>
+                            <th class="movie-list__table_th movie-list__table_td_col3"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>10:00</td>
-                            <td><a href="https://www.kinopoisk.ru/film/838/" target="_blank"
-                                    title="Кинопоиск: Человек-паук">Человек-паук</a></td>
-                            <td>фантастика, боевик, приключения</td>
+                        <tr class="movie-list__table_tr1">
+                            <td class="movie-list__table_td movie-list__table_td_col1">10am - 12pm</td>
+                            <td class="movie-list__table_td movie-list__table_td_col2">Introduction and presentations about Envato</td>
+                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
                         </tr>
-                        <tr>
-                            <td>12:00</td>
-                            <td>
-                                <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank"
-                                    title="Кинопоиск: Собачья жизнь 2">Собачья жизнь 2 </a>
-                            <td>фэнтези, драма, комедия</td>
+                        <tr class="movie-list__table_tr2">
+                            <td class="movie-list__table_td movie-list__table_td_col1">12pm - 02pm</td>
+                            <td class="movie-list__table_td movie-list__table_td_col2">
+                                Sessions by honorable guests and Speakers
+                            </td>
+                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
                         </tr>
-                        <tr>
-                            <td>14:00</td>
-                            <td><a herf="https://www.kinopoisk.ru/film/846824/" target="_blank"
-                                    title="Кинопоиск: История игрушек 4">История игрушек 4</a></td>
-                            <td>мультфильм, фэнтези, комедия</td>
+                        <tr class="movie-list__table_tr3">
+                            <td class="movie-list__table_td movie-list__table_td_col1">02pm - 03pm</td>
+                            <td class="movie-list__table_td movie-list__table_td_col2">Break and Mingle time with the authors</td>
+                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
                         </tr>
-                        <tr>
-                            <td>16:00</td>
-                            <td><a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
-                                    title="Кинопоиск: Люди в черном: Интернэшнл">Люди в черном: Интернэшнл</a></td>
-                            <td>фантастика, боевик, комедия</td>
+                        <tr class="movie-list__table_tr4">
+                            <td class="movie-list__table_td movie-list__table_td_col1">03pm - 05pm</td>
+                            <td class="movie-list__table_td movie-list__table_td_col2">Portfolio Review, Rewards and Ending Presentation</td>
+                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
                         </tr>
-                    </tbody>
-                    <tfoot>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eum facere obcaecati quam
-                            rem
-                            repellendus
-                            veritatis. Aliquam beatae, delectus dignissimos enim exercitationem mollitia nisi pariatur
-                            quaerat
-                            quam, qui
-                            quibusdam sunt!</p>
-                    </tfoot>
+                    </tbody>      
                 </table>
+                <p class="movie-list__footer">Please keep in mind that the timings may differ 
+                        according to the flow of the event. The even is actually day long and we do
+                            plan to finish it within our set time but it doesn’t have to be, 
+                        if we all agree to hangour for some time more, what harm could it do? :)</p>
+            
             </div>
         </div>
     </section>
@@ -156,7 +156,7 @@
             expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
             velit veniam!</p>
         <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aspernatur, cum, cupiditate
-            excepturi
+            excepturi 
             expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
             velit veniam!</blockquote><br>
         <button>Получить подарок</button>
