@@ -1,48 +1,48 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Bogdanova Alina">
     <title>Cinema</title>
-<!--
+    <!--
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,400,700&display=swap&subset=cyrillic" rel="stylesheet">
     -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <!--
+    
     <style>
-        h2 {
-            color: greenyellow;
-        }
+        
         a {
-            color: white;
-            text-transform: uppercase;
             text-decoration: none;
+            color: white;
         }
-        ul {
+        .ul__nav {
             list-style: none;
         }
-        li {
+        .li__nav {
+            color: white;
+            text-transform: uppercase;
             display: inline;
             margin: 0 0 0 15px;
         }
-        nav {
-            background-color: darkgray;
-        }
-    </style>-->
+        
+    </style>
 </head>
+
 <body>
     <div class="div__top-nav-header">
         <div class="div__top-nav">
             <nav>
-                <a href="http://university.innopolis.ru"><img class="inno_logo" src="images/logo_inno.png" alt="logo of Innopolis"
-                        height="24px" width="100px" style="background:black; align-items: center; padding: 2px;"
-                        target="_blank" title="Университет Иннополис"></a>
+                <a href="http://university.innopolis.ru" target="_blank"><img class="inno_logo"
+                        src="images/logo_inno.png" alt="logo of Innopolis" height="24" width="100"
+                        style="background:black; align-items: center; padding: 2px;" target="_blank"
+                        title="Университет Иннополис"></a>
                 <ul class="ul__nav">
-                    <li class="li__nav"><a href="#section__welcome">ЗАКАЗАТЬ БИЛЕТ</a></li>
-                    <li class="li__nav"><a href="#section__benefits">ПРЕИМУЩЕСТВА</a></li>
-                    <li class="li__nav"><a href="#section__films">ФИЛЬМЫ</a></li>
+                    <li class="li__nav"><a href="#section__welcome"><b>ЗАКАЗАТЬ БИЛЕТ</b></a></li>
+                    <li class="li__nav"><a href="#section__benefits"><i>ПРЕИМУЩЕСТВА</i></a></li>
+                    <li class="li__nav"><a href="#section__films"><u>ФИЛЬМЫ</u></a></li>
                     <li class="li__nav"><a href="#section__contacts">КОНТАКТЫ</a></li>
                 </ul>
             </nav>
@@ -67,7 +67,7 @@
         <div>
             <article>
                 <h3>Большие экраны</h3>
-                <img src="images/b2_icon_1.jpg" alt="a colorful filmstrip" width="220px" height="220px">
+                <img src="images/b2_icon_1.jpg" alt="a colorful filmstrip" width="220" height="220">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem cum dolores dolorum eius error
                     expedita
@@ -79,14 +79,14 @@
         <div>
             <article>
                 <h3>Объемный звук</h3>
-                <img src="images/b2_icon_2.jpg" alt="a big loudspeaker" width="220px" height="220px">
+                <img src="images/b2_icon_2.jpg" alt="a big loudspeaker" width="220" height="220">
                 <p>Lorem ipsum dolor sit amet.</p>
             </article>
         </div>
         <div>
             <article>
                 <h3>Удобные кресла</h3>
-                <img src="images/b2_icon_3.jpg" alt="a comfortable sofa" width="220px" height="220px">
+                <img src="images/b2_icon_3.jpg" alt="a comfortable sofa" width="220" height="220">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem cum dolores dolorum eius error
                     expedita
                     illum itaque molestiae mollitia nemo, nostrum officia quas ratione tempora temporibus veritatis vero
@@ -98,12 +98,8 @@
         <div class="movie-list">
             <h2 class="movie-list__header">Выберите фильм</h2>
             <div class="table-container">
-                
                 <table class="movie-list__table">
-                    
-                    
                     <thead>
-
                         <tr class="movie-list__table_tr0">
                             <th class="movie-list__table_th movie-list__table_td_col1">Time</th>
                             <th class="movie-list__table_th movie-list__table_td_col2">Stuff that will happen</th>
@@ -113,33 +109,39 @@
                     <tbody>
                         <tr class="movie-list__table_tr1">
                             <td class="movie-list__table_td movie-list__table_td_col1">10am - 12pm</td>
-                            <td class="movie-list__table_td movie-list__table_td_col2">Introduction and presentations about Envato</td>
-                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
+                            <td class="movie-list__table_td movie-list__table_td_col2">Introduction and presentations
+                                about Envato</td>
+                            <td class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png"
+                                    alt="plus sign"></td>
                         </tr>
                         <tr class="movie-list__table_tr2">
                             <td class="movie-list__table_td movie-list__table_td_col1">12pm - 02pm</td>
                             <td class="movie-list__table_td movie-list__table_td_col2">
                                 Sessions by honorable guests and Speakers
                             </td>
-                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
+                            <td class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png"
+                                    alt="plus sign"></td>
                         </tr>
                         <tr class="movie-list__table_tr3">
                             <td class="movie-list__table_td movie-list__table_td_col1">02pm - 03pm</td>
-                            <td class="movie-list__table_td movie-list__table_td_col2">Break and Mingle time with the authors</td>
-                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
+                            <td class="movie-list__table_td movie-list__table_td_col2">Break and Mingle time with the
+                                authors</td>
+                            <td class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png"
+                                    alt="plus sign"></td>
                         </tr>
                         <tr class="movie-list__table_tr4">
                             <td class="movie-list__table_td movie-list__table_td_col1">03pm - 05pm</td>
-                            <td class="movie-list__table_td movie-list__table_td_col2">Portfolio Review, Rewards and Ending Presentation</td>
-                            <td  class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png" alt="plus sign"></td>
+                            <td class="movie-list__table_td movie-list__table_td_col2">Portfolio Review, Rewards and
+                                Ending Presentation</td>
+                            <td class="movie-list__table_th movie-list__table_td_col3"><img src="images/More icon.png"
+                                    alt="plus sign"></td>
                         </tr>
-                    </tbody>      
+                    </tbody>
                 </table>
-                <p class="movie-list__footer">Please keep in mind that the timings may differ 
-                        according to the flow of the event. The even is actually day long and we do
-                            plan to finish it within our set time but it doesn’t have to be, 
-                        if we all agree to hangour for some time more, what harm could it do? :)</p>
-            
+                <p class="movie-list__footer">Please keep in mind that the timings may differ
+                    according to the flow of the event. The even is actually day long and we do
+                    plan to finish it within our set time but it doesn’t have to be,
+                    if we all agree to hangour for some time more, what harm could it do? :)</p>
             </div>
         </div>
     </section>
@@ -156,7 +158,7 @@
             expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
             velit veniam!</p>
         <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aspernatur, cum, cupiditate
-            excepturi 
+            excepturi
             expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
             velit veniam!</blockquote><br>
         <button>Получить подарок</button>
@@ -266,7 +268,8 @@
             </div>
             <div>
                 <label for="input_mail">Укажите email </label>
-                <input id="input_mail" type="email" placeholder="something@gmail.com" required="required" autocomplete="on">
+                <input id="input_mail" type="email" placeholder="something@gmail.com" required="required"
+                    autocomplete="on">
             </div>
             <label for="option_select">Выберите место
                 <select id="option_select" name="option" required="required">
@@ -313,4 +316,5 @@
         </form>
     </footer>
 </body>
+
 </html>
