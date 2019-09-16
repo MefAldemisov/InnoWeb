@@ -7,28 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Bogdanova Alina">
     <title>Cinema</title>
-    <!--
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,400,700&display=swap&subset=cyrillic" rel="stylesheet">
-    -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    
-    <style>
-        
-        a {
-            text-decoration: none;
-            color: white;
-        }
-        .ul__nav {
-            list-style: none;
-        }
-        .li__nav {
-            color: white;
-            text-transform: uppercase;
-            display: inline;
-            margin: 0 0 0 15px;
-        }
-        
-    </style>
 </head>
 
 <body>
@@ -46,7 +25,7 @@
                     <li class="li__nav"><a href="#section__contacts">КОНТАКТЫ</a></li>
                 </ul>
             </nav>
-            <div class="div__loc">
+            <div class="div__location">
                 Ваш город: <u>Москва</u>
             </div>
         </div>
@@ -56,17 +35,17 @@
         </header>
     </div>
     <section id="section__welcome">
-        <h2>Добро пожаловать!</h2>
+        <h2 class="welcome_header">Добро пожаловать!</h2>
         <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis quibusdam
             quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
         <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis quibusdam
             quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
     </section>
     <section id="section__benefits">
-        <h2>Почему мы?</h2>
+        <h2 class="section_header">Почему мы?</h2>
         <div>
             <article>
-                <h3>Большие экраны</h3>
+                <h3 class="benefit-name">Большие экраны</h3>
                 <img src="images/b2_icon_1.jpg" alt="a colorful filmstrip" width="220" height="220">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem cum dolores dolorum eius error
@@ -78,14 +57,14 @@
         </div>
         <div>
             <article>
-                <h3>Объемный звук</h3>
+                <h3 class="benefit-name">Объемный звук</h3>
                 <img src="images/b2_icon_2.jpg" alt="a big loudspeaker" width="220" height="220">
                 <p>Lorem ipsum dolor sit amet.</p>
             </article>
         </div>
         <div>
             <article>
-                <h3>Удобные кресла</h3>
+                <h3 class="benefit-name">Удобные кресла</h3>
                 <img src="images/b2_icon_3.jpg" alt="a comfortable sofa" width="220" height="220">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem cum dolores dolorum eius error
                     expedita
@@ -96,7 +75,7 @@
     </section>
     <section id="section__timetable">
         <div class="movie-list">
-            <h2 class="movie-list__header">Выберите фильм</h2>
+            <h2 class="section_header movie-list__header">Выберите фильм</h2>
             <div class="table-container">
                 <table class="movie-list__table">
                     <thead>
@@ -147,7 +126,7 @@
     </section>
     <section id="section__presents">
         <img class="bage ellips_2" src="images/b4_img.jpg" alt="a big present box">
-        <span>Подарок каждому!</span>
+        <h2 class="section_header_black">Подарок каждому!</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aspernatur, cum, cupiditate excepturi
             expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
             velit veniam!</p>
@@ -161,12 +140,12 @@
             excepturi
             expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
             velit veniam!</blockquote><br>
-        <button>Получить подарок</button>
+        <button class="get_present_botton">Получить подарок</button>
     </section>
     <section id="section__films">
         <div>
             <article>
-                <h2>Фильмы</h2>
+                <h2 class="section_header">Фильмы</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci alias, animi, commodi eius
                     ipsum,
                     laudantium neque nihil omnis perferendis sed sequi tempore! Ad ea esse ex inventore repudiandae,
@@ -176,76 +155,76 @@
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/838/" target="_blank" title="Кинопоиск: Человек-паук">
-                    <h3>Человек-паук</h3>
+                    <h3 class="film-title">Человек-паук</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank" title="Кинопоиск: Собачья жизнь">
-                    <h3>Собачья жизнь 2</h3>
+                    <h3 class="film-title">Собачья жизнь 2</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
                     title="Кинопоиск: Люди в черном: Интернэшнл">
-                    <h3>Люди в черном: Интернэшнл</h3>
+                    <h3 class="film-title">Люди в черном: Интернэшнл</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/838/" target="_blank" title="Кинопоиск: Человек-паук">
-                    <h3>Человек-паук</h3>
+                    <h3 class="film-title">Человек-паук</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank" title="Кинопоиск: Собачья жизнь">
-                    <h3>Собачья жизнь 2</h3>
+                    <h3 class="film-title">Собачья жизнь 2</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
                     title="Кинопоиск: Люди в черном: Интернэшнл">
-                    <h3>Люди в черном: Интернэшнл</h3>
+                    <h3 class="film-title">Люди в черном: Интернэшнл</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/838/" target="_blank" title="Кинопоиск: Человек-паук">
-                    <h3>Человек-паук</h3>
+                    <h3 class="film-title">Человек-паук</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank" title="Кинопоиск: Собачья жизнь">
-                    <h3>Собачья жизнь 2</h3>
+                    <h3 class="film-title">Собачья жизнь 2</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
         <div>
             <article>
                 <a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
                     title="Кинопоиск: Люди в черном: Интернэшнл">
-                    <h3>Люди в черном: Интернэшнл</h3>
+                    <h3 class="film-title">Люди в черном: Интернэшнл</h3>
                 </a>
-                <q>Lorem ipsum dolor sit amet, consectetur</q>
+                <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
             </article>
         </div>
     </section>

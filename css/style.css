@@ -1,167 +1,235 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic');
 
-p, h1, h2, h3, h4, h5, h6, div, html, body
-pre, blockquote, a, abbr, em, img, strong, 
-tt, var, b, u, i, tr, td,
-li, ol, ul, dl, dd, dt,
-button, form, label, legend, table, caption, 
-tbody, tfoot, footer
-{
+/* 
+Thin            100     
+Extra Light     200
+Light           300
+Regular         400
+Medium          500
+Semi-Bold       600
+Bold            700
+Black           900 
+*/
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+html,
+body,
+blockquote,
+a,
+abbr,
+em,
+img,
+strong,
+tt,
+var,
+b,
+u,
+i,
+tr,
+td,
+li,
+ol,
+ul,
+dl,
+dd,
+dt,
+button,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+footer {
 
     background: transparent;
     margin: 0;
     border: 0;
-    outline: 0; /*outer border which doesn't change the size of the block*/
+    outline: 0;
+    /*outer border which doesn't change the size of the block*/
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
-}
-/* 
-Old font - import
-
-@font-face{
-    font-family: "Roboto";
-    src: url("../fonts/roboto/RobotoCondensed-Regular.ttf") format("truetype");
-    font-weight: 400;
+    font-weight: 300; /*Light*/
+    font-size: 14px;
 }
 
-@font-face{
-    font-family: "Roboto-Thin";
-    src: url("../fonts/roboto/RobotoCondensed-Thin.ttf") format("truetype");
-    font-weight: 400;
+a {
+    text-decoration: none;
+    color: white;
 }
-*/
- 
+
+.ul__nav {
+    list-style: none;
+}
+
+.li__nav {
+    color: white;
+    text-transform: uppercase;
+    display: inline;
+    margin: 0 0 0 15px;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+
 /*Header, nav panel*/
 
-.div__top-nav{
+.div__top-nav {
     border: 54 165 56 165px;
 }
 
 .div__top-nav-header {
-    background-color: rgb(214, 197, 197);
-    background-image: url(../images/Rectangle\ 2.jpg);
+    background-color: white;
+    background-image: url(../images/Rectangle\ 2.png);
     width: 1366px;
     height: 769px;
 }
 
 .h1__header {
-    font-size: 93.49px;
-    font-family: "Roboto";
-    font-variant: "Roboto-Thinn";
-    font-weight: 100;
-    color: rgb(255, 255, 255);
+    font-size: 80px;
+    font-weight: 100; /*Thin*/
+    color: white;
     line-height: 1.2;
     text-align: center;
-    -moz-transform: matrix( 0.85646517969581,0,0,0.85570991939625,0,0);
-    -webkit-transform: matrix( 0.85646517969581,0,0,0.85570991939625,0,0);
-    -ms-transform: matrix( 0.85646517969581,0,0,0.85570991939625,0,0);
-    width: 911.361px;
-    height: 67.977px;
-  }
-  
+   /* width: 911.361px;
+    height: 67.977px;*/
+}
 
 .h2__header {
-    font-size: 58.431px;
-    font-family: "Roboto";
-    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-weight: 400; /*Regular*/
+    color: white;
     line-height: 1.2;
     text-align: center;
-    -moz-transform: matrix( 0.85646517969581,0,0,0.85570991939625,0,0);
-    -webkit-transform: matrix( 0.85646517969581,0,0,0.85570991939625,0,0);
-    -ms-transform: matrix( 0.85646517969581,0,0,0.85570991939625,0,0);
-    width: 698.212px;
-    height: 52.233px;
-  }
-  
-  
+   /* width: 698.212px;
+    height: 52.233px;*/
+}
 
+
+.welcome_header{
+    font-size: 40px;
+    font-weight: 700; /*Bold*/
+}
+.section_header{
+    font-size: 50px;
+    font-weight: 700; /*Bold*/
+}
+
+.section_header_black{
+    font-size: 50px;
+    font-weight: 800; /*Black*/
+}
+
+.benefit-name{
+    font-size: 35px;
+    font-weight: 900; /*Black*/
+}
 /*Table*/
 
-.movie-list{
+.movie-list {
     padding: 100px 0;
 }
 
-.movie-list__header{
-    font-size: 46.396px;
+.movie-list__header {
     color: rgb(37, 37, 37);
-    /*font-weight: 700;*/
     margin: 0 0 80px;
     text-align: center;
     line-height: 1.2;
-    font-weight: bold;
-        
-    -moz-transform: matrix( 1.0775,0,0,1.07766990291262,0,0);
-    -webkit-transform: matrix( 1.0775,0,0,1.07766990291262,0,0);
-    -ms-transform: matrix( 1.0775,0,0,1.07766990291262,0,0);
-       
 }
-.table-container{
+
+.table-container {
     max-width: 1030px;
     margin: 0 auto;
 }
 
-.movie-list__table{
+.movie-list__table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 15px;
     overflow: hidden;
 }
 
-
-.movie-list__table_th{
+.movie-list__table_th {
     height: 72px;
     text-align: center;
     font-size: 30px;
-    font-weight: 700px;
-    
+    font-weight: 700;
+    vertical-align: center;
     color: #fff;
-    line-height: 1.2;      
+    line-height: 1.2;
 }
 
-.movie-list__table_tr0{
+.movie-list__table_tr0 {
     background: #a3cc40;
 }
 
-.movie-list__table_tr1, .movie-list__table_tr3{
+.movie-list__table_tr1 {
     background: #373737;
 }
 
-.movie-list__table_tr2, .movie-list__table_tr4{
+.movie-list__table_tr2,
+.movie-list__table_tr4 {
     background: #4b4d4f;
 }
 
-.movie-list__table_td{
-        height: 75px;
-        font-size: 22px;
-        font-family: "Roboto";
-        color: #fff;
-        background: transparent;
-        line-height: 1.2;     
-        font-variant: "Roboto-Regular";
+.movie-list__table_tr3 {
+    background: #6c6c6c;
 }
 
-.movie-list__table_td_col1{
+.movie-list__table_td {
+    padding-top: 26px;
+    vertical-align: top;
+    height: 75px;
+    font-size: 22px;
+    color: #fff;
+    background: transparent;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.movie-list__table_td_col1 {
     width: 296px;
     text-align: center;
 }
 
-.movie-list__table_td_col2{
+.movie-list__table_td_col2 {
     text-align: left;
 }
-.movie-list__table_td_col3{
+
+.movie-list__table_td_col3 {
     width: 130px;
     align-content: center;
+    vertical-align: center;
 }
 
-
-.movie-list__footer{
-        margin-top: 40px;
-        font-size: 14px;
-        font-family: "Roboto"; /* Should be Roboto-Light*/
-        color: rgb(36, 36, 36);
-        line-height: 1.2;
-        text-align: center;
+.movie-list__footer {
+    margin-top: 40px;
+    color: rgb(36, 36, 36);
+    line-height: 1.2;
+    text-align: center;
 }
 
+.get_present_botton{
+    font-size: 18px;
+    font-weight: 400; /*Regular*/
+}
+
+.film-description{
+    font-size: 18px;
+    font-weight: 500; /*Medium*/
+}
+
+.film-title{
+    font-size: 35px;
+    font-weight: 900; /*Black*/
+}
