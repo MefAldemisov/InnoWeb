@@ -134,6 +134,7 @@ a {
     font-size: 35px;
     font-weight: 900; /*Black*/
 }
+
 /*Table*/
 
 .movie-list {
@@ -145,6 +146,7 @@ a {
     margin: 0 0 78px;
     text-align: center;
     line-height: 1.2;
+
 }
 
 .table-container {
@@ -153,14 +155,14 @@ a {
     align-content: center;
 }
 
-.movie-list__table {
+table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 15px;
     overflow: hidden;
 }
 
-.movie-list__table_th {
+th, th>a{
     height: 72px;
     text-align: center;
     font-size: 30px;
@@ -170,25 +172,48 @@ a {
     line-height: 1.2;
 }
 
-.movie-list__table_tr0 {
+
+th::after{
+    content: "";
+    display: inline-block;
+    margin-left: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;  
+    border-color: transparent;
+}
+
+
+th:nth-of-type(1)::after{ /*To bottom direction*/
+    border-width: 0 10px 15px 10px;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+
+th:nth-of-type(2)::after{ /*To top direction*/
+    border-width: 15px 10px 0 10px;
+    border-color:#ffffff transparent transparent transparent;
+}
+
+thead>tr {
     background: #a3cc40;
 }
 
-.movie-list__table_tr1 {
+tbody>tr:nth-of-type(1){
     background: #373737;
 }
 
-.movie-list__table_tr2,
-.movie-list__table_tr4 {
+tbody>tr:nth-of-type(2n){
     background: #4b4d4f;
 }
 
-.movie-list__table_tr3 {
+tbody>tr:nth-of-type(3n){
     background: #6c6c6c;
 }
 
-.movie-list__table_td {
+tbody>tr>td{
     padding-top: 26px;
+    /* padding-bottom: 26px; */
     vertical-align: top;
     height: 75px;
     font-size: 22px;
@@ -198,32 +223,33 @@ a {
     font-weight: 400;
 }
 
-.movie-list__table_td_col1 {
+tr>td:nth-of-type(1){
     padding-left:0px;
-    width: 226px;
+    width: 250px;
+    max-width: 250px;
     text-align: center;
 }
 
-.movie-list__table_free_col{
-    width: 72px;
-    word-spacing: 1px;
-}
-
-
-.movie-list__table_td_col2 {
+tr>td:nth-of-type(2),
+tr>td:nth-of-type(3){
+    width: 325px;
+    max-width: 325px;
     text-align: left;
     word-spacing: 1px;
 }
 
-.movie-list__table_td_col3 {
+tr>td:nth-of-type(4){
     width: 130px;
+    max-width: 130px;
     align-content: center;
     vertical-align: center;
+    padding: 21px 47px 0 47px;
+    /* padding: auto; */
 }
 
-.plus_img{
-    margin-bottom: -8px;
-}
+/* .plus_container{  */
+
+ /* }     */
 
 .movie-list__footer {
     margin: 40px auto;
