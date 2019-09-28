@@ -1,15 +1,5 @@
 /*@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic');
  It is ok, but not enought*/
-/* 
-Thin            100     
-Extra Light     200
-Light           300
-Regular         400
-Medium          500
-Semi-Bold       600
-Bold            700
-Black           900 
-*/
 /* roboto-100 - latin_cyrillic */
 @font-face {
     font-family: 'Roboto';
@@ -88,9 +78,3 @@ Black           900
          url('../fonts/roboto-v20-latin_cyrillic-900.ttf') format('truetype'), /* Safari, Android, iOS */
          url('../fonts/roboto-v20-latin_cyrillic-900.svg#Roboto') format('svg'); /* Legacy iOS */
   }
-/*          url('../fonts/Roboto-Black.ttf') format("truetype"),
-            url('../fonts/Roboto-Bold.ttf') format("truetype"),
-            url('../fonts/Roboto-Light.ttf') format("truetype"),
-            url('../fonts/Roboto-Medium.ttf') format("truetype"),
-            url('../fonts/Roboto-Regular.ttf') format("truetype"),
-*/

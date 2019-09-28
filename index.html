@@ -10,37 +10,35 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
-
 </head>
 
 <body>
     <header>
-        <div class="nav_container">
-            <nav>
-                <a href="http://university.innopolis.ru" target="_blank">
-                    <img class="inno_logo" src="images/logo_inno.png" alt="logo of Innopolis" height="24" width="100"
-                        title="Университет Иннополис">
-                </a>
-                <ul>
-                    <li><a href="#welcome_wrap">ЗАКАЗАТЬ БИЛЕТ</a></li>
-                    <li><a href="#section_benefits">ПРЕИМУЩЕСТВА</a></li>
-                    <li><a href="#section_films">ФИЛЬМЫ</a></li>
-                    <li><a href="#section_contacts">КОНТАКТЫ</a></li>
-                </ul>
-            </nav>
-            <div class="location_text">
-                Ваш город: <u>Москва</u>
-            </div>
+        <div class='header__logo-container'>
+            <a href="http://university.innopolis.ru" target="_blank">
+                <img class="header__inno-logo" src="images/logo_inno.png" 
+                alt="logo of Innopolis" title="Университет Иннополис">
+            </a>
         </div>
-        <div class="main_titles">
+        <nav>
+            <ul>
+                <li><a href="#welcome_wrap">ЗАКАЗАТЬ БИЛЕТ</a></li>
+                <li><a href="#section_benefits">ПРЕИМУЩЕСТВА</a></li>
+                <li><a href="#section_films">ФИЛЬМЫ</a></li>
+                <li><a href="#section_contacts">КОНТАКТЫ</a></li>
+            </ul>
+        </nav>
+        <div class="header__location-box">
+                Ваш город: <span class="header__location">Москва</span>
+            </div>
+        <div class="header__main-titles">
             <h1>Закажите билет в кино</h1>
-            <h2>Всем покупателям подарок!</h2>
+            <h2 class="header__subtitle">Всем покупателям подарок!</h2>
         </div>
     </header>
-
-    <div class="welcome-wrap">
-        <section class="section_welcome">
-            <h2 class="welcome_header">Добро пожаловать!</h2>
+    <div class="welcome__container">
+        <section class="welcome">
+            <h2 class="welcome__header">Добро пожаловать!</h2>
             <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis
                 quibusdam
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
@@ -49,15 +47,14 @@
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
         </section>
     </div>
-    <section class="section_benefits">
-        <h2 class="section_header">Почему мы?</h2>
-        <div>
-            <article>
-                <div class="img_container">
-                    <img src="images/b2_icon_1.jpg" alt="a colorful filmstrip" width="220" height="220">
+    <section class="benefits">
+        <h2 class="benefits__header">Почему мы?</h2>
+        <div class="benefits__container">
+            <article class="benefits__benefit">
+                <div class="benefits__img-container">
+                    <img class="benefits__img" src="images/b2_icon_1.jpg" alt="a colorful filmstrip">
                 </div>
-                <h3 class="benefit-name">Большие экраны</h3>
-
+                <h3 class="benefits__benefit-name">Большие экраны</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem cum dolores dolorum eius error
                     expedita
@@ -65,24 +62,18 @@
                     voluptates.
                 </p>
             </article>
-        </div>
-        <div>
-            <article>
-                <div class="img_container">
-                    <img src="images/b2_icon_2.jpg" alt="a big loudspeaker" width="220" height="220">
+            <article class="benefits__benefit">
+                <div class="benefits__img-container">
+                    <img class="benefits__img" src="images/b2_icon_2.jpg" alt="a big loudspeaker">
                 </div>
-                <h3 class="benefit-name">Объемный звук</h3>
-
+                <h3 class="benefits__benefit-name">Объемный звук</h3>
                 <p>Lorem ipsum dolor sit amet.</p>
             </article>
-        </div>
-        <div>
-            <article>
-                <div class="img_container">
-                    <img src="images/b2_icon_3.jpg" alt="a comfortable sofa" width="220" height="220">
+            <article class="benefits__benefit">
+                <div class="benefits__img-container">
+                    <img class="benefits__img" src="images/b2_icon_3.jpg" alt="a comfortable sofa">
                 </div>
-                <h3 class="benefit-name">Удобные кресла</h3>
-
+                <h3 class="benefits__benefit-name">Удобные кресла</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem cum dolores dolorum eius error
                     expedita
                     illum itaque molestiae mollitia nemo, nostrum officia quas ratione tempora temporibus veritatis vero
@@ -90,160 +81,120 @@
             </article>
         </div>
     </section>
-    <section id="section_timetable">
-        <div class="movie-list">
-            <h2 class="section_header movie-list__header">Выберите фильм</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th><a href="#">Начало сеанса</a></th>
-                            <th><a href="#">Название фильма</a></th>
-                            <th><a href="#">Жанр</a></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>10:00</td>
-                            <td>Человек-паук</td>
-                            <td>фантастика, боевик, приключения</td>
-                            <td><img class="plus_img" src="images/More_icon.png" alt="plus sign" width="33" ,
-                                    height="33"></td>
-                        </tr>
-                        <tr>
-                            <td>12:00</td>
-                            <td>Собачья жизнь 2</td>
-                            <td>фэнтези, драма, комедия</td>
-                            <td><img class="plus_img" src="images/More_icon.png" alt="plus sign"></td>
-                        </tr>
-                        <tr>
-                            <td>14:00</td>
-                            <td>История игрушек 4</td>
-                            <td>мультфильм, фэнтези, комедия</td>
-                            <td><img class="plus_img" src="images/More_icon.png" alt="plus sign"></td>
-                        </tr>
-                        <tr>
-                            <td>16:00</td>
-                            <td>Люди в черном: Интернэшнл</td>
-                            <td>фантастика, боевик, комедия</td>
-                            <td><img class="plus_img" src="images/More_icon.png" alt="plus sign"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="movie-list_footer">Please keep in mind that the timings may differ
-                    according to the flow of the event. The even is actually day long and we do
-                    plan to finish it within our set time but it doesn’t have to be,
-                    if we all agree to hangour for some time more, what harm could it do? :)</p>
-            </div>
+    <section class="timetable">
+        <h2 class="timetable__header">Выберите фильм</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th><a href="#">Начало сеанса</a></th>
+                    <th><a href="#">Название фильма</a></th>
+                    <th><a href="#">Жанр</a></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10:00</td>
+                    <td>Человек-паук</td>
+                    <td>фантастика, боевик, приключения</td>
+                    <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td>Собачья жизнь 2</td>
+                    <td>фэнтези, драма, комедия</td>
+                    <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
+                </tr>
+                <tr>
+                    <td>14:00</td>
+                    <td>История игрушек 4</td>
+                    <td>мультфильм, фэнтези, комедия</td>
+                    <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
+                </tr>
+                <tr>
+                    <td>16:00</td>
+                    <td>Люди в черном: Интернэшнл</td>
+                    <td>фантастика, боевик, комедия</td>
+                    <td><img class="plus_img" src="images/plus.png" alt="plus sign"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="timetable__footer">
+            <p>Please keep in mind that the timings may differ
+            according to the flow of the event. The even is actually day long and we do
+            plan to finish it within our set time but it doesn’t have to be,
+            if we all agree to hangour for some time more, what harm could it do? :)
+            </p>
         </div>
     </section>
-    <section id="section_presents">
-        <img class="bage ellips_2" src="images/b4_img.jpg" alt="a big present box">
-        <h2 class="header_black">Подарок каждому!</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aspernatur, cum, cupiditate excepturi
-            expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
-            velit veniam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aspernatur, cum, cupiditate excepturi
-            expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
-            velit veniam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aspernatur, cum, cupiditate excepturi
-            expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
-            velit veniam!</p>
-        <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam aspernatur, cum, cupiditate
-            excepturi
-            expedita libero mollitia nesciunt nihil nobis obcaecati quasi ratione reprehenderit sequi sint, tenetur unde
-            velit veniam!</blockquote><br>
-        <button class="get_present_botton">Получить подарок</button>
-    </section>
-
-    <section class="section_films">
-        <div>
-            <article>
-                <h2 class="section_header">Фильмы</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci alias, animi, commodi eius
-                    ipsum,
-                    laudantium neque nihil omnis perferendis sed sequi tempore! Ad ea esse ex inventore repudiandae,
-                    suscipit!</p>
+    <section class="present">
+        <div class="present__text-container">
+            <img class="present__icon" src="images/b4_img.jpg" alt="a big present box">
+            <article class="present__text">
+                <h2 class="present__header">Подарок каждому!</h2>
+                <p>
+                    Are you an Elite author in the Envato Marketplaces?
+                    If so we are proud of you! We want to give our thanks in 
+                    achieving great success in the marketplace and we want to 
+                    make known to the people of our country that you are amazing!
+                    Our Elite gifting program includes giving you special merchandize
+                    from our community and also promote your works in our community.
+                </p>
+                <p>
+                    All you have to do is contact us by clicking the button here 
+                    and then its just going to the event, saying something 
+                    motivational and taking that swag while looking amazing 
+                    infront of thousands of other community members.
+                </p>
+                <p>
+                    *Be advised, we will only give you Elite thank you swag for each 
+                    level of elite you cross. <br>That means if you do not cross to the 
+                    next elite level before the next event, you cannot claim your 
+                    prizes.
+                </p>
+                <button class="present__button">Получить подарок</button>
             </article>
         </div>
-        <div class="films_container">
+    </section>
+
+    <section class="films">
+        <article class="films__text">
+            <h2 class="films__header">Фильмы</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci alias, animi, commodi eius
+                ipsum,
+                laudantium neque nihil omnis perferendis sed sequi tempore! Ad ea esse ex inventore repudiandae,
+                suscipit!</p>
+        </article>
+        <div class="films__container">
             <div>
                 <article>
+                    <img class="film__icon" src="./images/film_spiderman.png" alt="spiderman">
                     <a href="https://www.kinopoisk.ru/film/838/" target="_blank" title="Кинопоиск: Человек-паук">
-                        <h3 class="film-title">Человек-паук</h3>
+                        <h3 class="film__title">Человек-паук</h3>
                     </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
+                    <p class="film__description">Lorem ipsum dolor sit amet, consectetur</p>
                 </article>
             </div>
             <div>
                 <article>
+                    <img class="film__icon" src="./images/film_dog.png" alt="small dog">
                     <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank" title="Кинопоиск: Собачья жизнь">
-                        <h3 class="film-title">Собачья жизнь 2</h3>
+                        <h3 class="film__title">Собачья жизнь 2</h3>
                     </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
+                    <p class="film__description">Lorem ipsum dolor sit amet, consectetur</p>
                 </article>
             </div>
             <div>
                 <article>
+                    <img class="film__icon" src="./images/film_black.png" alt="some humans in black">
                     <a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
                         title="Кинопоиск: Люди в черном: Интернэшнл">
-                        <h3 class="film-title">Люди в черном: Интернэшнл</h3>
+                        <h3 class="film__title">Люди в черном: Интернэшнл</h3>
                     </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
+                    <p class="film__description">Lorem ipsum dolor sit amet, consectetur</p>
                 </article>
             </div>
-            <div>
-                <article>
-                    <a href="https://www.kinopoisk.ru/film/838/" target="_blank" title="Кинопоиск: Человек-паук">
-                        <h3 class="film-title">Человек-паук</h3>
-                    </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank" title="Кинопоиск: Собачья жизнь">
-                        <h3 class="film-title">Собачья жизнь 2</h3>
-                    </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
-                        title="Кинопоиск: Люди в черном: Интернэшнл">
-                        <h3 class="film-title">Люди в черном: Интернэшнл</h3>
-                    </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <a href="https://www.kinopoisk.ru/film/838/" target="_blank" title="Кинопоиск: Человек-паук">
-                        <h3 class="film-title">Человек-паук</h3>
-                    </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <a href="https://www.kinopoisk.ru/film/1122114/" target="_blank" title="Кинопоиск: Собачья жизнь">
-                        <h3 class="film-title">Собачья жизнь 2</h3>
-                    </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
-                </article>
-            </div>
-            <div>
-                <article>
-                    <a href="https://www.kinopoisk.ru/film/693730/" target="_blank"
-                        title="Кинопоиск: Люди в черном: Интернэшнл">
-                        <h3 class="film-title">Люди в черном: Интернэшнл</h3>
-                    </a>
-                    <q class="film-description">Lorem ipsum dolor sit amet, consectetur</q>
-                </article>
-            </div>
+            
         </div>
     </section>
     <section id="section__contacts">
@@ -255,9 +206,6 @@
     </section>
 
     <footer>
-        <!-- It is better to use post method due to the safity reasons and data-compression,
-        however, the GET method is better for development (to track the data, passed to the
-        server) -->
         <form autocomplete="off" method="GET" action="order.php">
             <div>
                 <label for="input_name">Укажите ваше имя</label>
@@ -307,10 +255,7 @@
                 <label for="file_selector">Загрузить файл</label>
                 <input id="file_selector" type="file" name="file_input">
             </div>
-            <!-- https://stackoverflow.com/questions/3543615/difference-between-input-type-submit-and-button-type-submittext-butto -->
-            <!-- When the tag is used outside the form even with suitable arguments it does not always work (form attibute of botton is not supported in IE)
-            button with type="submit" is also preferable due to the increasing of semantics and compatability-->
-            <button type="submit">Заказать</button>
+           <button type="submit">Заказать</button>
         </form>
     </footer>
 </body>
