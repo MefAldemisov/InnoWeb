@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="34" height="33.97" viewBox="0 0 34 33.97">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        filter: url(#drop-shadow-1);
+        fill-rule: evenodd;
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="dropBlur"/>
+      <feFlood flood-opacity="0.25"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+  </defs>
+  <path d="M17.006,32.359 C8.528,32.359 1.656,25.477 1.656,16.988 C1.656,8.498 8.528,1.616 17.006,1.616 C25.484,1.616 32.356,8.498 32.356,16.988 C32.356,25.477 25.484,32.359 17.006,32.359 ZM17.377,8.564 C13.910,8.564 14.700,12.683 14.585,14.185 C14.585,14.196 12.465,14.185 12.465,14.185 L12.465,16.979 L14.578,16.979 L14.578,26.815 L18.090,26.815 L18.082,16.979 L20.435,16.979 L20.896,14.169 L18.090,14.200 C18.090,12.205 17.936,11.394 19.101,11.394 C19.205,11.394 20.907,11.390 20.907,11.390 L20.911,8.564 L17.377,8.564 Z" class="cls-1"/>
+</svg>

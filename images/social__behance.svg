@@ -7,7 +7,6 @@
         fill-rule: evenodd;
       }
     </style>
-
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
       <feOffset dy="1" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="1" result="dropBlur"/>
