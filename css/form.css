@@ -1,5 +1,14 @@
 form {
-  width: 400px;
+  width: 400px; /*Isn't it too small?*/
+}
+/*My modification to make text visible*/
+form * {
+  color: #242424;
+  margin-bottom: 10px;
+}
+/*To make it look better*/
+.form__part {
+  margin-bottom: 20px;
 }
 input,
 textarea,
@@ -17,18 +26,21 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(../img/down-arrow.svg) 96% center / 5% no- repeat #fff;
+  background: url(../img/down-arrow.svg) 96% center / 5% no-repeat #fff;
 }
+/*Remove sumbols of checkbocses*/
 input[type="radio"],
 input[type="checkbox"] {
   display: none;
 }
+/*Labels configuration*/
 input[type="radio"] + label,
 input[type="checkbox"] + label {
   font-size: 16px;
   padding-left: 23px;
   position: relative;
 }
+/*Draw radiobuttons/checkboxes */
 input[type="radio"] + label::before,
 input[type="checkbox"] + label::before {
   content: "";
@@ -39,6 +51,7 @@ input[type="checkbox"] + label::before {
   height: 14px;
   border: 1px solid #000;
 }
+/*Now radiobuttn is a cycle*/
 input[type="radio"] + label::before {
   border-radius: 100%;
 }
@@ -68,6 +81,7 @@ input[type="file"] + label {
   cursor: pointer;
   border-radius: 5px;
 }
+/*Submit modification*/
 input[type="button"],
 button {
   border-right: 1px solid transparent;

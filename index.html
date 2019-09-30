@@ -392,17 +392,18 @@
     </section>
     <section class="form__container">
         <form autocomplete="off" method="GET" action="order.php">
-            <div>
+            <div class="form__part">
                 <label for="input_name">Укажите ваше имя</label>
                 <input id="input_name" type="text" value="Defalt_name" name="name" placeholder="Имя"
                     required="required">
             </div>
-            <div>
+            <div class="form__part">
                 <label for="input_mail">Укажите email </label>
                 <input id="input_mail" type="email" placeholder="something@gmail.com" required="required"
                     autocomplete="on">
             </div>
-            <label for="option_select">Выберите место
+            <div class="form__part">
+                <label for="option_select">Выберите место </label>
                 <select id="option_select" name="option" required="required">
                     <option>Выбор 1</option>
                     <option>Выбор 2</option>
@@ -415,32 +416,33 @@
                     <option>Выбор 9</option>
                     <option>Выбор 10</option>
                 </select>
-            </label>
-            <fieldset>
+            </div>
+            <fieldset class="form__part">
                 <legend>Make a choice:</legend>
+                <input id="choice1" type="radio" value="1" name="variant">
                 <label for="choice1">
-                    <input id="choice1" type="radio" value="1" name="variant">
                     Выбор 1
                 </label>
+                <input id="choice2" type="radio" value="2" name="variant">
                 <label for="choice2">
-                    <input id="choice2" type="radio" value="2" name="variant">
                     Выбор 2
                 </label>
             </fieldset>
-            <label>Оставьте свой комментарий
+            <div class="form__part">
+                <label>Оставьте свой комментарий </label>
                 <textarea name="comment" placeholder="Комментарий"></textarea>
-            </label>
-            <div>
+            </div>
+            <div class="form__part">
+                <input type="checkbox" required="required" name="agree">
                 <label>
-                    <input type="checkbox" required="required" name="agree">
                     Я согласен на обработку персональных данных
                 </label>
             </div>
-            <div>
-                <label for="file_selector">Загрузить файл</label>
+            <div class="form__part">
                 <input id="file_selector" type="file" name="file_input">
+                <label for="file_selector">Загрузить файл</label>
             </div>
-            <button type="submit">Заказать</button>
+            <button class="form__part" type="submit">Заказать</button>
         </form>
     </section>
     <footer class="contacts">
