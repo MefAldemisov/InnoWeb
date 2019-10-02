@@ -197,7 +197,7 @@ ul a:hover {
 }
 .benefits p {
     line-height: 13px;
-    margin-bottom: 40px;
+    margin-bottom: 66px;
 }
 /*Table*/
 .timetable {
@@ -388,7 +388,7 @@ td:nth-of-type(4) {
     height: 100%;
     margin-top: 100%;
     background: rgba(144, 210, 61, .8);
-    transition: margin-top 0.8s linear;
+    transition: margin-top 0.2s linear;
     padding: 24px;
     word-break: break-word;
 }
@@ -470,5 +470,5 @@ td:nth-of-type(4) {
     fill-rule: evenodd;
  }
  .svg-icon:hover {
-     filter: none;
+    filter: none; 
  }
