@@ -50,7 +50,6 @@ a {
 }
 a:hover { /*Functional requirement of 2.9.1 PD*/
     color: #90d23d;
-    /* cursor: pointer; It's done automatically in my case, this comment is used only to show that I've tried it */
 }
 figure { /*is not reseted*/
     margin-block-start: 0;
@@ -62,47 +61,65 @@ figure { /*is not reseted*/
 /*Header, navigation*/
 header {
     background-color: #242424;
-    background: url(../images/background_1.png) no-repeat top center / cover;   
-    background-size: 100%; 
-    height: 120vh; /*Not shure, how to make it dynamic*/
+    background: url(../images/background_1.jpg) no-repeat top center;   
+    background-size: cover; 
+    height: 100vh; 
     padding-top: 53px;
+    margin-bottom: 78px;
+    position: relative;
+}
+header::after,
+.background-triangle {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;    
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 123px 100vw;
+    border-color: transparent transparent #fff transparent;
+}
+.header__first-line {
+    overflow: hidden;
 }
 .header__content {
     width: 1030px;
     height: inherit;    
     margin: 0 auto;
 }
-.header__logo-container {
-    display: inline-block;
-    width: 190px;
-}
 .header__inno-logo {
+    float: left;
     width:190px;
     align-items: center; 
-    padding: 2px;
-}
-nav {
-    vertical-align: middle; 
-    margin-left: 230px;
-    width: 606px;
-    display: inline-block;
 }
 ul {
     list-style: none;
 }
-li {
-    width: 148px;
-    text-align: right;
-    display: inline-block;
+ul a:hover {
+    border-bottom: 1px solid;
 }
-.header__location-box {
-    display: block;
-    text-align: right;
+.header__first-line_right {
+    margin-top: 15px;
+    float: right;
+}
+.header__first-line_right * {
+    display: inline-block;
+    margin-right: 10px;
 }
 .header__location {
-    text-decoration: underline;
+    position: relative;
+}
+.header__location::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
 }
 .header__main-titles {
+    clear: both;
     margin-top: 148px;
     text-align: center;
 }
@@ -139,37 +156,40 @@ li {
 .benefits {
     overflow: hidden;
     width: 1040px;
-    margin: auto ;
+    margin: auto;
+    margin-bottom: 130px;
 }
 .benefits__header {
-    margin-bottom: 127px;    
+    margin-bottom: 122px;    
 }
 .benefits__container {
     width: 1030px;
+    display: inline-block;
 }
 .benefits__benefit {
-    display: inline-block;
-    margin-left: 60px;
-    width: 300px;
-    vertical-align: top;
+    float: left;
+    margin-left: 66px;
+    width: 29%;
     text-align: center;
 }
-.benefits__benefit:first-of-type {
+.benefits__first-benefit {
     margin-left: 0;
 }
 .benefits__img-container {
-    position: relative;
+    height: 211px;
     margin-bottom: 42px;
-    height: 205px;
+    position: relative;
 }
 .benefits__img {
-    position: absolute;
+    margin: auto;
     left: 0;
     right: 0;
-    top: 0;
+    position: absolute;
     bottom: 0;
-    margin: auto;
 }
+.benefits__img:hover {
+    transform: scale(1.07);
+}   
 .benefits__benefit-name {
     color: #242424;
     margin-bottom: 20px;
@@ -177,13 +197,13 @@ li {
 }
 .benefits p {
     line-height: 13px;
+    margin-bottom: 40px;
 }
 /*Table*/
 .timetable {
-    padding: 100px 0;
     max-width: 1030px;
     margin: 0 auto;
-    align-content: center;
+    margin-bottom: 150px;
 }
 .timetable__header {
     margin: 0 0 77px 0;
@@ -255,7 +275,7 @@ td:nth-of-type(4) {
     max-width: 130px;
     padding-top: 21px;
 }
-.timetable__plus-img{
+.timetable__plus-img {
     width: 33px;
     height: 33px;
 }
@@ -267,12 +287,25 @@ td:nth-of-type(4) {
 /*Present*/
 .present {  
     background-color: #000000;
-    background: url(../images/background_2.png) no-repeat top center / cover;   
-    background-size: 100%; 
-    height: 120vh; /*Not shure, how to make it dynamic*/
-    padding-top: 53px;
+    background: url(../images/background_2_3.png) no-repeat top center / cover;   
+    background-size: cover; 
+    height: 80vh; 
+    margin-bottom: 91px;
+    position: relative;
 }
-.present__text-container    {
+.present .background-triangle:first-child {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;    
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 121px 99vw 0 0;
+    border-color:  #fff transparent transparent transparent;
+}
+
+.present__text-container {
     width: 1030px;
     margin: 0 auto;
     position: relative;
@@ -281,9 +314,9 @@ td:nth-of-type(4) {
     position: absolute;
     width: 667px;
     right: 0;
-    top: 20vh;
+    top: 149px;
     text-align: right;
-    margin-bottom: 120px;
+    margin-bottom: 52px;
 }
 .present__icon {
     border-radius: 50%;
@@ -291,7 +324,7 @@ td:nth-of-type(4) {
     box-shadow: 10.5px 18.187px 12px 0 rgba(35, 31, 32, 0.55);
     position: absolute;
     left: 0;
-    top: -10vh;
+    top: -66px;
     width: 330px;
     height: 330px;
     z-index: 2;
@@ -320,6 +353,7 @@ td:nth-of-type(4) {
 .films{
     width: 1030px;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 .films__header {
     margin-bottom: 41px;
@@ -388,15 +422,23 @@ td:nth-of-type(4) {
 }
 /*Form*/
 .form__container {
+    width: 1366px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+/*Map*/
+.map {
     width: 1030px;
     margin: 0 auto;
-    margin-bottom: 40px;
+}
+.map__img {
+    width: 1030px;
 }
 /*Contacts*/
 .contacts__container {
     background-color: #90d23d;
-    padding-bottom: 44px;
-    padding-top: 55px;
+    padding-bottom: 40px;
+    padding-top: 58px;
 }
 .contacts {
     text-align: center;
@@ -404,14 +446,15 @@ td:nth-of-type(4) {
     margin: 0 auto;
 }
 .contacts__icons {
-    margin-bottom: 30px;
+    margin-bottom: 29px;
+    display: inline-block;
 }
 .contacts__icons a {
     display: inline-block;
     margin-left: 7px;
-    width: 50px;
 }
-.contacts__icons a img {
+.contacts__icons a svg {
+    display: inline-block;
     width: 50px;
 }
 .contacts p {
@@ -419,5 +462,13 @@ td:nth-of-type(4) {
     font-weight: 300;
     font-size: 18px;
     line-height: 20px;
-    letter-spacing: 0.2px;
 }
+/*SVG*/
+.svg-icon {
+    fill: #fff;
+    filter: url(#drop-shadow);
+    fill-rule: evenodd;
+ }
+ .svg-icon:hover {
+     filter: none;
+ }
