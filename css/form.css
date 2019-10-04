@@ -26,7 +26,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(../img/down-arrow.svg) 96% center / 5% no-repeat #fff;
+  /* background: url(../img/down-arrow.svg) 96% center / 5% no-repeat #fff; */
 }
 /*Remove sumbols of checkbocses*/
 input[type="radio"],

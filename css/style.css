@@ -164,28 +164,19 @@ ul a:hover {
 }
 .benefits__container {
     width: 1030px;
-    display: inline-block;
+    display: inline-flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
 }
 .benefits__benefit {
-    float: left;
-    margin-left: 66px;
-    width: 29%;
+    flex-basis: 296px;
     text-align: center;
 }
-.benefits__first-benefit {
-    margin-left: 0;
-}
 .benefits__img-container {
+    display: inline-flex;
+    align-items: flex-end;
     height: 211px;
     margin-bottom: 42px;
-    position: relative;
-}
-.benefits__img {
-    margin: auto;
-    left: 0;
-    right: 0;
-    position: absolute;
-    bottom: 0;
 }
 .benefits__img:hover {
     transform: scale(1.07);
@@ -304,7 +295,6 @@ td:nth-of-type(4) {
     border-width: 121px 99vw 0 0;
     border-color:  #fff transparent transparent transparent;
 }
-
 .present__text-container {
     width: 1030px;
     margin: 0 auto;
@@ -366,17 +356,18 @@ td:nth-of-type(4) {
     line-height: 16px;
 }
 .films__container {
-    width: 1030px;
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-flow: wrap row;
     justify-content: space-between;
+    align-items: stretch;
     background-color: #fff;
 }
 .film__box {
-    position: relative;
-    display: inline-block;
-    width: 296px;
     height: 296px;
+    position: relative;
     margin-bottom: 37px;
-    margin-right: 37px;
     background-color: #a3cc40;
     border-radius: 15px;
     overflow: hidden;
@@ -436,26 +427,29 @@ td:nth-of-type(4) {
 }
 /*Contacts*/
 .contacts__container {
+    width: 100%;
     background-color: #90d23d;
-    padding-bottom: 40px;
-    padding-top: 58px;
+    height: 220px;
+    padding-top: 30px;
 }
 .contacts {
+    height: 200px;
+    margin: auto;
     text-align: center;
-    width: 1030px;
-    margin: 0 auto;
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
 }
 .contacts__icons {
-    margin-bottom: 29px;
-    display: inline-block;
+    flex-grow: 1;
+    width: 290px;
+    display: flex;
+    flex-flow: wrap row;
+    align-content: center;
+    justify-content: space-between;
 }
-.contacts__icons a {
-    display: inline-block;
-    margin-left: 7px;
-}
-.contacts__icons a svg {
-    display: inline-block;
-    width: 50px;
+.contacts__text {
+    flex-grow: 1;
 }
 .contacts p {
     color: #fff;
