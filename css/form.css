@@ -1,23 +1,23 @@
 form {
-  width: 400px; /*Isn't it too small?*/
+  width: 20rem; /*Isn't it too small?*/
 }
 /*My modification to make text visible*/
 form * {
   color: #242424;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 /*To make it look better*/
 .form__part {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 input,
 textarea,
 select {
-  font-size: 19px;
+  font-size: 0.95rem;
   color: #6c6c6c;
-  padding: 15px 11px;
+  padding: 0.75rem 0.55rem;
   border: 1px solid #bebebe;
-  border-radius: 5px;
+  border-radius: 0.25rem;
   width: 100%;
   outline: 0;
   transition: 0.2s;
@@ -36,8 +36,8 @@ input[type="checkbox"] {
 /*Labels configuration*/
 input[type="radio"] + label,
 input[type="checkbox"] + label {
-  font-size: 16px;
-  padding-left: 23px;
+  font-size: 0.8rem;
+  padding-left: 1.15rem;
   position: relative;
 }
 /*Draw radiobuttons/checkboxes */
@@ -46,9 +46,9 @@ input[type="checkbox"] + label::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 1px;
-  width: 14px;
-  height: 14px;
+  top: 0.05rem;
+  width: 0.7rem;
+  height: 0.7rem;
   border: 1px solid #000;
 }
 /*Now radiobuttn is a cycle*/
@@ -56,7 +56,7 @@ input[type="radio"] + label::before {
   border-radius: 100%;
 }
 input[type="textarea"] {
-  height: 250px;
+  height: 12.5rem;
   resize: none;
 }
 input[type="file"] {
@@ -69,17 +69,17 @@ input[type="file"] {
   border: 0;
 }
 input[type="file"] + label {
-  font-size: 18px;
+  font-size: 0.9rem;
   color: #90d23d;
   position: relative;
   border: 1px solid #90d23d;
-  padding: 15px;
+  padding: 0.75rem;
   z-index: 2;
   background: #fff;
   width: 100%;
   display: block;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.25rem;
 }
 /*Submit modification*/
 input[type="button"],
