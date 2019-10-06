@@ -370,22 +370,24 @@ td:nth-of-type(4) {
 }
 .films__container {
     width: 48.7rem;
-    display: flex;
-    flex-grow: 1;
-    flex-flow: wrap row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 2.8rem;
     justify-content: space-between;
     align-items: stretch;
     background-color: #fff;
 }
+.empty_box {
+    grid-area: 2 / 2 / 3 / 3;
+}
 .film__box {
     position: relative;
-    margin-bottom: 2.05rem;
     border-radius: 0.75rem;
     overflow: hidden;
 }
 .film__icon {
-    width: 14.36rem;
-    height: 14.36rem;
+    width: 100%;
 }
 .film__content {
     position: absolute;
