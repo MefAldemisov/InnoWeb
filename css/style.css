@@ -1,6 +1,6 @@
 /*General features*/
 html {
-    font-size: 1.46vw;
+    font-size: 1.47vw;
 }
 body {
     /* max-width: 1920px; */
@@ -97,6 +97,9 @@ header::after,
     float: left;
     width: 9.5rem;
     align-items: center; 
+}
+header .header__menu-button {
+    display: none;
 }
 ul {
     list-style: none;

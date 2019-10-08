@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/form.css" />
-
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
 </head>
 
 <body>
@@ -29,6 +29,11 @@
                 </div>
                 <div class="header__first-line_right">
                     <nav>
+                        <div class="header__menu-button">
+                            <hr class="header__menu-button-line">
+                            <hr class="header__menu-button-line">
+                            <hr class="header__menu-button-line">
+                        </div>
                         <ul>
                             <li><a href="#welcome_wrap">ЗАКАЗАТЬ БИЛЕТ</a></li>
                             <li><a href="#section_benefits">ПРЕИМУЩЕСТВА</a></li>
@@ -94,42 +99,44 @@
     </section>
     <section class="timetable">
         <h2 class="timetable__header">Выберите фильм</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th><a href="#">Начало сеанса</a></th>
-                    <th><a href="#">Название фильма</a></th>
-                    <th><a href="#">Жанр</a></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>10:00</td>
-                    <td>Человек-паук</td>
-                    <td>фантастика, боевик, приключения</td>
-                    <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                </tr>
-                <tr>
-                    <td>12:00</td>
-                    <td>Собачья жизнь 2</td>
-                    <td>фэнтези, драма, комедия</td>
-                    <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                </tr>
-                <tr>
-                    <td>14:00</td>
-                    <td>История игрушек 4</td>
-                    <td>мультфильм, фэнтези, комедия</td>
-                    <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                </tr>
-                <tr>
-                    <td>16:00</td>
-                    <td>Люди в черном: Интернэшнл</td>
-                    <td>фантастика, боевик, комедия</td>
-                    <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="timetable__table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><a href="#">Начало сеанса</a></th>
+                        <th><a href="#">Название фильма</a></th>
+                        <th><a href="#">Жанр</a></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="start_film_1"></td>10:00</td>
+                        <td id="name_film_1">Человек-паук</td>
+                        <td id='ganre_film_1'>фантастика, боевик, приключения</td>
+                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
+                    </tr>
+                    <tr>
+                        <td>12:00</td>
+                        <td>Собачья жизнь 2</td>
+                        <td>фэнтези, драма, комедия</td>
+                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
+                    </tr>
+                    <tr>
+                        <td>14:00</td>
+                        <td>История игрушек 4</td>
+                        <td>мультфильм, фэнтези, комедия</td>
+                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
+                    </tr>
+                    <tr>
+                        <td>16:00</td>
+                        <td>Люди в черном: Интернэшнл</td>
+                        <td>фантастика, боевик, комедия</td>
+                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="timetable__footer">
             <p>Please keep in mind that the timings may differ
                 according to the flow of the event. The even is actually day long and we do
@@ -178,6 +185,7 @@
                 suscipit!</p>
         </article>
         <div class="films__container">
+            <!-- owl-carousel -->
             <article class="empty_box"></article>
             <article class="film__box">
                 <img class="film__icon" src="./images/film_spiderman.png" alt="spiderman">
@@ -707,7 +715,7 @@
                 <input id="file_selector" type="file" name="file_input">
                 <label for="file_selector">Загрузить файл</label>
             </div>
-            <button class="form__part" type="submit">Заказать</button>
+            <button id="send_present" class="form__part" type="submit">Заказать</button>
         </form>
     </section>
     <section class="map">
@@ -779,7 +787,28 @@
             </div>
         </div>
     </footer>
-
+    <script src="js/films.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel();
+        });
+        $('.owl-carousel').owlCarousel({
+            center: true,
+            items: 2,
+            loop: false,
+            margin: 10,
+            responsive: {
+                600: {
+                    items: 4
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
