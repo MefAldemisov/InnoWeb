@@ -384,6 +384,33 @@ td:nth-of-type(4) {
     align-items: stretch;
     background-color: #fff;
 }
+.films__buttons {
+    position: relative;
+}
+.films__container__btn-after {
+    position: absolute;
+    top: 4rem;
+    right: -1.5rem;
+    width: 0; 
+	height: 0; 
+	border-bottom: 5rem solid transparent;  /* left arrow slant */
+	border-top: 5rem solid transparent; /* right arrow slant */
+	border-left: 1.2rem solid #000; /* bottom, add background color here */
+	font-size: 0;
+	line-height: 0;
+}
+.films__container__btn-before {
+    position: absolute;
+    top: 4rem;
+    left: -1.5rem;
+    width: 0; 
+	height: 0; 
+	border-bottom: 5rem solid transparent;  /* left arrow slant */
+	border-top: 5rem solid transparent; /* right arrow slant */
+	border-right: 1.2rem solid #000; /* bottom, add background color here */
+	font-size: 0;
+	line-height: 0;
+}
 .empty_box {
     grid-area: 2 / 2 / 3 / 3;
 }

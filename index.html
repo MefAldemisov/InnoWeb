@@ -113,25 +113,25 @@
                     <tr>
                         <td id="start_film_1"></td>10:00</td>
                         <td id="name_film_1">Человек-паук</td>
-                        <td id='ganre_film_1'>фантастика, боевик, приключения</td>
+                        <td id="ganre_film_1">фантастика, боевик, приключения</td>
                         <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
                     </tr>
                     <tr>
-                        <td>12:00</td>
-                        <td>Собачья жизнь 2</td>
-                        <td>фэнтези, драма, комедия</td>
+                        <td id="start_film_2">12:00</td>
+                        <td id="name_film_2">Собачья жизнь 2</td>
+                        <td id="ganre_film_2">фэнтези, драма, комедия</td>
                         <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
                     </tr>
                     <tr>
-                        <td>14:00</td>
-                        <td>История игрушек 4</td>
-                        <td>мультфильм, фэнтези, комедия</td>
+                        <td id="start_film_3">14:00</td>
+                        <td id="name_film_3">История игрушек 4</td>
+                        <td id="ganre_film_3">мультфильм, фэнтези, комедия</td>
                         <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
                     </tr>
                     <tr>
-                        <td>16:00</td>
-                        <td>Люди в черном: Интернэшнл</td>
-                        <td>фантастика, боевик, комедия</td>
+                        <td id="start_film_4">16:00</td>
+                        <td id="name_film_4">Люди в черном: Интернэшнл</td>
+                        <td id="ganre_film_4">фантастика, боевик, комедия</td>
                         <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
                     </tr>
                 </tbody>
@@ -184,9 +184,12 @@
                 laudantium neque nihil omnis perferendis sed sequi tempore! Ad ea esse ex inventore repudiandae,
                 suscipit!</p>
         </article>
-        <div class="films__container">
-            <!-- owl-carousel -->
-            <article class="empty_box"></article>
+        <div class="films__buttons">
+            <div class="films__container__btn-before"></div>
+            <div class="films__container__btn-after"></div>
+        </div>
+        <div class="films__container owl-carousel">
+            <!-- <article class="empty_box"></article> -->
             <article class="film__box">
                 <img class="film__icon" src="./images/film_spiderman.png" alt="spiderman">
                 <div class="film__content">
@@ -795,18 +798,29 @@
     <script src="js/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
-            $(".owl-carousel").owlCarousel();
-        });
-        $('.owl-carousel').owlCarousel({
-            center: true,
-            items: 2,
-            loop: false,
-            margin: 10,
-            responsive: {
-                600: {
-                    items: 4
+            var owl = $(".owl-carousel");
+            owl.owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
                 }
-            }
+            });
+            $(".films__container__btn-after").click(function(){ // added by myself
+                owl.trigger('next.owl.carousel');
+            })
+            $(".films__container__btn-before").click(function(){
+                owl.trigger('prev.owl.carousel');
+            })
         });
     </script>
 </body>
