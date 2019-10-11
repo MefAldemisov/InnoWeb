@@ -99,6 +99,16 @@
   .films__container {
     grid-template-columns: 1fr 1fr;
   }
+  .empty_box {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .films__container :last-child {
+      grid-column: auto;
+  }
+  .films__container :nth-child(3n) {
+      grid-column: auto;
+  }
   .film__box p {
     font-size: 1.2rem;
   }
