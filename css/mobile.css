@@ -1,4 +1,8 @@
-
+@media (min-width: 1800px) {
+  html {
+    font-size: 20px; /*Otherwise - looks ugly*/
+  }
+}
 @media (max-width: 1300px) {
     p {
         font-size: 0.9rem;

@@ -378,11 +378,20 @@ td:nth-of-type(4) {
     width: 48.7rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     grid-gap: 2.8rem;
     justify-content: space-between;
     align-items: stretch;
     background-color: #fff;
+}
+.empty_box {
+    grid-column: 2;
+    grid-row: 2;
+}
+.films__container :last-child {
+    grid-column: 2;
+}
+.films__container :nth-child(3n) {
+    grid-column: 3;
 }
 .films__buttons {
     position: relative;
@@ -410,9 +419,6 @@ td:nth-of-type(4) {
 	border-right: 1.2rem solid #000; /* bottom, add background color here */
 	font-size: 0;
 	line-height: 0;
-}
-.empty_box {
-    grid-area: 2 / 2 / 3 / 3;
 }
 .film__box {
     position: relative;
