@@ -15,6 +15,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/form.css" />
     <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    
 </head>
 
 <body>
@@ -188,8 +191,7 @@
             <div class="films__container__btn-before"></div>
             <div class="films__container__btn-after"></div>
         </div>
-        <div class="films__container"> 
-            <!-- owl-carousel -->
+        <div class="films__container owl-carousel"> 
             <article class="film__box">
                 <img class="film__icon" src="./images/film_spiderman.png" alt="spiderman">
                 <div class="film__content">
@@ -793,36 +795,8 @@
     <script src="js/films.js"></script>
     <script src="js/form.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <script src="js/owl.carousel.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var owl = $(".owl-carousel");
-            owl.owlCarousel({
-                loop:true,
-                margin:10,
-                nav:true,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:2
-                    },
-                    1000:{
-                        items:3
-                    }
-                }
-            });
-            $(".films__container__btn-after").click(function(){ // added by myself
-                owl.trigger('next.owl.carousel');
-            })
-            $(".films__container__btn-before").click(function(){
-                owl.trigger('prev.owl.carousel');
-            })
-        });
-    </script>
+    <script src="js/slider.js"></script>
 </body>
 
 </html>
