@@ -90,8 +90,14 @@
   .timetable__table-container {
     overflow: auto;
   }
-  .benefits__container {
-    flex-direction: column-reverse;
+  .benefits__benefit {
+    float: right;
+    width: 30%;
+    margin: 0;
+  }
+  .benefits__container :nth-child(2) {
+    margin-right: 5%;
+    margin-left: 5%;
   }
   .present {
     height: 65vh;
@@ -135,6 +141,15 @@
   td {
     font-size: 1.3rem;
     line-height: 1.3em;
+  }
+  .benefits-container {
+    clear: both;
+  }
+  .benefits__benefit {
+    width: 100%;
+  }
+  .benefits__container :nth-child(2) {
+    margin: 0;
   }
 }
 @media (max-width: 450px) {
@@ -181,21 +196,6 @@
     width: 4rem;
     height: 4rem;
   }
-
-  /* .present,
-  .header,
-  .timetable,
-  .benefits,
-  .films,
-  form,
-  .contacts {
-    padding: 0 2rem;
-  }
-  header::after,
-  .present .background-triangle:first-child,
-  .background-triangle {
-    border-right-width: 100%;
-  } */
 }
 @media (max-width: 350px) {
   p,

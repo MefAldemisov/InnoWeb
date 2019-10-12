@@ -16,10 +16,10 @@ $(document).ready(function () {
             }
         }
     });
-    $(".films__container__btn-after").click(function(){ // added by myself
+    $(".films__btn-after").click(function(){ // added by myself
         owl.trigger('next.owl.carousel');
     })
-    $(".films__container__btn-before").click(function(){
+    $(".films__btn-before").click(function(){
         owl.trigger('prev.owl.carousel');
     })
 });

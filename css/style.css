@@ -177,13 +177,15 @@ ul a:hover {
 }
 .benefits__container {
     width: 51.5rem;
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-between;
 }
 .benefits__benefit {
-    flex-basis: 14.8rem;
+    margin-right: 3.55rem;
+    width: 14.8rem;
+    float: left;
     text-align: center;
+}
+.benefits__container :last-child {
+    margin-right: 0;
 }
 .benefits__img-container {
     display: inline-flex;
@@ -395,8 +397,12 @@ td:nth-of-type(4) {
 }
 .films__buttons {
     position: relative;
+    cursor: pointer;
 }
-.films__container__btn-after {
+.films__buttons *:hover {
+    transform: scale(1.05);
+}
+.films__btn-after {
     position: absolute;
     top: 4rem;
     right: -1.5rem;
@@ -408,7 +414,7 @@ td:nth-of-type(4) {
 	font-size: 0;
 	line-height: 0;
 }
-.films__container__btn-before {
+.films__btn-before {
     position: absolute;
     top: 4rem;
     left: -1.5rem;
