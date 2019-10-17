@@ -83,9 +83,46 @@
   .header__first-line_right li {
     display: none;  
   }
-  /* Howto deal with tables: https://css-tricks.com/responsive-data-tables/ */
-  table {
-    width: 770px;
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+	th {
+    display: none;
+    border: none;
+    padding: none;
+  }
+  .timetable td {
+    font-size: 1.5rem;
+    width: 90vw;
+    max-width: 90vw;
+    margin-left: 35vw;
+    text-align: left;
+    position: relative;
+  }
+  .timetable td:before {
+    position: absolute;
+    width: 29vw;
+    left: -30vw;
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  .timetable td:nth-child(1):before {
+    content: "Начало сеанса";
+  }
+  .timetable td:nth-child(2):before {
+    content: "Название фильма";
+  }
+  .timetable td:nth-child(3):before {
+    content: "Жанр";
+  }
+  .timetable td:nth-child(4) {
+    display: none;
+  }
+  .timetable tr:last-child {
+    border-collapse: collapse;
+    overflow: hidden;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
   }
   .timetable__table-container {
     overflow: auto;
