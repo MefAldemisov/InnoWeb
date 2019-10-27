@@ -72,11 +72,9 @@ for(let i=0; i<films.length; i++){
 
 const film = {
     getName: function(){
-        console.log(this.name)
         return this.name
     },
     getStart: function(){
-        console.log(this.start)
         return this.start
     },
     getGanre: function(){
@@ -86,11 +84,9 @@ const film = {
             ganre_parts.push(ganres[ganres_indexes[i]])
         }
         let film_ganre = ganre_parts.join(', ')
-        console.log(film_ganre)
         return film_ganre
     },
     getPrice: function(){
-        console.log(this.price)
         return this.price
     }
 }
@@ -104,7 +100,6 @@ closeOrderForm.onclick = function () {
 }
 // tr editing
 for (let i=0; i<hired_films.length; i++) {
-    console.group("Film " + i)
     // fill the table (HTML)
     const body = document.getElementById('timetable__rows')
     const tr = document.createElement('tr')
@@ -129,7 +124,6 @@ for (let i=0; i<hired_films.length; i++) {
         formTotal.innerHTML = film.getPrice.call(films[i])
         formTicketsAmount = document.getElementById("order-form__tikets-amount").onchange = function() {
             formTotal.innerHTML = this.value * film.getPrice.call(films[i])
-            console.log("value", this.value)
         }
         // save order
         document.getElementById("order-form__film-price").innerHTML = film.getPrice.call(films[i])
@@ -151,13 +145,8 @@ for (let i=0; i<hired_films.length; i++) {
                     customerPhone: c_ph.value,
                     total: parseFloat(formTotal.innerHTML)
                 })
-                alert(checker(c_name) +", "+ checker(c_ph) + "\t"+ orders[0].customerName+" "+orders[0].customerPhone+" "+orders[0].total)
             }
         }
     }
     body.appendChild(tr)
-    console.groupEnd()
 }
-
-const listFilms = document.querySelectorAll('.timetable__film-row')
-console.log(listFilms)
