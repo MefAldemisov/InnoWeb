@@ -94,9 +94,18 @@ const film = {
         return this.price
     }
 }
-
+// array of ordered tickets
+const orders = []
+// closing order form functionality
+let orderFormContainer = document.getElementById("order-form__container")
+let closeOrderForm = document.getElementById("order-form__close-btn")
+closeOrderForm.onclick = function () {
+    orderFormContainer.style.display = "none"
+}
+// tr editing
 for (let i=0; i<hired_films.length; i++) {
     console.group("Film " + i)
+    // fill the table (HTML)
     const body = document.getElementById('timetable__rows')
     const tr = document.createElement('tr')
     const tr_text = `<tr><td>${film.getStart.bind(films[i])()}</td>
@@ -104,8 +113,51 @@ for (let i=0; i<hired_films.length; i++) {
                         <td>${film.getGanre.bind(films[i])()}</td>
                         <td>${film.getPrice.bind(films[i])()}</td>
                         <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td></tr>`
-    // get the elements
+    // set the elements
     tr.innerHTML = tr_text
+    tr.className = "timetable__film-row"
+    // last chid - plus button
+    tr.lastChild.lastChild.onclick = function () {
+        // show the form
+        orderFormContainer.style.display = "block"
+        // enter the data to the form
+        document.getElementById("order-form__film-name").innerHTML = film.getName.call(films[i])
+        document.getElementById("order-form__start-time").innerHTML = film.getStart.call(films[i])
+        document.getElementById("order-form__ganre").innerHTML = film.getGanre.call(films[i])
+        // update price
+        const formTotal = document.getElementById("order-form__total")
+        formTotal.innerHTML = film.getPrice.call(films[i])
+        formTicketsAmount = document.getElementById("order-form__tikets-amount").onchange = function() {
+            formTotal.innerHTML = this.value * film.getPrice.call(films[i])
+            console.log("value", this.value)
+        }
+        // save order
+        document.getElementById("order-form__film-price").innerHTML = film.getPrice.call(films[i])
+        document.getElementById("order-form__order-btn").onclick = function() {
+            const c_name = document.getElementById("order-form__customer-name")
+            const c_ph = document.getElementById("order-form__phone-number")
+            function checker (input){
+                if(input.value){
+                    input.style.border="1px solid green"
+                }else{
+                    input.style.border="2px solid red"
+                }
+                return Boolean(input.value)
+            }
+            // if all required fields are filled, then add the order to the array
+            if(checker(c_name) && checker(c_ph)){
+                orders.push({
+                    customerName: c_name.value,
+                    customerPhone: c_ph.value,
+                    total: parseFloat(formTotal.innerHTML)
+                })
+                alert(checker(c_name) +", "+ checker(c_ph) + "\t"+ orders[0].customerName+" "+orders[0].customerPhone+" "+orders[0].total)
+            }
+        }
+    }
     body.appendChild(tr)
     console.groupEnd()
 }
+
+const listFilms = document.querySelectorAll('.timetable__film-row')
+console.log(listFilms)

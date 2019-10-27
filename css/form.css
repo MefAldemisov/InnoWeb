@@ -87,3 +87,47 @@ button {
   border-right: 1px solid transparent;
   border-bottom: 1px solid transparent;
 }
+#order-form__container {
+  display: none;
+  position: fixed;
+  top: 20vh;
+  left: 25vw;
+  width: 50vw;
+  background: rgba(256, 256, 256, 0.9);
+  border:2px solid black;
+  border-radius: 2rem;
+  z-index: 10;
+}
+/* Order form 4.8 */
+#order-form {
+  position: relative;
+  width: 100%;
+}
+#order-form__order-btn {
+  margin-top: 1.2rem;
+  border-radius: 0.75rem;
+  border-width: 0;
+  /* background-color: #90d23d; */
+  /* position: absolute; */
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+#order-form__close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  /* background: #90d23d; */
+  border: none;
+}
+#order-form .form__part {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+#order-form input {
+  max-width: 70%;
+}

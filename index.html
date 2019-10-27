@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/mobile.css" />
     <link rel="stylesheet" href="css/owl.carousel.min.css" />
     <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-    
+
 </head>
 
 <body>
@@ -114,30 +114,6 @@
                     </tr>
                 </thead>
                 <tbody id="timetable__rows">
-                    <!-- <tr>
-                        <td id="start_film_1">10:00</td>
-                        <td id="name_film_1">Человек-паук</td>
-                        <td id="ganre_film_1">фантастика, боевик, приключения</td>
-                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                    </tr>
-                    <tr>
-                        <td id="start_film_2">12:00</td>
-                        <td id="name_film_2">Собачья жизнь 2</td>
-                        <td id="ganre_film_2">фэнтези, драма, комедия</td>
-                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                    </tr>
-                    <tr>
-                        <td id="start_film_3">14:00</td>
-                        <td id="name_film_3">История игрушек 4</td>
-                        <td id="ganre_film_3">мультфильм, фэнтези, комедия</td>
-                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                    </tr>
-                    <tr>
-                        <td id="start_film_4">16:00</td>
-                        <td id="name_film_4">Люди в черном: Интернэшнл</td>
-                        <td id="ganre_film_4">фантастика, боевик, комедия</td>
-                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -192,7 +168,7 @@
             <div class="films__btn-before"></div>
             <div class="films__btn-after"></div>
         </div>
-        <div class="films__container owl-carousel"> 
+        <div class="films__container owl-carousel">
             <article class="film__box">
                 <img class="film__icon" src="./images/film_spiderman.png" alt="spiderman">
                 <div class="film__content">
@@ -792,7 +768,48 @@
                 <p>All Rights Reserved. Evato Bangladesh &#169; 2015</p>
             </div>
         </div>
+
+        <!-- Hidden element -->
+        <div id="order-form__container">
+            <form id=order-form>
+                <button id="order-form__close-btn">X</button>
+                <div class="form__part">
+                    <span>Название фильма:</span>
+                    <span id="order-form__film-name"></span>
+                </div>
+                <div class="form__part">
+                    <span>Начало сеанса:</span>
+                    <span id="order-form__start-time"></span>
+                </div>
+                <div class="form__part">
+                    <span>Жанр:</span>
+                    <span id="order-form__ganre"></span>
+                </div>
+                <div class=form__part>
+                    <span>Имя:</span>
+                    <input id="order-form__customer-name" type="text" required></input>
+                </div>
+                <div class=form__part>
+                    <span title="Формат: x-xxx-xxx-xx-xx">Номер телефона:</span>
+                    <input title="Формат: x-xxx-xxx-xx-xx" id="order-form__phone-number" type="tel" pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required></input>
+                </div>
+                <div class="form__part">
+                    <span>Цена за билет:</span>
+                    <span id="order-form__film-price"></span>
+                </div>
+                <div class=form__part>
+                    <span>Количество билетов:</span>
+                    <input id="order-form__tikets-amount" type="number" min=1 max=100 placeholder="1"></input>
+                </div>
+                <div class="form__part">
+                    <span>Итог:</span>
+                    <span id="order-form__total"></span>
+                </div>
+                <button id="order-form__order-btn">Забронировать</button>
+            </form>
+        </div>
     </footer>
+    <!-- JS connection -->
     <script src="js/films.js"></script>
     <script src="js/form.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
