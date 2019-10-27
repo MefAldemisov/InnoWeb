@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var owl = $(".owl-carousel");
+    const owl = $(".owl-carousel");
     owl.owlCarousel({
         loop:true,
         margin:10,
