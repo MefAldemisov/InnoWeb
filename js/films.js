@@ -24,8 +24,8 @@ const social_icons = {
                 class="svg-icon" />
             `
 }
-
-for (let s of Object.keys(social_icons)){
+let s
+for (s of Object.keys(social_icons)){
     social_icons[s] = svg_around + social_icons[s] + "</svg>"
 }
 
@@ -140,13 +140,17 @@ const film = {
     getPrice: function(){
         return this.price
     },
-    getLink: function(){return this.link},
-    getImage:function () {return this.image},
+    getLink: function(){
+        return this.link
+    },
+    getImage:function () {
+        return this.image
+    },
     getSocial: function()  {
         return this.social
     },
     getSocialList: function() {
-        return (Object.keys(this.social));
+        return (Object.keys(this.social))
     }
 }
 // array of ordered tickets
@@ -227,10 +231,11 @@ for (f of new_films) {
     // add social links 
     if(film.getSocial.call(f)){
         // selecting social network
+        let soc_net
         for (soc_net of ["facebook", "twitter", "behance", "dribble"]){
             if (film.getSocialList.call(f).includes(soc_net)){
                 // appending
-                addition = `<a href=${film.getSocial.call(f)[soc_net]} target="_blank" title="${soc_net} social network">`                
+                let addition = `<a href=${film.getSocial.call(f)[soc_net]} target="_blank" title="${soc_net} social network">`                
                 addition += social_icons[soc_net]+"</a>"
                 content_text += addition
             }
