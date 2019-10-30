@@ -122,13 +122,13 @@ for(let i = 0; i < films.length; i++){
 }
 
 const film = {
-    getName: function(){
+    getName: function (){
         return this.name
     },
-    getStart: function(){
+    getStart: function (){
         return this.start
     },
-    getGanre: function(){
+    getGanre: function (){
         const ganres_indexes  = this.ganre.split('/');
         const ganre_parts = []
         for(let i = 0; i < ganres_indexes.length; i++){
@@ -137,20 +137,23 @@ const film = {
         const film_ganre = ganre_parts.join(', ')
         return film_ganre
     },
-    getPrice: function() {
+    getPrice: function () {
         return this.price
     },
-    getLink: function() {
+    getLink: function () {
         return this.link
     },
     getImage:function () {
         return this.image
     },
-    getSocial: function()  {
+    getSocial: function ()  {
         return this.social
     },
-    getSocialList: function() {
+    getSocialList: function () {
         return (Object.keys(this.social))
+    },
+    getDescription: function () {
+        return this.description
     }
 }
 // array of ordered tickets
@@ -224,10 +227,9 @@ for (f of new_films) {
         <h3 class="film__title">${film.getName.call(f)}</h3>
     </a>
     <hr class="film__hr">
-    <p class="film__description">${film.getGanre.call(f)}</p>
+    <p class="film__description">${film.getDescription.call(f)}</p>
     <div class="film__social">
                         `
-                        // TODOD: Descrption
     // add social links 
     if (film.getSocial.call(f)) {
         // selecting social network
