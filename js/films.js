@@ -112,7 +112,7 @@ const hired_films = []
 // for slider
 const new_films = []
 
-for(let i=0; i<films.length; i++){
+for(let i = 0; i < films.length; i++){
     if(films[i].hire){
         hired_films.push(films[i]);
     } 
@@ -129,18 +129,18 @@ const film = {
         return this.start
     },
     getGanre: function(){
-        let ganres_indexes  = this.ganre.split('/');
-        let ganre_parts = []
-        for(let i=0; i<ganres_indexes.length; i++){
+        const ganres_indexes  = this.ganre.split('/');
+        const ganre_parts = []
+        for(const i = 0; i < ganres_indexes.length; i++){
             ganre_parts.push(ganres[ganres_indexes[i]])
         }
-        let film_ganre = ganre_parts.join(', ')
+        const film_ganre = ganre_parts.join(', ')
         return film_ganre
     },
-    getPrice: function(){
+    getPrice: function() {
         return this.price
     },
-    getLink: function(){
+    getLink: function() {
         return this.link
     },
     getImage:function () {
@@ -162,7 +162,7 @@ closeOrderForm.onclick = function () {
     orderFormContainer.style.display = "none"
 }
 // table modification
-for (let i=0; i<hired_films.length; i++) {
+for (const i = 0; i < hired_films.length; i++) {
     // fill the table (HTML)
     const body = document.getElementById('timetable__rows')
     const tr = document.createElement('tr')
@@ -193,16 +193,16 @@ for (let i=0; i<hired_films.length; i++) {
         document.getElementById("order-form__order-btn").onclick = function() {
             const c_name = document.getElementById("order-form__customer-name")
             const c_ph = document.getElementById("order-form__phone-number")
-            function checker (input){
-                if(input.value){
-                    input.style.border="1px solid green"
-                }else{
-                    input.style.border="2px solid red"
+            function checker (input) {
+                if (input.value) {
+                    input.style.border = "1px solid green"
+                } else {
+                    input.style.border = "2px solid red"
                 }
                 return Boolean(input.value)
             }
             // if all required fields are filled, then add the order to the array
-            if(checker(c_name) && checker(c_ph)){
+            if (checker(c_name) && checker(c_ph)) {
                 orders.push({
                     customerName: c_name.value,
                     customerPhone: c_ph.value,
@@ -216,10 +216,9 @@ for (let i=0; i<hired_films.length; i++) {
 
 // cntainer to insert 
 const filmsSlider = document.getElementsByClassName("films__container")[0]
-let f
+const f
 for (f of new_films) {
-
-    let content_text = `
+    const content_text = `
     <div class="film__content">
     <a href="${film.getLink.call(f)}" target="_blank" title="Кинопоиск: ${film.getName.call(f)}">
         <h3 class="film__title">${film.getName.call(f)}</h3>
@@ -229,13 +228,13 @@ for (f of new_films) {
     <div class="film__social">
                         `
     // add social links 
-    if(film.getSocial.call(f)){
+    if (film.getSocial.call(f)) {
         // selecting social network
-        let soc_net
+        const soc_net
         for (soc_net of ["facebook", "twitter", "behance", "dribble"]){
             if (film.getSocialList.call(f).includes(soc_net)){
                 // appending
-                let addition = `<a href=${film.getSocial.call(f)[soc_net]} target="_blank" title="${soc_net} social network">`                
+                const addition = `<a href=${film.getSocial.call(f)[soc_net]} target="_blank" title="${soc_net} social network">`                
                 addition += social_icons[soc_net]+"</a>"
                 content_text += addition
             }
