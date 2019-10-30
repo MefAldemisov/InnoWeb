@@ -131,7 +131,7 @@ const film = {
     getGanre: function(){
         const ganres_indexes  = this.ganre.split('/');
         const ganre_parts = []
-        for(const i = 0; i < ganres_indexes.length; i++){
+        for(let i = 0; i < ganres_indexes.length; i++){
             ganre_parts.push(ganres[ganres_indexes[i]])
         }
         const film_ganre = ganre_parts.join(', ')
@@ -162,7 +162,7 @@ closeOrderForm.onclick = function () {
     orderFormContainer.style.display = "none"
 }
 // table modification
-for (const i = 0; i < hired_films.length; i++) {
+for (let i = 0; i < hired_films.length; i++) {
     // fill the table (HTML)
     const body = document.getElementById('timetable__rows')
     const tr = document.createElement('tr')
@@ -216,7 +216,7 @@ for (const i = 0; i < hired_films.length; i++) {
 
 // cntainer to insert 
 const filmsSlider = document.getElementsByClassName("films__container")[0]
-const f
+let f
 for (f of new_films) {
     const content_text = `
     <div class="film__content">
@@ -227,14 +227,15 @@ for (f of new_films) {
     <p class="film__description">${film.getGanre.call(f)}</p>
     <div class="film__social">
                         `
+                        // TODOD: Descrption
     // add social links 
     if (film.getSocial.call(f)) {
         // selecting social network
-        const soc_net
+        let soc_net
         for (soc_net of ["facebook", "twitter", "behance", "dribble"]){
             if (film.getSocialList.call(f).includes(soc_net)){
                 // appending
-                const addition = `<a href=${film.getSocial.call(f)[soc_net]} target="_blank" title="${soc_net} social network">`                
+                let addition = `<a href=${film.getSocial.call(f)[soc_net]} target="_blank" title="${soc_net} social network">`                
                 addition += social_icons[soc_net]+"</a>"
                 content_text += addition
             }
