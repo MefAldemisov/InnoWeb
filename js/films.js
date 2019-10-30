@@ -3,7 +3,7 @@
 const ganres = ['фантастика', 'боевик', 'приключения', 'фэнтези', 'драмма', 'коммедия', 'мультфильм']
 
 const films = [
-    film1 = {
+    {
         start: '10:00', 
         name: 'Человек-паук', 
         ganre: '0/1/2',
@@ -12,7 +12,7 @@ const films = [
         price: 380,
         description: 'Lorem ipsum dolor sit amet, consectetur'
     },
-    film2 = {
+    {
         start: '12:00', 
         name: 'Собачья жизнь 2', 
         ganre: '3/4/5',
@@ -21,7 +21,7 @@ const films = [
         price: 320,
         description: 'Lorem ipsum dolor sit amet, consectetur'
     },
-    film3 = {
+    {
         start: '14:00', 
         name: 'История игрушек 4', 
         ganre: '6/3/5',
@@ -30,7 +30,7 @@ const films = [
         price: 400,
         description: 'Lorem ipsum dolor sit amet, consectetur'
     },
-    film4 = {
+    {
         start: '16:00', 
         name: 'Люди в чёрном: Интернэшнл', 
         ganre: '0/1/5',
@@ -39,7 +39,7 @@ const films = [
         price: 340,
         description: 'Lorem ipsum dolor sit amet, consectetur'
     },
-    film5 = {
+    {
         start: '14:00', 
         name: 'История игрушек 4', 
         ganre: '6/3/5',
@@ -48,7 +48,7 @@ const films = [
         price: 390,
         description: 'Lorem ipsum dolor sit amet, consectetur'
     },
-    film6 = {
+    {
         start: '16:00', 
         name: 'Люди в чёрном: Интернэшнл', 
         ganre: '0/1/5',
