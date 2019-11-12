@@ -1,49 +1,17 @@
-# Webpack Boilerplate
+# Inno Cinema 
 
-A webpack boilerplate that includes the following libs:
+## TODO
 
-* jQuery
-* bootstrap
-* font-awesome
-* waypoints
-* jquery.scrollto
-* animate.css
-
-in order to quickly build up a production-ready marketing website.
-
-### Example Page
-[DEMO](http://geniuscarrier.com/demo/webpack-boilerplate/)
-
-![GIF](http://geniuscarrier.me/images/webpack-boilerplate.gif)
-
-### Install dependencies
-
-```
-npm install
-```
-
-### Developing locally
-
-1. Run
-
-	```
-	npm run dev
-	```
-
-2. In your browser, navigate to: [http://localhost:8080/](http://localhost:8080/)
-
-### Publish
-
-1. In `webpack.config.js` file, replace `www.example.com` with the real domain name.
-
-2. Run
-
-	```
-	npm run build
-	```
-
-3. Copy the following folders/files to web server
-
-	/build,
-	/image,
-	index.html
+- [x] При нажатии на квадрат со свободным местом, номер места выводится в input “выбранне место”;
+- [x] При нажатии на квадрат с забронированым местом выводится предупреждение, что место уже забронировано;
+- [x] При нажатии на квадрат правой клавишей мыши выводится сообщение о стоимости билета;
+- [x] При наведении на квадрат мыши изменяется его цвет на серый ( `#4b4d4f` );
+- [x] Для нажатия на квадрат с местом использовать две различные функции: одна для изменения статуса бронирования (внешний вид), вторая - для вывода номера места в input формы и изменения флага booking;
+- [x] Эффект изменения цвета квадрата с местом реализовать средствами JavaScript, используя механизм событий: mouseover и mouseout; Массив мест и состояние бронирования каждого места 
+- [x] удалите из разметки контейнер places, который мы создали на шаге 7(id = `order-form__seats`); Cоздайте контейнер программно c помощью createElement, до того как начинается цикл прохода по places. Заполните контейнер; вставьте контейнер после последнего input в форме с помощью метода insertafter;
+- [x] попробуйте в работе метод insertbefore и выведите квадраты с местами до первого input в форме;
+- [x] сейчас в коде подсветка фона забронированного/незабронированного места реализована через добавление/удаление классов, каждый из которых отвечает за свой цвет). Оптимизируйте код, чтобы фон менялся только с использованием одного класса ( например забронировано-оранжевый ), и с помощью JS метода: `element.classList.toggle`
+- [ ] insert grid for raws
+- [x] after selection - change color to red,  increase counter
+- [x] Цена билета крайних (3 от края) мест слева и справа равна 100. Стоимость мест по центру 200;
+- [ ] Clear data after the form sendings

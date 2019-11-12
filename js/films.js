@@ -1,5 +1,4 @@
-// Table
-// TODO -> svg preprocessing - add subtag, save only 'path part'
+// Table 
 const ganres = [
   "фантастика",
   "боевик",
@@ -8,12 +7,12 @@ const ganres = [
   "драмма",
   "коммедия",
   "мультфильм"
-];
-// array og svgs for social networks: <<Hardkodit' tak hardkodit'>>
-
+]
+//--------------------------------------------------------SVG----------------------------------------------------
+// array of svgs for social networks: <<Hardkodit' tak hardkodit'>>
 const svg_around = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    preserveAspectRatio="xMidYMid" width="34" height="33.97" viewBox="0 0 34 34">`;
-
+                    preserveAspectRatio="xMidYMid" width="34" height="33.97" viewBox="0 0 34 34">`
+// Genereation of icons to insert to films description  
 const social_icons = {
   facebook: `<path
                 d="M17.006,32.359 C8.528,32.359 1.656,25.477 1.656,16.988 C1.656,8.498 8.528,1.616 17.006,1.616 C25.484,1.616 32.356,8.498 32.356,16.988 C32.356,25.477 25.484,32.359 17.006,32.359 ZM17.377,8.564 C13.910,8.564 14.700,12.683 14.585,14.185 C14.585,14.196 12.465,14.185 12.465,14.185 L12.465,16.979 L14.578,16.979 L14.578,26.815 L18.090,26.815 L18.082,16.979 L20.435,16.979 L20.896,14.169 L18.090,14.200 C18.090,12.205 17.936,11.394 19.101,11.394 C19.205,11.394 20.907,11.390 20.907,11.390 L20.911,8.564 L17.377,8.564 Z"
@@ -31,12 +30,49 @@ const social_icons = {
                 d="M17.003,32.259 C8.526,32.259 1.653,25.376 1.653,16.886 C1.653,8.396 8.526,1.515 17.003,1.515 C25.481,1.515 32.353,8.396 32.353,16.886 C32.353,25.376 25.481,32.259 17.003,32.259 ZM16.906,4.981 C10.306,4.981 4.955,10.350 4.955,16.974 C4.955,23.597 10.306,28.966 16.906,28.966 C23.506,28.966 28.857,23.597 28.857,16.974 C28.857,10.350 23.506,4.981 16.906,4.981 ZM19.763,16.460 C19.491,15.775 19.210,15.104 18.912,14.459 C22.489,13.079 24.541,10.708 24.541,10.708 C24.541,10.708 26.565,12.888 26.747,16.443 C26.747,16.428 22.827,15.873 19.763,16.460 ZM14.408,7.407 C14.408,7.407 19.204,5.876 23.347,9.487 C21.113,11.760 18.130,12.875 18.130,12.875 C16.811,9.898 14.408,7.407 14.408,7.407 ZM7.264,14.891 C7.264,14.891 7.979,10.460 12.464,8.143 C14.914,11.098 16.184,13.563 16.184,13.563 C16.184,13.563 12.527,14.754 7.264,14.891 ZM17.801,16.894 C17.801,16.894 13.133,17.746 9.401,23.388 C6.728,20.286 7.062,16.598 7.061,16.579 C13.789,16.367 17.002,15.130 17.002,15.130 L17.801,16.894 ZM18.480,18.619 C19.592,21.198 20.444,26.205 20.444,26.205 C20.444,26.205 15.609,28.394 10.854,24.779 C10.861,24.779 13.552,19.997 18.480,18.619 ZM26.690,18.232 C26.046,23.180 22.326,25.240 22.326,25.240 C21.704,21.609 20.412,18.188 20.412,18.188 C20.412,18.188 23.389,17.695 26.690,18.232 Z"
                 class="svg-icon" />
             `
-};
+}
 let s;
 for (s of Object.keys(social_icons)) {
   social_icons[s] = svg_around + social_icons[s] + "</svg>";
 }
-
+//------------------------------------------------------FILMS DATA-----------------------------------------------
+// film datatype
+const film = {
+  getName: function () {
+    return this.name;
+  },
+  getStart: function () {
+    return this.start;
+  },
+  getGanre: function () {
+    const ganres_indexes = this.ganre.split("/");
+    const ganre_parts = [];
+    for (let i = 0; i < ganres_indexes.length; i++) {
+      ganre_parts.push(ganres[ganres_indexes[i]]);
+    }
+    const film_ganre = ganre_parts.join(", ");
+    return film_ganre;
+  },
+  getPrice: function () {
+    return this.price;
+  },
+  getLink: function () {
+    return this.link;
+  },
+  getImage: function () {
+    return this.image;
+  },
+  getSocial: function () {
+    return this.social;
+  },
+  getSocialList: function () {
+    return Object.keys(this.social);
+  },
+  getDescription: function () {
+    return this.description;
+  }
+};
+// films to show
 const films = [
   {
     start: "10:00",
@@ -121,11 +157,11 @@ const films = [
     description: "Lorem ipsum dolor sit amet, consectetur"
   }
 ];
-// for timetable
+//-----------------------------------------------------FILMS FILTERING------------------------------------------
 const hired_films = [];
 // for slider
 const new_films = [];
-
+// new and hird arrays filling
 for (let i = 0; i < films.length; i++) {
   if (films[i].hire) {
     hired_films.push(films[i]);
@@ -134,81 +170,138 @@ for (let i = 0; i < films.length; i++) {
     new_films.push(films[i]);
   }
 }
-
-const film = {
-  getName: function() {
-    return this.name;
-  },
-  getStart: function() {
-    return this.start;
-  },
-  getGanre: function() {
-    const ganres_indexes = this.ganre.split("/");
-    const ganre_parts = [];
-    for (let i = 0; i < ganres_indexes.length; i++) {
-      ganre_parts.push(ganres[ganres_indexes[i]]);
-    }
-    const film_ganre = ganre_parts.join(", ");
-    return film_ganre;
-  },
-  getPrice: function() {
-    return this.price;
-  },
-  getLink: function() {
-    return this.link;
-  },
-  getImage: function() {
-    return this.image;
-  },
-  getSocial: function() {
-    return this.social;
-  },
-  getSocialList: function() {
-    return Object.keys(this.social);
-  },
-  getDescription: function() {
-    return this.description;
-  }
-};
-// places
-const AMOUNT_OF_PLACES = 10;
-const AMOUNT_OF_ROWS = 5;
-const places = [];
-const broned_indexes = []; // TODO: make random
-
-// filling it for the really first time
-for (let i = 0; i < AMOUNT_OF_PLACES * AMOUNT_OF_ROWS; i++) {
-  places.push({
-    number: (i % AMOUNT_OF_PLACES) + 1,
-    row: Math.floor(i / AMOUNT_OF_PLACES) + 1,
-    price: 100,
-    brone: true
-  });
-  broned_indexes[i] = Math.round(Math.random());
-}
-console.log(broned_indexes);
-// array of ordered tickets
+//  --------------------------------------------------ORDERS-------------------------------------------------------
 const orders = [];
-// closing order form functionality
+const current_places = [];
+
+function getPriceByNumber(number) {
+  if (number < 3 || number > AMOUNT_OF_PLACES - 3) {
+    return 100
+  }
+  return 200
+}
+// Tickets counter changing
+const ticketsCounter = document.getElementById('order-form__tikets-amount')
+function changeTicketsCounter(is_added) {
+  if (is_added) {
+    ticketsCounter.innerHTML++
+  } else {
+    ticketsCounter.innerHTML--
+  }
+}
+// Total price generation
+const formFilmPrice = document.getElementById("order-form__film-price")
+const formTotal = document.getElementById("order-form__total");
+function changePriceCounter(seat, is_added) {
+  let difference = parseInt(formFilmPrice.innerHTML) + getPriceByNumber(seat)
+  let initial = parseInt(formTotal.innerHTML)
+  if (is_added) {
+    formTotal.innerHTML = initial + difference
+  } else {
+    formTotal.innerHTML = initial - difference
+  }
+}
+// Chosing one more place
+function saveElementAsBronned(place, is_added) {
+  changeTicketsCounter(is_added)
+  changePriceCounter(place.number, is_added)
+  if (is_added) {
+    current_places.push(place)
+  } else {
+    current_places.remove(place)
+  }
+}
+//--------------------------------------------------------PLACES GENERATION-----------------------------------------------------------------
+
+// places creation
+const AMOUNT_OF_PLACES = 10;    // const, defined by the space
+const AMOUNT_OF_ROWS = 5;       // const, defined by the space
+const places = [];              // array of places objects
+// places array generation
+for (let i = 0; i < AMOUNT_OF_PLACES * AMOUNT_OF_ROWS; i++) {
+  let seat_number = (i % AMOUNT_OF_PLACES) + 1
+  let place_price = getPriceByNumber(seat_number)
+  places.push({
+    number: seat_number,
+    row: Math.floor(i / AMOUNT_OF_PLACES) + 1,
+    price: place_price,
+    brone: Math.round(Math.random())
+  });
+}
+//-----------------------------------------------------FORM INSERT DOM----------------------------------------------------------------------
+// closing ordearray of ordered ticketsr form functionality
 const orderFormContainer = document.getElementById("order-form__container");
 const closeOrderForm = document.getElementById("order-form__close-btn");
-closeOrderForm.onclick = function() {
+closeOrderForm.onclick = function () {
   orderFormContainer.style.display = "none";
 };
+// html of cinema places generation
+const placesChoiceContainer = document.createElement("div")
+placesChoiceContainer.classList.add("form_part")
+const placesDescription = document.createElement("span")
+placesDescription.classList.add("centered")
+placesDescription.innerText = "Выберите место"
 // seats addition
-const placesContainer = document.getElementById("order-form__seats");
-
+const placesContainer = document.createElement('div')
+// document.getElementById("order-form__seats");
+placesContainer.id = "order-form__seats"
 for (let place of places) {
   const placeDiv = document.createElement("div");
   placeDiv.innerHTML = place.number;
   placeDiv.classList.add("placeDiv");
-  if (broned_indexes[(place.number - 1) * (place.row - 1)]) {
-    placeDiv.style.backgroundColor = "palevioletred";
+  // default coloring
+  if (place.brone) {
+    placeDiv.classList.add("bronnedPlace");
   }
-  placesContainer.append(placeDiv);
-}
+  // ------------Actions
+  // change color
+  placeDiv.addEventListener('mouseover', function (event) {
+    if (!place.brone) {
+      event.target.classList.add("hooveredPlace")
+      // in my opinion, it is better to do it here
+      // placesDescription.innerHTML = "Стоимость: " + place.price
+    }
+  })
+  // return color
+  placeDiv.addEventListener('mouseout', function (event) {
+    if (!place.brone) {
+      event.target.classList.remove("hooveredPlace")
+    }
+  })
+  // click GUI
+  placeDiv.addEventListener('click', function (event) {
+    if (!place.brone) {
+      placesDescription.innerHTML = "Ряд: " + place.row + " Место: " + place.number
 
-// table modification
+    } else {
+      placesDescription.innerHTML = "Место занято"
+    }
+  })
+  // click data changing
+  placeDiv.addEventListener('click', function (event) {
+    if (!place.brone) {
+      event.target.classList.toggle("newBronnedPlace")
+      let is_added = event.target.classList.contains("newBronnedPlace")
+      saveElementAsBronned(this, is_added)
+    }
+  })
+  // ON RIGHT CKICK
+  placeDiv.addEventListener('mousedown', function (event) {
+    if (event.button == 2) {
+      placesDescription.innerHTML = "Стоимость: " + place.price
+    }
+  })
+
+  // --------------DOM appending
+  placesContainer.appendChild(placeDiv);
+}
+placesChoiceContainer.appendChild(placesDescription)
+placesChoiceContainer.appendChild(placesContainer)
+const form = document.getElementById("order-form")
+const formChildren = form.children
+form.insertBefore(placesChoiceContainer, formChildren[formChildren.length - 2].nextSibling)
+
+// ------------------------------------------------TABLE---------------------------------------------------------
 for (let i = 0; i < hired_films.length; i++) {
   // fill the table (HTML)
   const body = document.getElementById("timetable__rows");
@@ -223,31 +316,16 @@ for (let i = 0; i < hired_films.length; i++) {
   tr.className = "timetable__film-row";
   // last chid - plus button
   // -----------------------------------------------FORM-------------------------------------------------------
-  tr.lastChild.lastChild.onclick = function() {
+  tr.lastChild.lastChild.onclick = function () {
     // show the form
     orderFormContainer.style.display = "block";
     // enter the data to the form
-    document.getElementById(
-      "order-form__film-name"
-    ).innerHTML = film.getName.call(films[i]);
-    document.getElementById(
-      "order-form__start-time"
-    ).innerHTML = film.getStart.call(films[i]);
-    document.getElementById("order-form__ganre").innerHTML = film.getGanre.call(
-      films[i]
-    );
-    // update price
-    const formTotal = document.getElementById("order-form__total");
-    formTotal.innerHTML = film.getPrice.call(films[i]);
-    document.getElementById("order-form__tikets-amount").onchange = function() {
-      formTotal.innerHTML = this.value * film.getPrice.call(films[i]);
-    };
-    // save order
-    document.getElementById(
-      "order-form__film-price"
-    ).innerHTML = film.getPrice.call(films[i]);
-
-    document.getElementById("order-form__order-btn").onclick = function() {
+    document.getElementById("order-form__film-name").innerHTML = film.getName.call(films[i]);
+    document.getElementById("order-form__start-time").innerHTML = film.getStart.call(films[i]);
+    document.getElementById("order-form__ganre").innerHTML = film.getGanre.call(films[i]);
+    formFilmPrice.innerHTML = film.getPrice.call(films[i]);
+    // save order 
+    document.getElementById("order-form__order-btn").onclick = function () {
       const c_name = document.getElementById("order-form__customer-name");
       const c_ph = document.getElementById("order-form__phone-number");
       function checker(input) {
@@ -263,23 +341,25 @@ for (let i = 0; i < hired_films.length; i++) {
         orders.push({
           customerName: c_name.value,
           customerPhone: c_ph.value,
-          total: parseFloat(formTotal.innerHTML)
+          total: parseFloat(formTotal.innerHTML),
+          places: current_places
         });
+        // clearFormData();// TODO
       }
     };
   };
   body.appendChild(tr);
 }
 
-// cntainer to insert
+// ------------------------------------------SLIDER--------------------------------------------------
 const filmsSlider = document.getElementsByClassName("films__container")[0];
 let f;
 for (f of new_films) {
   const content_text = `
     <div class="film__content">
     <a href="${film.getLink.call(
-      f
-    )}" target="_blank" title="Кинопоиск: ${film.getName.call(f)}">
+    f
+  )}" target="_blank" title="Кинопоиск: ${film.getName.call(f)}">
         <h3 class="film__title">${film.getName.call(f)}</h3>
     </a>
     <hr class="film__hr">
@@ -295,7 +375,7 @@ for (f of new_films) {
         // appending
         let addition = `<a href=${
           film.getSocial.call(f)[soc_net]
-        } target="_blank" title="${soc_net} social network">`;
+          } target="_blank" title="${soc_net} social network">`;
         addition += social_icons[soc_net] + "</a>";
         content_text += addition;
       }
@@ -313,4 +393,3 @@ for (f of new_films) {
 
   filmsSlider.appendChild(film_box);
 }
-// slider modification

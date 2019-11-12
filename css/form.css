@@ -4,7 +4,7 @@ form {
 /*My modification to make text visible*/
 form * {
   color: #242424;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 /*To make it look better*/
 .form__part {
@@ -15,10 +15,10 @@ textarea,
 select {
   font-size: 0.95rem;
   color: #6c6c6c;
-  padding: 0.75rem 0.55rem;
+  padding: 0.3rem 0.55rem;
   border: 1px solid #bebebe;
   border-radius: 0.25rem;
-  width: 100%;
+  /* width: 100%;  */
   outline: 0;
   transition: 0.2s;
 }
@@ -123,12 +123,20 @@ button {
   text-align: center;
   border: none;
 }
-#order-form .form__part {
+#order-form {
   padding-left: 1rem;
   padding-top: 1rem;
 }
 #order-form input {
   max-width: 70%;
+}
+#order-form__seats {
+  margin-top: 0.5rem;
+}
+.centered {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 .placeDiv {
   display: inline-block;
@@ -136,6 +144,16 @@ button {
   width: 3em;
   text-align: center;
   border-radius: 25%;
-  background-color: #90d23d;
   margin-left: 0.5em;
+  background-color: #a3cc40;
+
+}
+.newBronnedPlace {
+  background-color: palevioletred;
+}
+.bronnedPlace {
+  background-color: #ffa500;
+}
+.hooveredPlace {
+  background-color: #4b4d4f;
 }
