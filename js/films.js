@@ -172,7 +172,7 @@ for (let i = 0; i < films.length; i++) {
 }
 //  --------------------------------------------------ORDERS-------------------------------------------------------
 const orders = [];
-const current_places = [];
+let current_places = [];
 
 function getPriceByNumber(number) {
   if (number < 3 || number > AMOUNT_OF_PLACES - 3) {
@@ -193,8 +193,8 @@ function changeTicketsCounter(is_added) {
 const formFilmPrice = document.getElementById("order-form__film-price")
 const formTotal = document.getElementById("order-form__total");
 function changePriceCounter(seat, is_added) {
-  let difference = parseInt(formFilmPrice.innerHTML) + getPriceByNumber(seat)
-  let initial = parseInt(formTotal.innerHTML)
+  const difference = parseInt(formFilmPrice.innerHTML) + getPriceByNumber(seat)
+  const initial = parseInt(formTotal.innerHTML)
   if (is_added) {
     formTotal.innerHTML = initial + difference
   } else {
@@ -208,7 +208,7 @@ function saveElementAsBronned(place, is_added) {
   if (is_added) {
     current_places.push(place)
   } else {
-    current_places.remove(place)
+    current_places = current_places.filter((element)=>(element != place))
   }
 }
 //--------------------------------------------------------PLACES GENERATION-----------------------------------------------------------------
@@ -219,8 +219,8 @@ const AMOUNT_OF_ROWS = 5;       // const, defined by the space
 const places = [];              // array of places objects
 // places array generation
 for (let i = 0; i < AMOUNT_OF_PLACES * AMOUNT_OF_ROWS; i++) {
-  let seat_number = (i % AMOUNT_OF_PLACES) + 1
-  let place_price = getPriceByNumber(seat_number)
+  const seat_number = (i % AMOUNT_OF_PLACES) + 1
+  const place_price = getPriceByNumber(seat_number)
   places.push({
     number: seat_number,
     row: Math.floor(i / AMOUNT_OF_PLACES) + 1,
@@ -245,54 +245,62 @@ placesDescription.innerText = "Выберите место"
 const placesContainer = document.createElement('div')
 // document.getElementById("order-form__seats");
 placesContainer.id = "order-form__seats"
+placesContainer.style.display = 'grid'
+placesContainer.style.cssText = 'grid-template-columns: repeat(' + AMOUNT_OF_PLACES + '}, 1fr); grid-template-rows: repeat(' + AMOUNT_OF_ROWS + '}, 1fr);'
+//------------------------------------------------------------------EVENTS-------------------------------------------------------------------
+// change color
+placesContainer.addEventListener('mouseover', function (event) {
+  const t = event.srcElement
+  const cl = t.classList
+  if (cl.contains("placeDiv") && !cl.contains('bronnedPlace')) {
+    t.classList.add("hooveredPlace")
+  }
+})
+// return color
+placesContainer.addEventListener('mouseout', function (event) {
+  const t = event.srcElement
+  const cl = t.classList
+  if (cl.contains("placeDiv") && !cl.contains('bronnedPlace')) {
+    t.classList.remove("hooveredPlace")
+  }
+})
+// click GUI
+placesContainer.addEventListener('click', function (event) {
+  const t = event.srcElement
+  const cl = t.classList
+  if (cl.contains("placeDiv")) {
+    if (!cl.contains('bronnedPlace')) {
+      placesDescription.innerHTML = "Ряд: " + parseInt(t.style.gridRow) + " Место: " + parseInt(t.style.gridColumn)
+    } else {
+      placesDescription.innerHTML = "Место занято"
+    }
+  }
+})
+// show price on right click
+placesContainer.addEventListener('mousedown', function (event) {
+  if (event.button == 2) {
+    placesDescription.innerHTML = "Стоимость: " + getPriceByNumber(event.srcElement.style.gridColumn)
+  }
+})
+// places insertion
 for (let place of places) {
   const placeDiv = document.createElement("div");
   placeDiv.innerHTML = place.number;
   placeDiv.classList.add("placeDiv");
+  placeDiv.style.gridColumn = place.number
+  placeDiv.style.gridRow = place.row
   // default coloring
   if (place.brone) {
     placeDiv.classList.add("bronnedPlace");
   }
-  // ------------Actions
-  // change color
-  placeDiv.addEventListener('mouseover', function (event) {
-    if (!place.brone) {
-      event.target.classList.add("hooveredPlace")
-      // in my opinion, it is better to do it here
-      // placesDescription.innerHTML = "Стоимость: " + place.price
-    }
-  })
-  // return color
-  placeDiv.addEventListener('mouseout', function (event) {
-    if (!place.brone) {
-      event.target.classList.remove("hooveredPlace")
-    }
-  })
-  // click GUI
-  placeDiv.addEventListener('click', function (event) {
-    if (!place.brone) {
-      placesDescription.innerHTML = "Ряд: " + place.row + " Место: " + place.number
-
-    } else {
-      placesDescription.innerHTML = "Место занято"
-    }
-  })
   // click data changing
   placeDiv.addEventListener('click', function (event) {
     if (!place.brone) {
-      event.target.classList.toggle("newBronnedPlace")
-      let is_added = event.target.classList.contains("newBronnedPlace")
-      saveElementAsBronned(this, is_added)
+      placeDiv.classList.toggle("newBronnedPlace")
+      saveElementAsBronned(place,  placeDiv.classList.contains("newBronnedPlace"))
     }
   })
-  // ON RIGHT CKICK
-  placeDiv.addEventListener('mousedown', function (event) {
-    if (event.button == 2) {
-      placesDescription.innerHTML = "Стоимость: " + place.price
-    }
-  })
-
-  // --------------DOM appending
+  // DOM appending
   placesContainer.appendChild(placeDiv);
 }
 placesChoiceContainer.appendChild(placesDescription)
@@ -300,7 +308,6 @@ placesChoiceContainer.appendChild(placesContainer)
 const form = document.getElementById("order-form")
 const formChildren = form.children
 form.insertBefore(placesChoiceContainer, formChildren[formChildren.length - 2].nextSibling)
-
 // ------------------------------------------------TABLE---------------------------------------------------------
 for (let i = 0; i < hired_films.length; i++) {
   // fill the table (HTML)
