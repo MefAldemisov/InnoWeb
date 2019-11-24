@@ -87,6 +87,14 @@ header::after,
 }
 .header__first-line {
     overflow: hidden;
+    position: fixed;
+    top: 1rem;
+    width: 51.5rem;
+    transition: all 1s ease;
+    z-index: 100;
+}
+.header__first-line.out {
+    transform: translateY(-150%);
 }
 .header__content {
     width: 51.5rem;
@@ -542,3 +550,17 @@ td:last-child {
  .svg-icon:hover {
     filter: none; 
  }
+/* Additional */
+.btn__to-top {
+    border-radius: 100%;
+    border-width: 0;
+    background: #242424;
+    opacity: 0.4;
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    color: #fff;
+    z-index: 100;
+}

@@ -23,7 +23,7 @@
 <body>
     <header>
         <section class="header__content">
-            <div class="header__first-line">
+            <div id="first-line" class="header__first-line">
                 <div class='header__logo-container'>
                     <a href="http://university.innopolis.ru" target="_blank">
                         <img class="header__inno-logo" src="images/logo_inno.png" alt="logo of Innopolis"
@@ -38,10 +38,10 @@
                             <hr class="header__menu-button-line">
                         </div>
                         <ul>
-                            <li><a href="#welcome_wrap">ЗАКАЗАТЬ БИЛЕТ</a></li>
-                            <li><a href="#section_benefits">ПРЕИМУЩЕСТВА</a></li>
-                            <li><a href="#section_films">ФИЛЬМЫ</a></li>
-                            <li><a href="#section_contacts">КОНТАКТЫ</a></li>
+                            <li><a class="link-menu" href="#tikets_table">ЗАКАЗАТЬ БИЛЕТ</a></li>
+                            <li><a class="link-menu" href="#section_benefits">ПРЕИМУЩЕСТВА</a></li>
+                            <li><a class="link-menu" href="#section_films">ФИЛЬМЫ</a></li>
+                            <li><a class="link-menu" href="#section_contacts">КОНТАКТЫ</a></li>
                         </ul>
                     </nav>
                     <div class="header__location-box">
@@ -66,7 +66,8 @@
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
         </section>
     </div>
-    <section class="benefits">
+    <button id="up" class="btn__to-top">Up</button>
+    <section id="section_benefits" class="benefits">
         <h2 class="benefits__header">Почему мы?</h2>
         <div class="benefits__container">
             <article class="benefits__benefit benefits__first-benefit">
@@ -100,7 +101,7 @@
             </article>
         </div>
     </section>
-    <section class="timetable">
+    <section id="tikets_table" class="timetable">
         <h2 class="timetable__header">Выберите фильм</h2>
         <div class="timetable__table-container">
             <table>
@@ -156,7 +157,7 @@
         </div>
         <div class="background-triangle"></div>
     </section>
-    <section class="films">
+    <section id="section_films" class="films">
         <article class="films__text">
             <h2 class="films__header">Фильмы</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci alias, animi, commodi eius
@@ -229,7 +230,7 @@
     <section class="map">
         <img class="map__img" src="./images/06_map-footer.jpg" alt="map">
     </section>
-    <footer class="contacts__container">
+    <footer id="section_contacts" class="contacts__container">
         <div class="contacts">
             <div class="contacts__icons">
                 <a href="https://twitter.com" target="_blank" title="Facebook social network">
@@ -296,8 +297,8 @@
         </div>
 
         <!-- Hidden element -->
-        <div id="order-form__container">
-            <form id=order-form>
+        <div id="order-form__container" class="order-form__container">
+            <form id=order-form class=order-form>
                 <button id="order-form__close-btn">X</button>
                 <div class="form__part">
                     <span>Название фильма:</span>
@@ -322,18 +323,21 @@
                 <div class=form__part>
                     <span title="Формат: x-xxx-xxx-xx-xx">Номер телефона:</span>
                     <input title="Формат: x-xxx-xxx-xx-xx" id="order-form__phone-number" type="tel"
-                        pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required></input>
+                        pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required value=""></input>
                 </div>
                 <div class=form__part>
                     <span>Количество билетов:</span>
                     <span id="order-form__tikets-amount">0</span>
                 </div>
-
+                <div class=form__part>
+                    <span>Выбранные места:</span>
+                    <span id="order-form__places-list">0</span>
+                </div>
                 <div class="form__part">
                     <span>Итог:</span>
                     <span id="order-form__total">0</span>
                 </div>
-                <button id="order-form__order-btn">Забронировать</button>
+                <button id="order-form__order-btn" class="order-form__order-btn">Забронировать</button>
             </form>
         </div>
     </footer>
@@ -345,7 +349,38 @@
     <script type="text/babel" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/babel" src="js/owl.carousel.min.js"></script>
     <script type="text/babel" src="js/slider.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // scrolling up
+            $("#up").on("click", function () {
+                $("html, body").animate({ scrollTop: 0 }, 500)
+                return false
+            })
+            // menu scrolling (don't use embeded a's) (to make it more smooth)
+            $(".link-menu").on("click", function () {
+                const destId = $(this).attr("href")
+                const scrollDest = $(destId).offset().top
+                $("html, body").animate({ scrollTop: scrollDest }, 500)
+                return false
+            })
+            // showing of the menu n the upper scroll
+            const firstLine = $("#first-line")
+            let prevScr = 0
 
+            $(window).scroll(function () {
+                const scr = $(window).scrollTop()
+
+                if (scr > 100 && scr > prevScr) {
+                    firstLine.addClass("out")
+                } else {
+                    firstLine.removeClass("out")
+                }
+                prevScr = scr
+            })
+
+        })
+    </script>
     <!-- For ofline testing -->
     <!-- <script src="js/films.js"></script>
     <script src="js/form.js"></script>

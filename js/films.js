@@ -4,16 +4,18 @@ const ganres = [
   "боевик",
   "приключения",
   "фэнтези",
-  "драмма",
-  "коммедия",
+  "драма",
+  "комедия",
   "мультфильм"
 ]
+
 //--------------------------------------------------------SVG----------------------------------------------------
 // array of svgs for social networks: <<Hardkodit' tak hardkodit'>>
-const svg_around = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+const svgAround = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     preserveAspectRatio="xMidYMid" width="34" height="33.97" viewBox="0 0 34 34">`
+
 // Genereation of icons to insert to films description  
-const social_icons = {
+const socialIcons = {
   facebook: `<path
                 d="M17.006,32.359 C8.528,32.359 1.656,25.477 1.656,16.988 C1.656,8.498 8.528,1.616 17.006,1.616 C25.484,1.616 32.356,8.498 32.356,16.988 C32.356,25.477 25.484,32.359 17.006,32.359 ZM17.377,8.564 C13.910,8.564 14.700,12.683 14.585,14.185 C14.585,14.196 12.465,14.185 12.465,14.185 L12.465,16.979 L14.578,16.979 L14.578,26.815 L18.090,26.815 L18.082,16.979 L20.435,16.979 L20.896,14.169 L18.090,14.200 C18.090,12.205 17.936,11.394 19.101,11.394 C19.205,11.394 20.907,11.390 20.907,11.390 L20.911,8.564 L17.377,8.564 Z"
                 class="svg-icon" />
@@ -31,11 +33,14 @@ const social_icons = {
                 class="svg-icon" />
             `
 }
-let s;
-for (s of Object.keys(social_icons)) {
-  social_icons[s] = svg_around + social_icons[s] + "</svg>";
+
+let s
+for (s of Object.keys(socialIcons)) {
+  socialIcons[s] = svgAround + socialIcons[s] + "</svg>"
 }
+
 //------------------------------------------------------FILMS DATA-----------------------------------------------
+
 // film datatype
 const film = {
   getName: function () {
@@ -71,7 +76,8 @@ const film = {
   getDescription: function () {
     return this.description;
   }
-};
+}
+
 // films to show
 const films = [
   {
@@ -156,23 +162,27 @@ const films = [
     price: 350,
     description: "Lorem ipsum dolor sit amet, consectetur"
   }
-];
+]
+
 //-----------------------------------------------------FILMS FILTERING------------------------------------------
-const hired_films = [];
+
+const hiredFilms = []
+
 // for slider
-const new_films = [];
+const newFilms = []
+
 // new and hird arrays filling
 for (let i = 0; i < films.length; i++) {
   if (films[i].hire) {
-    hired_films.push(films[i]);
+    hiredFilms.push(films[i])
   }
   if (films[i].new) {
-    new_films.push(films[i]);
+    newFilms.push(films[i])
   }
 }
 //  --------------------------------------------------ORDERS-------------------------------------------------------
 const orders = [];
-let current_places = [];
+let currentPlaces = [];
 
 function getPriceByNumber(number) {
   if (number < 3 || number > AMOUNT_OF_PLACES - 3) {
@@ -180,10 +190,11 @@ function getPriceByNumber(number) {
   }
   return 200
 }
+
 // Tickets counter changing
-const ticketsCounter = document.getElementById('order-form__tikets-amount')
-function changeTicketsCounter(is_added) {
-  if (is_added) {
+const ticketsCounter = document.getElementById("order-form__tikets-amount")
+function changeTicketsCounter(isAdded) {
+  if (isAdded) {
     ticketsCounter.innerHTML++
   } else {
     ticketsCounter.innerHTML--
@@ -191,212 +202,272 @@ function changeTicketsCounter(is_added) {
 }
 // Total price generation
 const formFilmPrice = document.getElementById("order-form__film-price")
-const formTotal = document.getElementById("order-form__total");
-function changePriceCounter(seat, is_added) {
+
+const formTotal = document.getElementById("order-form__total")
+
+function changePriceCounter(seat, isAdded) {
   const difference = parseInt(formFilmPrice.innerHTML) + getPriceByNumber(seat)
   const initial = parseInt(formTotal.innerHTML)
-  if (is_added) {
+
+  if (isAdded) {
     formTotal.innerHTML = initial + difference
   } else {
     formTotal.innerHTML = initial - difference
   }
 }
-// Chosing one more place
-function saveElementAsBronned(place, is_added) {
-  changeTicketsCounter(is_added)
-  changePriceCounter(place.number, is_added)
-  if (is_added) {
-    current_places.push(place)
-  } else {
-    current_places = current_places.filter((element)=>(element != place))
+
+const placesList = document.getElementById("order-form__places-list")
+function updatePlacesList() {
+  // outputs list of places to the placesList
+  let output = ""
+  for (let place of currentPlaces) {
+    output += ` м-${place.number} р-${place.row},`
   }
+  output = output.slice(0, output.length-1)
+  placesList.innerHTML = output
+}
+
+// Chosing one more/less place
+
+function saveElementAsBronned(place, isAdded) {
+  changeTicketsCounter(isAdded)
+  changePriceCounter(place.number, isAdded)
+
+  if (isAdded) {
+    currentPlaces.push(place)
+  } else {
+    currentPlaces = currentPlaces.filter((element) => element !== place)
+  }
+  updatePlacesList()
 }
 //--------------------------------------------------------PLACES GENERATION-----------------------------------------------------------------
 
 // places creation
-const AMOUNT_OF_PLACES = 10;    // const, defined by the space
-const AMOUNT_OF_ROWS = 5;       // const, defined by the space
-const places = [];              // array of places objects
+const AMOUNT_OF_PLACES = 10    // const, defined by the space
+const AMOUNT_OF_ROWS = 5       // const, defined by the space
+const places = []              // array of places objects
+
 // places array generation
 for (let i = 0; i < AMOUNT_OF_PLACES * AMOUNT_OF_ROWS; i++) {
-  const seat_number = (i % AMOUNT_OF_PLACES) + 1
-  const place_price = getPriceByNumber(seat_number)
+  const seatNumber = (i % AMOUNT_OF_PLACES) + 1
+  const placePrice = getPriceByNumber(seatNumber)
+
   places.push({
-    number: seat_number,
+    number: seatNumber,
     row: Math.floor(i / AMOUNT_OF_PLACES) + 1,
-    price: place_price,
+    price: placePrice,
     brone: Math.round(Math.random())
   });
 }
 //-----------------------------------------------------FORM INSERT DOM----------------------------------------------------------------------
+
 // closing ordearray of ordered ticketsr form functionality
-const orderFormContainer = document.getElementById("order-form__container");
-const closeOrderForm = document.getElementById("order-form__close-btn");
+const orderFormContainer = document.getElementById("order-form__container")
+const closeOrderForm = document.getElementById("order-form__close-btn")
+
 closeOrderForm.onclick = function () {
-  orderFormContainer.style.display = "none";
+  orderFormContainer.style.display = "none"
 };
+
 // html of cinema places generation
 const placesChoiceContainer = document.createElement("div")
 placesChoiceContainer.classList.add("form_part")
+
 const placesDescription = document.createElement("span")
 placesDescription.classList.add("centered")
 placesDescription.innerText = "Выберите место"
 // seats addition
-const placesContainer = document.createElement('div')
-// document.getElementById("order-form__seats");
+
+const placesContainer = document.createElement("div")
+
 placesContainer.id = "order-form__seats"
-placesContainer.style.display = 'grid'
-placesContainer.style.cssText = 'grid-template-columns: repeat(' + AMOUNT_OF_PLACES + '}, 1fr); grid-template-rows: repeat(' + AMOUNT_OF_ROWS + '}, 1fr);'
+placesContainer.className = "order-form__seats"
+placesContainer.style.display = "grid"
+placesContainer.style.cssText = "grid-template-columns: repeat(" + AMOUNT_OF_PLACES + "}, 1fr); grid-template-rows: repeat(" + AMOUNT_OF_ROWS + "}, 1fr);"
 //------------------------------------------------------------------EVENTS-------------------------------------------------------------------
+
 // change color
-placesContainer.addEventListener('mouseover', function (event) {
+placesContainer.addEventListener("mouseover", function (event) {
   const t = event.srcElement
   const cl = t.classList
-  if (cl.contains("placeDiv") && !cl.contains('bronnedPlace')) {
+
+  if (cl.contains("placeDiv") && !cl.contains("bronnedPlace")) {
     t.classList.add("hooveredPlace")
   }
 })
+
 // return color
-placesContainer.addEventListener('mouseout', function (event) {
+placesContainer.addEventListener("mouseout", function (event) {
   const t = event.srcElement
   const cl = t.classList
-  if (cl.contains("placeDiv") && !cl.contains('bronnedPlace')) {
+
+  if (cl.contains("placeDiv") && !cl.contains("bronnedPlace")) {
     t.classList.remove("hooveredPlace")
   }
 })
+
 // click GUI
-placesContainer.addEventListener('click', function (event) {
+placesContainer.addEventListener("click", function (event) {
   const t = event.srcElement
   const cl = t.classList
+
   if (cl.contains("placeDiv")) {
-    if (!cl.contains('bronnedPlace')) {
-      placesDescription.innerHTML = "Ряд: " + parseInt(t.style.gridRow) + " Место: " + parseInt(t.style.gridColumn)
+
+    if (!cl.contains("bronnedPlace")) {
+      placesDescription.innerHTML = `Ряд: ${parseInt(t.style.gridRow)} Место: ${parseInt(t.style.gridColumn)}`
     } else {
       placesDescription.innerHTML = "Место занято"
     }
+
   }
 })
+
 // show price on right click
-placesContainer.addEventListener('mousedown', function (event) {
-  if (event.button == 2) {
-    placesDescription.innerHTML = "Стоимость: " + getPriceByNumber(event.srcElement.style.gridColumn)
+placesContainer.addEventListener("mousedown", function (event) {
+
+  if (event.button === 2) {
+    placesDescription.innerHTML = `Стоимость: ${getPriceByNumber(event.srcElement.style.gridColumn)}`
   }
+
 })
+
 // places insertion
 for (let place of places) {
-  const placeDiv = document.createElement("div");
-  placeDiv.innerHTML = place.number;
-  placeDiv.classList.add("placeDiv");
+
+  const placeDiv = document.createElement("div")
+  placeDiv.innerHTML = place.number
+  placeDiv.classList.add("placeDiv")
   placeDiv.style.gridColumn = place.number
   placeDiv.style.gridRow = place.row
+
   // default coloring
   if (place.brone) {
-    placeDiv.classList.add("bronnedPlace");
+    placeDiv.classList.add("bronnedPlace")
   }
+
   // click data changing
-  placeDiv.addEventListener('click', function (event) {
+  placeDiv.addEventListener("click", function (event) {
+
     if (!place.brone) {
       placeDiv.classList.toggle("newBronnedPlace")
-      saveElementAsBronned(place,  placeDiv.classList.contains("newBronnedPlace"))
+      saveElementAsBronned(place, placeDiv.classList.contains("newBronnedPlace"))
     }
+
   })
+
   // DOM appending
   placesContainer.appendChild(placeDiv);
+
 }
+
 placesChoiceContainer.appendChild(placesDescription)
 placesChoiceContainer.appendChild(placesContainer)
+
 const form = document.getElementById("order-form")
 const formChildren = form.children
+const body = document.getElementById("timetable__rows");
+
 form.insertBefore(placesChoiceContainer, formChildren[formChildren.length - 2].nextSibling)
 // ------------------------------------------------TABLE---------------------------------------------------------
-for (let i = 0; i < hired_films.length; i++) {
+
+for (let i = 0; i < hiredFilms.length; i++) {
   // fill the table (HTML)
-  const body = document.getElementById("timetable__rows");
   const tr = document.createElement("tr");
-  const tr_text = `<tr><td>${film.getStart.bind(films[i])()}</td>
+  const trText = `<tr><td>${film.getStart.bind(films[i])()}</td>
                         <td>${film.getName.call(films[i])}</td>
                         <td>${film.getGanre.bind(films[i])()}</td>
                         <td>${film.getPrice.bind(films[i])()}</td>
-                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td></tr>`;
+                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td></tr>`
+
   // set the elements
-  tr.innerHTML = tr_text;
+  tr.innerHTML = trText;
   tr.className = "timetable__film-row";
   // last chid - plus button
   // -----------------------------------------------FORM-------------------------------------------------------
-  tr.lastChild.lastChild.onclick = function () {
+  tr.lastChild.onclick = function () {
     // show the form
     orderFormContainer.style.display = "block";
+
     // enter the data to the form
     document.getElementById("order-form__film-name").innerHTML = film.getName.call(films[i]);
     document.getElementById("order-form__start-time").innerHTML = film.getStart.call(films[i]);
     document.getElementById("order-form__ganre").innerHTML = film.getGanre.call(films[i]);
     formFilmPrice.innerHTML = film.getPrice.call(films[i]);
+
     // save order 
     document.getElementById("order-form__order-btn").onclick = function () {
-      const c_name = document.getElementById("order-form__customer-name");
-      const c_ph = document.getElementById("order-form__phone-number");
-      function checker(input) {
+      const custName = document.getElementById("order-form__customer-name");
+      const custPhone = document.getElementById("order-form__phone-number");
+      function isEmptyInput(input) {
+
         if (input.value) {
           input.style.border = "1px solid green";
         } else {
           input.style.border = "2px solid red";
         }
         return Boolean(input.value);
+
       }
+
       // if all required fields are filled, then add the order to the array
-      if (checker(c_name) && checker(c_ph)) {
+      if (isEmptyInput(custName) && isEmptyInput(custPhone)) {
+
         orders.push({
-          customerName: c_name.value,
-          customerPhone: c_ph.value,
+          customerName: custName.value,
+          customerPhone: custPhone.value,
           total: parseFloat(formTotal.innerHTML),
-          places: current_places
+          places: currentPlaces
         });
         // clearFormData();// TODO
       }
+
     };
   };
   body.appendChild(tr);
 }
 
-// ------------------------------------------SLIDER--------------------------------------------------
+// --------------------------------------------------------------SLIDER-----------------------------------------------------------
 const filmsSlider = document.getElementsByClassName("films__container")[0];
+
 let f;
-for (f of new_films) {
-  const content_text = `
+for (f of newFilms) {
+
+  const contentText = `
     <div class="film__content">
-    <a href="${film.getLink.call(
-    f
-  )}" target="_blank" title="Кинопоиск: ${film.getName.call(f)}">
+    <a href="${film.getLink.call(f)}" target="_blank" title="Кинопоиск: ${film.getName.call(f)}">
         <h3 class="film__title">${film.getName.call(f)}</h3>
     </a>
     <hr class="film__hr">
     <p class="film__description">${film.getDescription.call(f)}</p>
     <div class="film__social">
-                        `;
+                        `
   // add social links
+
   if (film.getSocial.call(f)) {
     // selecting social network
-    let soc_net;
-    for (soc_net of ["facebook", "twitter", "behance", "dribble"]) {
-      if (film.getSocialList.call(f).includes(soc_net)) {
+
+    let socNet;
+    for (socNet of ["facebook", "twitter", "behance", "dribble"]) {
+
+      if (film.getSocialList.call(f).includes(socNet)) {
         // appending
-        let addition = `<a href=${
-          film.getSocial.call(f)[soc_net]
-          } target="_blank" title="${soc_net} social network">`;
-        addition += social_icons[soc_net] + "</a>";
-        content_text += addition;
+        let addition = `<a href=${film.getSocial.call(f)[socNet]} target="_blank" title="${socNet} social network">`;
+        addition += socialIcons[socNet] + "</a>";
+        contentText += addition;
       }
+
     }
+
   }
   // closing of the tags
-  content_text += `</div></div>`;
-  // connecting with HTML
-  const film_box = document.createElement("article");
-  film_box.className = "film__box";
-  film_box.innerHTML = `<img class="film__icon" src="${film.getImage.call(
-    f
-  )}" alt="${film.getName.call(f)} illustration">`;
-  film_box.innerHTML += content_text;
+  contentText += `</div></div>`;
 
-  filmsSlider.appendChild(film_box);
+  // connecting with HTML
+  const filmBox = document.createElement("article");
+  filmBox.className = "film__box";
+  filmBox.innerHTML = `<img class="film__icon" src="${film.getImage.call(f)}" 
+                        alt="${film.getName.call(f)} illustration">`
+  filmBox.innerHTML += contentText;
+
+  filmsSlider.appendChild(filmBox);
 }
