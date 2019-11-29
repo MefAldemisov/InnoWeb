@@ -1,4 +1,4 @@
-const SYPEX_URL = "https://api.sypexgeo.net/jon/"
+const SYPEX_URL = "https://api.sypexgeo.net/json/"
 const CITIES_URL = "http://glavpunkt.ru/api/get_rf_cities"
 let cities
 let DEL_PRICE // delivery price (the same for all tickets)
