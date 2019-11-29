@@ -564,6 +564,7 @@ td:last-child {
     right: 4rem;
     color: #fff;
     z-index: 100;
+<<<<<<< HEAD
 }
 /* Modal window - select sity */
 .select-city__modal {
@@ -596,4 +597,6 @@ td:last-child {
 .city-item:hover {
     background: lightskyblue;
     color: #000;
+=======
+>>>>>>> f52c6437137b192600fb54a7134ab598d31fb679
 }
