@@ -192,39 +192,42 @@ function getPriceByNumber(number) {
 }
 
 // Tickets counter changing
-const ticketsCounter = document.getElementById("order-form__tikets-amount")
+const ticketsCounter = $("#order-form__tikets-amount")
 function changeTicketsCounter(isAdded) {
   if (isAdded) {
-    ticketsCounter.innerHTML++
+    ticketsCounter.text(function () {
+      return (parseInt(this.textContent) + 1)
+    })
   } else {
-    ticketsCounter.innerHTML--
+    ticketsCounter.text(function () {
+      return (parseInt(this.textContent) - 1)
+    })
   }
 }
 // Total price generation
-const formFilmPrice = document.getElementById("order-form__film-price")
-
-const formTotal = document.getElementById("order-form__total")
+const formFilmPrice = $("#order-form__film-price")
+const formTotal = $("#order-form__total")
 
 function changePriceCounter(seat, isAdded) {
-  const difference = parseInt(formFilmPrice.innerHTML) + getPriceByNumber(seat)
-  const initial = parseInt(formTotal.innerHTML)
+  const difference = parseInt(formFilmPrice.text()) + getPriceByNumber(seat)
+  const initial = parseInt(formTotal.text())
 
   if (isAdded) {
-    formTotal.innerHTML = initial + difference
+    formTotal.text(initial + difference)
   } else {
-    formTotal.innerHTML = initial - difference
+    formTotal.text(initial - difference)
   }
 }
 
-const placesList = document.getElementById("order-form__places-list")
+const placesList = $("#order-form__places-list")
 function updatePlacesList() {
   // outputs list of places to the placesList
   let output = ""
   for (let place of currentPlaces) {
     output += ` м-${place.number} р-${place.row},`
   }
-  output = output.slice(0, output.length-1)
-  placesList.innerHTML = output
+  output = output.slice(0, output.length - 1)
+  placesList.html(output)
 }
 
 // Chosing one more/less place
@@ -239,6 +242,15 @@ function saveElementAsBronned(place, isAdded) {
     currentPlaces = currentPlaces.filter((element) => element !== place)
   }
   updatePlacesList()
+}
+
+
+function getDeliveryPrice(initialPrice) {
+  if (!DEL_PRICE) {
+    return 0
+  } else {
+    return DEL_PRICE
+  }
 }
 //--------------------------------------------------------PLACES GENERATION-----------------------------------------------------------------
 
@@ -262,20 +274,20 @@ for (let i = 0; i < AMOUNT_OF_PLACES * AMOUNT_OF_ROWS; i++) {
 //-----------------------------------------------------FORM INSERT DOM----------------------------------------------------------------------
 
 // closing ordearray of ordered ticketsr form functionality
-const orderFormContainer = document.getElementById("order-form__container")
-const closeOrderForm = document.getElementById("order-form__close-btn")
+const orderFormContainer = $("#order-form__container")
+const closeOrderForm = $("#order-form__close-btn")
 
-closeOrderForm.onclick = function () {
-  orderFormContainer.style.display = "none"
-};
+closeOrderForm.click(function () {
+  orderFormContainer.css("display", "none")
+});
 
 // html of cinema places generation
-const placesChoiceContainer = document.createElement("div")
-placesChoiceContainer.classList.add("form_part")
+const placesChoiceContainer = $("<div></div>")
+placesChoiceContainer.addClass("form_part")
 
-const placesDescription = document.createElement("span")
-placesDescription.classList.add("centered")
-placesDescription.innerText = "Выберите место"
+const placesDescription = $("<span></span>")
+placesDescription.addClass("centered")
+placesDescription.text("Выберите место")
 // seats addition
 
 const placesContainer = document.createElement("div")
@@ -286,41 +298,6 @@ placesContainer.style.display = "grid"
 placesContainer.style.cssText = "grid-template-columns: repeat(" + AMOUNT_OF_PLACES + "}, 1fr); grid-template-rows: repeat(" + AMOUNT_OF_ROWS + "}, 1fr);"
 //------------------------------------------------------------------EVENTS-------------------------------------------------------------------
 
-// change color
-placesContainer.addEventListener("mouseover", function (event) {
-  const t = event.srcElement
-  const cl = t.classList
-
-  if (cl.contains("placeDiv") && !cl.contains("bronnedPlace")) {
-    t.classList.add("hooveredPlace")
-  }
-})
-
-// return color
-placesContainer.addEventListener("mouseout", function (event) {
-  const t = event.srcElement
-  const cl = t.classList
-
-  if (cl.contains("placeDiv") && !cl.contains("bronnedPlace")) {
-    t.classList.remove("hooveredPlace")
-  }
-})
-
-// click GUI
-placesContainer.addEventListener("click", function (event) {
-  const t = event.srcElement
-  const cl = t.classList
-
-  if (cl.contains("placeDiv")) {
-
-    if (!cl.contains("bronnedPlace")) {
-      placesDescription.innerHTML = `Ряд: ${parseInt(t.style.gridRow)} Место: ${parseInt(t.style.gridColumn)}`
-    } else {
-      placesDescription.innerHTML = "Место занято"
-    }
-
-  }
-})
 
 // show price on right click
 placesContainer.addEventListener("mousedown", function (event) {
@@ -355,19 +332,49 @@ for (let place of places) {
 
   })
 
+  // change color
+  placeDiv.addEventListener("mouseover", function (event) {
+
+    if (!place.brone) {
+      this.classList.add("hooveredPlace")
+    }
+
+  })
+
+  // return color
+  placeDiv.addEventListener("mouseout", function (event) {
+
+    if (!place.brone) {
+      this.classList.remove("hooveredPlace")
+    }
+  })
+
+  // click GUI
+  placeDiv.addEventListener("click", function (event) {
+
+    if (!place.brone) {
+      placesDescription.innerHTML = `Ряд: ${place.row} 
+                                     Место: ${place.number}`
+    } else {
+      placesDescription.innerHTML = "Место занято"
+    }
+
+  })
+
   // DOM appending
   placesContainer.appendChild(placeDiv);
 
 }
 
-placesChoiceContainer.appendChild(placesDescription)
-placesChoiceContainer.appendChild(placesContainer)
+placesChoiceContainer.append(placesDescription)
+placesChoiceContainer.append(placesContainer)
 
-const form = document.getElementById("order-form")
-const formChildren = form.children
-const body = document.getElementById("timetable__rows");
-
-form.insertBefore(placesChoiceContainer, formChildren[formChildren.length - 2].nextSibling)
+const form = $("#order-form")
+const formChildren = form.children()
+const body = $("#timetable__rows");
+const child_selector = "#order-form :nth-child(" + (formChildren.length) + ")"
+placesChoiceContainer.insertBefore($(child_selector))
+// $(child_selector).insertBefore(placesChoiceContainer)
 // ------------------------------------------------TABLE---------------------------------------------------------
 
 for (let i = 0; i < hiredFilms.length; i++) {
@@ -386,44 +393,43 @@ for (let i = 0; i < hiredFilms.length; i++) {
   // -----------------------------------------------FORM-------------------------------------------------------
   tr.lastChild.onclick = function () {
     // show the form
-    orderFormContainer.style.display = "block";
+    orderFormContainer.css("display", "block");
 
     // enter the data to the form
-    document.getElementById("order-form__film-name").innerHTML = film.getName.call(films[i]);
-    document.getElementById("order-form__start-time").innerHTML = film.getStart.call(films[i]);
-    document.getElementById("order-form__ganre").innerHTML = film.getGanre.call(films[i]);
-    formFilmPrice.innerHTML = film.getPrice.call(films[i]);
+    $("#order-form__film-name").html(film.getName.call(films[i]));
+    $("#order-form__start-time").html(film.getStart.call(films[i]));
+    $("#order-form__ganre").html(film.getGanre.call(films[i]));
+    formFilmPrice.html(film.getPrice.call(films[i]));
+    $("#order-form__delivery-price").html(getDeliveryPrice(film.getPrice.call(films[i])))
 
     // save order 
-    document.getElementById("order-form__order-btn").onclick = function () {
-      const custName = document.getElementById("order-form__customer-name");
-      const custPhone = document.getElementById("order-form__phone-number");
+    $("#order-form__order-btn").click(function () {
+      const custName = $("#order-form__customer-name");
+      const custPhone = $("#order-form__phone-number");
       function isEmptyInput(input) {
-
-        if (input.value) {
-          input.style.border = "1px solid green";
+        if (input.val()) {
+          input.css("border", "1px solid green");
         } else {
-          input.style.border = "2px solid red";
+          input.css("border", "2px solid red");
         }
-        return Boolean(input.value);
-
+        return Boolean(input.val());
       }
 
       // if all required fields are filled, then add the order to the array
       if (isEmptyInput(custName) && isEmptyInput(custPhone)) {
 
         orders.push({
-          customerName: custName.value,
-          customerPhone: custPhone.value,
-          total: parseFloat(formTotal.innerHTML),
+          customerName: custName.val(),
+          customerPhone: custPhone.val(),
+          total: parseFloat(formTotal.text().textContent),
           places: currentPlaces
         });
         // clearFormData();// TODO
       }
 
-    };
+    });
   };
-  body.appendChild(tr);
+  body.append(tr);
 }
 
 // --------------------------------------------------------------SLIDER-----------------------------------------------------------

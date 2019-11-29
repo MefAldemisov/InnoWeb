@@ -1,24 +1,40 @@
-const SYPEX_URL = "https://api.sypexgeo.net/json/"
+const SYPEX_URL = "https://api.sypexgeo.net/jon/"
 const CITIES_URL = "http://glavpunkt.ru/api/get_rf_cities"
 let cities
+let DEL_PRICE // delivery price (the same for all tickets)
 
+function searchTarif(city) {
+    const url = `https://glavpunkt.ru/api/get_tarif?serv=выдача&cityFrom=Санкт-Петербург&cityTo=${city}&weight=0.1&price=500&paymentType=prepaid`
+    
+    getRequest(url, function() {
+        const result = $.parseJSON(this)
+        if (result["result"]==="ok") {
+            DEL_PRICE = result["tarif"]
+        } 
+    })
+}
 
-/**
- * 
- * @param {*} api_url - addres
- */
-function getRequest(api_url, callback) {
+function locationModalOpen() {
+    if (!cities) {
+        getRequest(CITIES_URL, function() {
+            cities = $.parseJSON(this)
+        })
+    }
+    $("#city-modal").toggleClass("hidden-modal")
+}
+
+function getRequest(api_url, callback, errorHandler=null) {
     const xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
+
         if(xhr.readyState === 4 && xhr.status === 200) {
             callback.call(xhr.responseText)
-        }
+        } 
     }
+
+    xhr.onerror = errorHandler
     xhr.open("GET", api_url, true)
-    xhr.send()  
-    if (xhr.status !== 200) {
-        return (xhr.status + ": " + xhr.statusText)
-    }
+    xhr.send() 
 }
 
 $(document).ready(($) => {
@@ -32,21 +48,18 @@ $(document).ready(($) => {
         }
         console.log("NewAnswer: ", ans)
         $("#location-city").html(city)
-    })
+        searchTarif(city)
+    }, locationModalOpen())
     
 })
 
 $(($) => {
+
     $('#location-city').click(function(e) {
         e.preventDefault()
-        if (!cities) {
-            getRequest(CITIES_URL, function() {
-                cities = $.parseJSON(this)
-            })
-        }
-        $("#city-modal").toggleClass("hidden-modal")
-
+        locationModalOpen()
     })
+
     $("body").on("input keyup", "input[name=city_choose]", function() {
         // console.log(cities)
         let search = $(this).val()
@@ -61,8 +74,13 @@ $(($) => {
         html += `</ul>`
         $("#search_suggestions").html(html)
     })
-    $("body").on("click", ".city-item",function () {
-        $("#location-city").html($(this).data("city"))
+
+    $("body").on("click", ".city-item", function () {
+        const city = $(this).data("city")
+        $("#location-city").html(city)
         $("#city-modal").toggleClass("hidden-modal")
+        searchTarif(city)
     })
+
+    
 })
