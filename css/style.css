@@ -87,6 +87,14 @@ header::after,
 }
 .header__first-line {
     overflow: hidden;
+    position: fixed;
+    top: 1rem;
+    width: 51.5rem;
+    transition: all 1s ease;
+    z-index: 100;
+}
+.header__first-line.out {
+    transform: translateY(-150%);
 }
 .header__content {
     width: 51.5rem;
@@ -120,6 +128,7 @@ ul a:hover {
 }
 .header__location {
     position: relative;
+    cursor: pointer;
 }
 .header__location::before {
     content: "";
@@ -542,3 +551,49 @@ td:last-child {
  .svg-icon:hover {
     filter: none; 
  }
+/* Additional */
+.btn__to-top {
+    border-radius: 100%;
+    border-width: 0;
+    background: #242424;
+    opacity: 0.4;
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    color: #fff;
+    z-index: 100;
+}
+/* Modal window - select sity */
+.select-city__modal {
+    position: fixed;
+    display: block;
+    width: 80%;
+    left: 10%;
+    top: 3rem;
+    min-height: 6rem;
+    background: #fff;
+    opacity: 0.85;
+    color: black;
+    border-radius: 1rem;
+    padding: 1rem 10% 1rem 10%;
+}
+.select-city__modal h4 {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+.select-city__modal input {
+    width:100%;
+    margin-bottom: 1rem;
+}
+.hidden-modal {
+    display: none;
+}
+.city-item {
+    cursor: pointer;
+}
+.city-item:hover {
+    background: lightskyblue;
+    color: #000;
+}

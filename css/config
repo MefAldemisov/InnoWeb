@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "/home/alina/workspase/WebInno"
+		},
+		{
+			"name": "SSH FS - cinema.config.sshfs",
+			"uri": "ssh://cinema.config.sshfs/"
+		}
+	],
+	"settings": {}
+}
