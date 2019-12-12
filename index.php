@@ -235,7 +235,7 @@
 
         <!-- Hidden element -->
         <div id="order-form__container" class="order-form__container">
-            <form id="order-form" class="order-form">
+            <form id="order-form" class="order-form" method="POST" action="serv.php">
                 <button id="order-form__close-btn" class="order-form__close-btn">X</button>
                 <div class="form__part">
                     <span>Название фильма:</span>
@@ -261,32 +261,31 @@
                 </div>
                 <div class=form__part>
                     <span>Имя заказщика:</span>
-                    <input id="order-form__customer-name" type="text" required></input>
+                    <input id="order-form__customer-name" type="text" name="name" required></input>
                 </div>
                 <div class="form__part">
                     <label for="input_mail">email </label>
-                    <input id="input_mail" type="email" placeholder="something@gmail.com" required="required" autocomplete="on">
+                    <input id="input_mail" type="email" placeholder="something@gmail.com" name="email" required="required" autocomplete="on">
                 </div>
                 <div class=form__part>
                     <span title="Формат: x-xxx-xxx-xx-xx">Номер телефона:</span>
-                    <input title="Формат: x-xxx-xxx-xx-xx" id="order-form__phone-number" type="tel" pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required value=""></input>
+                    <input title="Формат: x-xxx-xxx-xx-xx" id="order-form__phone-number" type="tel" pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required name="pnone" value=""></input>
                 </div>
-
                 <div class="form__part">
-                    <input id="file_selector" type="file" name="file_input">
+                    <input id="file_selector" type="file" name="file">
                     <label for="file_selector">Загрузить купон</label>
                 </div>
                 <div class=form__part>
                     <span>Количество билетов:</span>
-                    <span id="order-form__tikets-amount">0</span>
+                    <span id="order-form__tikets-amount" name="tickets_amount">0</span>
                 </div>
                 <div class=form__part>
                     <span>Выбранные места:</span>
-                    <span id="order-form__places-list">0</span>
+                    <span type="text" id="order-form__places-list" name="places" readonly></span>
                 </div>
                 <div class="form__part">
                     <span>Итог:</span>
-                    <span id="order-form__total">0</span>
+                    <input type="number" id="order-form__total" name="total" readonly></input>
                 </div>
                 <div class="form__part">
                     <input type="checkbox" required="required" name="agree">

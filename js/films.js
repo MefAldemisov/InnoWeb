@@ -207,19 +207,21 @@ function changeTicketsCounter(isAdded) {
 // Total price generation
 const formFilmPrice = $("#order-form__film-price")
 const formTotal = $("#order-form__total")
+formTotal.val(0)
 
 function changePriceCounter(seat, isAdded) {
   const difference = parseInt(formFilmPrice.text()) + getPriceByNumber(seat)
-  const initial = parseInt(formTotal.text())
-
+  const initial = parseInt(formTotal.val())
   if (isAdded) {
-    formTotal.text(initial + difference)
+    formTotal.val(initial + difference)
   } else {
-    formTotal.text(initial - difference)
+    formTotal.val(initial - difference)
   }
 }
 
 const placesList = $("#order-form__places-list")
+placesList.text("")
+
 function updatePlacesList() {
   // outputs list of places to the placesList
   let output = ""
@@ -227,7 +229,7 @@ function updatePlacesList() {
     output += ` м-${place.number} р-${place.row},`
   }
   output = output.slice(0, output.length - 1)
-  placesList.html(output)
+  placesList.text(output)
 }
 
 // Chosing one more/less place
@@ -421,7 +423,7 @@ for (let i = 0; i < hiredFilms.length; i++) {
         orders.push({
           customerName: custName.val(),
           customerPhone: custPhone.val(),
-          total: parseFloat(formTotal.text().textContent),
+          total: parseFloat(formTotal.val().textContent),
           places: currentPlaces
         });
         // clearFormData();// TODO

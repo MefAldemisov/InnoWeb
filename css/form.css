@@ -8,7 +8,12 @@ form * {
 .form__part {
   margin-bottom: 0.5rem;
 }
-input,
+input[readonly] {
+  border: none;
+  background: transparent;
+}
+
+input:not([readonly]),
 textarea,
 select {
   font-size: 0.95rem;
