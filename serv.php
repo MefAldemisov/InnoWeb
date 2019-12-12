@@ -37,7 +37,9 @@ function validateEmail($email)
 function fillSession($client) {
     $fields = ["time", "name", "phone", "email", "file", "places", "total"];
     foreach($fields as $f) {
+        
         if (isset($client->$f)) {
+        
             $_SESSION[$f] = $client->$f;
         }
     }

@@ -53,9 +53,6 @@ a {
     color: inherit;
     text-decoration: none;
 }
-a:hover { /*Functional requirement of 2.9.1 PD*/
-    color: #90d23d;
-}
 figure { /*is not reseted*/
     margin-block-start: 0;
     margin-block-end: 0;
@@ -91,7 +88,7 @@ header::after,
     top: 1rem;
     width: 51.5rem;
     transition: all 1s ease;
-    z-index: 100;
+    z-index: 50;
     background: rgba(0, 0, 0, 0.5);
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -252,12 +249,15 @@ th::after {
     height: 0;
     border-style: solid;  
     border-color: transparent;
+    cursor: pointer;
 }
-th:nth-of-type(1)::after { /*To bottom direction*/
+th:nth-of-type(1)::after,
+th:nth-of-type(2)::after,
+.bottom_triangle { /*To bottom direction*/
     border-width: 0 0.5rem 0.75rem 0.5rem;
     border-color: transparent transparent #fff transparent;
 }
-th:nth-of-type(2)::after { /*To top direction*/
+.upper_triangle { /*To top direction*/
     border-width: 0.75rem 0.5rem 0 0.5rem;
     border-color:#fff transparent transparent transparent;
 }
@@ -369,12 +369,16 @@ td:last-child {
     margin-bottom: 0.75rem;
 }
 .present__button {
+    position: absolute;
+    top: 100%;
+    right: 0;
     letter-spacing: 0.01em;
     margin-top: 1.2rem;
     border-radius: 0.75rem;
     border-width: 0;
     background-color: #90d23d;
     padding: 0.85rem 1.65rem;
+    z-index: 100;
 }
 /*Films*/
 .films{
@@ -503,11 +507,12 @@ td:last-child {
 }
 /*Map*/
 .map {
-    width: 51.5rem;
+    width: 100%;
     margin: 0 auto;
 }
 .map__img {
-    width: 51.5rem;
+    width: 100%;
+    height: 21rem;
 }
 /*Contacts*/
 .contacts__container {
@@ -570,6 +575,7 @@ td:last-child {
 }
 /* Modal window - select sity */
 .select-city__modal {
+    z-index: 100;
     position: fixed;
     display: block;
     width: 80%;
@@ -599,4 +605,14 @@ td:last-child {
 .city-item:hover {
     background: lightskyblue;
     color: #000;
+}
+/* albom */
+.albom__container {
+    display: none;
+    width: 51.5rem;
+    margin: 0 auto;
+}
+.albom__img {
+    width: 15rem;
+    height: 20rem;
 }

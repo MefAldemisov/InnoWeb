@@ -166,7 +166,7 @@ const films = [
 
 //-----------------------------------------------------FILMS FILTERING------------------------------------------
 
-const hiredFilms = []
+let hiredFilms = []
 
 // for slider
 const newFilms = []
@@ -382,7 +382,7 @@ function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
+  for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
@@ -394,71 +394,158 @@ function getCookie(cname) {
   return "";
 }
 const custName = $("#order-form__customer-name");
-if(getCookie("name")) {
+if (getCookie("name")) {
   custName.html(getCookie("name"))
 }
 
 const custPhone = $("#order-form__phone-number");
-if(getCookie("phone")) {
+if (getCookie("phone")) {
   custPhone.html(getCookie("phone"))
 }
+//---------------------------------------------------------------SORT--------------------------------------------------------
+function strcmp(a, b) {
+  if (a > b) {
+    return 1
+  } else if (a === b) {
+    return 0
+  }
+  return -1
+}
 
+function compareStart(a, b) {
+  return strcmp(a.start, b.start)
+}
+
+function compareStartInv(a, b) {
+  return -1 * compareStart(a, b)
+}
+
+function compareName(a, b) {
+  return strcmp(a.name, b.name)
+}
+function compareNameInv(a, b) {
+  return -1 * compareName(a, b)
+}
+
+hiredFilms = hiredFilms.sort(compareName)
 // ------------------------------------------------TABLE---------------------------------------------------------
 
-for (let i = 0; i < hiredFilms.length; i++) {
-  // fill the table (HTML)
-  const tr = document.createElement("tr");
-  const trText = `<tr><td>${film.getStart.bind(films[i])()}</td>
-                        <td>${film.getName.call(films[i])}</td>
-                        <td>${film.getGanre.bind(films[i])()}</td>
-                        <td>${film.getPrice.bind(films[i])()}</td>
-                        <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td></tr>`
+function fillTable(films) {
 
-  // set the elements
-  tr.innerHTML = trText;
-  tr.className = "timetable__film-row";
-  // last chid - plus button
-  // -----------------------------------------------FORM-------------------------------------------------------
-  tr.lastChild.onclick = function () {
-    // show the form
-    orderFormContainer.css("display", "block");
+  for (let i = 0; i < films.length; i++) {
+    // fill the table (HTML)
+    const tr = document.createElement("tr");
+    const trText = `<tr><td>${film.getStart.bind(films[i])()}</td>
+                          <td>${film.getName.call(films[i])}</td>
+                          <td>${film.getGanre.bind(films[i])()}</td>
+                          <td>${film.getPrice.bind(films[i])()}</td>
+                          <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td></tr>`
 
-    // enter the data to the form
-    $("#order-form__film-name").html(film.getName.call(films[i]));
-    $("#order-form__start-time").html(film.getStart.call(films[i]));
-    $("#order-form__ganre").html(film.getGanre.call(films[i]));
-    formFilmPrice.html(film.getPrice.call(films[i]));
-    $("#order-form__delivery-price").html(getDeliveryPrice(film.getPrice.call(films[i])))
+    // set the elements
+    tr.innerHTML = trText;
+    tr.className = "timetable__film-row";
+    // last chid - plus button
+    // -----------------------------------------------FORM-------------------------------------------------------
+    tr.lastChild.onclick = function () {
+      // show the form
+      orderFormContainer.css("display", "block");
 
-    // save order 
-    $("#order-form__order-btn").click(function () {
-      
-  
-      function isEmptyInput(input) {
-        if (input.val()) {
-          input.css("border", "1px solid green");
-        } else {
-          input.css("border", "2px solid red");
+      // enter the data to the form
+      $("#order-form__film-name").html(film.getName.call(films[i]));
+      $("#order-form__start-time").html(film.getStart.call(films[i]));
+      $("#order-form__ganre").html(film.getGanre.call(films[i]));
+      formFilmPrice.html(film.getPrice.call(films[i]));
+      $("#order-form__delivery-price").html(getDeliveryPrice(film.getPrice.call(films[i])))
+
+      // save order 
+      $("#order-form__order-btn").click(function () {
+
+
+        function isEmptyInput(input) {
+          if (input.val()) {
+            input.css("border", "1px solid green");
+          } else {
+            input.css("border", "2px solid red");
+          }
+          return Boolean(input.val());
         }
-        return Boolean(input.val());
-      }
 
-      // if all required fields are filled, then add the order to the array
-      if (isEmptyInput(custName) && isEmptyInput(custPhone)) {
+        // if all required fields are filled, then add the order to the array
+        if (isEmptyInput(custName) && isEmptyInput(custPhone)) {
 
-        orders.push({
-          customerName: custName.val(),
-          customerPhone: custPhone.val(),
-          total: parseFloat(formTotal.val().textContent),
-          places: currentPlaces
-        });
-        // clearFormData();// TODO
-      }
+          orders.push({
+            customerName: custName.val(),
+            customerPhone: custPhone.val(),
+            total: parseFloat(formTotal.val().textContent),
+            places: currentPlaces
+          });
+          // clearFormData();// TODO
+        }
 
-    });
-  };
-  body.append(tr);
+      });
+    };
+    body.append(tr);
+  }
+
 }
+
+function emptyTable() {
+  for (ch of body.children()) {
+    ch.remove()
+  }
+}
+fillTable(hiredFilms)
+
+function flipper(th) {
+  const bottomTriangle = {
+    "border-width": "0 0.5rem 0.75rem 0.5rem",
+    "border-color": "transparent transparent #fff transparent"
+  }
+
+  const upperTriangle = {
+    "border-width": "0.75rem 0.5rem 0 0.5rem",
+    "border-color": "#fff transparent transparent transparent"
+  }
+  is_upper = $(th).css("border-top-color") === $(th).css("border-right-color")
+  if (is_upper) {
+    $(th).css(upperTriangle)
+    console.log("+", "fghjk")
+  } else {
+    $(th).css(bottomTriangle)
+    console.log("-", "fghjk")
+  }
+  console.log("ok", $(th).css("border-top-color"))
+
+}
+
+$("th:nth-of-type(1)").after().click(
+  function () {
+    // this.css("upper_triangle")
+    flipper(this)
+    // inside table 
+    emptyTable()
+    if (is_upper) {
+      hiredFilms = hiredFilms.sort(compareStart)
+    } else {
+      hiredFilms = hiredFilms.sort(compareStartInv)
+    }
+    fillTable(hiredFilms)
+
+  })
+$("th:nth-of-type(2)").after().click(
+
+  function () {
+    flipper(this)
+
+    emptyTable()
+    if (is_upper) {
+      hiredFilms = hiredFilms.sort(compareName)
+    } else {
+      hiredFilms = hiredFilms.sort(compareNameInv)
+    }
+    fillTable(hiredFilms)
+  }
+)
 
 // --------------------------------------------------------------SLIDER-----------------------------------------------------------
 const filmsSlider = document.getElementsByClassName("films__container")[0];

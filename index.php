@@ -99,7 +99,7 @@
             </article>
             <article class="benefits__benefit">
                 <div class="benefits__img-container">
-                    <img class="benefits__img" src="images/b2_icon_3.jpg" alt="a comfortable sofa">
+                    <img id="albom_shower" class="benefits__img" src="images/b2_icon_3.jpg" alt="a comfortable sofa">
                 </div>
                 <h3 class="benefits__benefit-name">Удобные кресла</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem cum dolores dolorum eius error
@@ -107,6 +107,15 @@
                     illum itaque molestiae mollitia nemo, nostrum officia quas ratione tempora temporibus veritatis vero
                     voluptates.</p>
             </article>
+        </div>
+    </section>
+    <section class="albom__container" id="albom">
+        <div class="albom__inner owl-carousel">
+        <img class="albom__img" src="images/places1.jpeg">
+        <img class="albom__img" src="images/places2.jpeg">
+        <img class="albom__img" src="images/places3.jpeg">
+        <img class="albom__img" src="images/places4.jpeg">
+        <img class="albom__img" src="images/places5.jpeg">
         </div>
     </section>
     <section id="tikets_table" class="timetable">
@@ -134,6 +143,7 @@
             </p>
         </div>
     </section>
+
     <section class="present">
         <div class="background-triangle"></div>
         <div class="present__text-container">
@@ -162,6 +172,7 @@
                 </p>
                 <button id="send__present" class="present__button">Получить подарок</button>
             </article>
+            
         </div>
         <div class="background-triangle"></div>
     </section>
@@ -373,8 +384,9 @@
     <script src="js/ajax.js"></script>
     <script src="js/films.js"></script>
     <script src="js/form.js"></script>
-    
+
     <script src="js/owl.carousel.min.js"></script>
+    <script src="js/albom.js"></script>
     <script src="js/slider.js"></script>
 </body>
 
