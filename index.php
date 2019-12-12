@@ -235,7 +235,8 @@
 
         <!-- Hidden element -->
         <div id="order-form__container" class="order-form__container">
-            <form id="order-form" class="order-form" method="POST" action="serv.php">
+            <form enctype="multipart/form-data" id="order-form" class="order-form" 
+                  method="POST" action="serv.php">
                 <button id="order-form__close-btn" class="order-form__close-btn">X</button>
                 <div class="form__part">
                     <span>Название фильма:</span>
@@ -261,19 +262,42 @@
                 </div>
                 <div class=form__part>
                     <span>Имя заказщика:</span>
-                    <input id="order-form__customer-name" type="text" name="name" required></input>
+                    <input id="order-form__customer-name" type="text" name="name" value="<?php echo isset($_COOKIE['name']) ? $_COOKIE['name'] : ''; ?>"></input>
+                    <?php
+                    if (isset($_GET["error_name"]) && $_GET["error_name"]) {
+                        echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
+                    }
+                    ?>
                 </div>
                 <div class="form__part">
                     <label for="input_mail">email </label>
-                    <input id="input_mail" type="email" placeholder="something@gmail.com" name="email" required="required" autocomplete="on">
+                    <input id="input_mail" type="email" placeholder="something@gmail.com" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
+                    <?php
+                    if (isset($_GET["error_email"]) && $_GET["error_email"]) {
+                        echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
+                    }
+                    if (isset($_GET["error_spec_email"]) && $_GET["error_spec_email"]) {
+                        echo "<p class='form__error-msg'> неправильный формат: адресс должен заканчиваться на .com или .org </p>";
+                    }
+                    ?>
                 </div>
                 <div class=form__part>
-                    <span title="Формат: x-xxx-xxx-xx-xx">Номер телефона:</span>
-                    <input title="Формат: x-xxx-xxx-xx-xx" id="order-form__phone-number" type="tel" pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required name="pnone" value=""></input>
+                    <span title="Формат:+7(8)9999999999">Номер телефона:</span>
+                    <input title="Формат:+7(8)9999999999" id="order-form__phone-number" type="tel" 
+                           pattern="[\+7,8][0-9]{10}" name="phone" 
+                           value="<?php echo isset($_COOKIE['phone']) ? $_COOKIE['phone'] : ''; ?>"
+                           ></input>
+                    <?php
+                    if (isset($_GET["error_phone"]) && $_GET["error_phone"]) {
+                        echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
+                    }
+                    ?>
                 </div>
                 <div class="form__part">
+                    
                     <input id="file_selector" type="file" name="file">
-                    <label for="file_selector">Загрузить купон</label>
+                        <label for="file_selector">Загрузить купон</label>
+                    </input>
                 </div>
                 <div class=form__part>
                     <span>Количество билетов:</span>

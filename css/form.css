@@ -173,3 +173,7 @@ button {
   background-color: #4b4d4f;
   cursor: pointer;
 }
+.form__error-msg {
+  font-size: 0.8rem;
+  color: red;
+}

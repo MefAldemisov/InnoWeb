@@ -377,6 +377,32 @@ const body = $("#timetable__rows");
 const child_selector = "#order-form :nth-child(" + (formChildren.length) + ")"
 placesChoiceContainer.insertBefore($(child_selector))
 // $(child_selector).insertBefore(placesChoiceContainer)
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+const custName = $("#order-form__customer-name");
+if(getCookie("name")) {
+  custName.html(getCookie("name"))
+}
+
+const custPhone = $("#order-form__phone-number");
+if(getCookie("phone")) {
+  custPhone.html(getCookie("phone"))
+}
+
 // ------------------------------------------------TABLE---------------------------------------------------------
 
 for (let i = 0; i < hiredFilms.length; i++) {
@@ -406,8 +432,8 @@ for (let i = 0; i < hiredFilms.length; i++) {
 
     // save order 
     $("#order-form__order-btn").click(function () {
-      const custName = $("#order-form__customer-name");
-      const custPhone = $("#order-form__phone-number");
+      
+  
       function isEmptyInput(input) {
         if (input.val()) {
           input.css("border", "1px solid green");
