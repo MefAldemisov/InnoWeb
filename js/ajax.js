@@ -3,6 +3,16 @@ const CITIES_URL = "http://glavpunkt.ru/api/get_rf_cities"
 let cities
 let DEL_PRICE // delivery price (the same for all tickets)
 
+function countSessions() {
+    $.ajax({
+        url: 'session_count.php',
+        success: function(data) {
+            console.log("visits",data)
+        }
+    })
+}
+
+
 function searchTarif(city) {
     const url = `https://glavpunkt.ru/api/get_tarif?serv=выдача&cityFrom=Санкт-Петербург&cityTo=${city}&weight=0.1&price=500&paymentType=prepaid`
 
@@ -37,6 +47,7 @@ function getRequest(api_url, callback, errorHandler = null) {
 }
 
 $(document).ready(($) => {
+    countSessions()
     console.log("start request")
     // how to get url??
     getRequest(SYPEX_URL, function () {
@@ -53,6 +64,7 @@ $(document).ready(($) => {
     }, locationModalOpen())
 
 })
+
 
 $(($) => {
 

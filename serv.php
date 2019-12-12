@@ -2,59 +2,56 @@
 session_start();
 
 
-// if (!validate($_COOKIE)) {
-//     header('location: /?error_form=You have already submited the form.
-//              Don\'t repeat it again!');
-// } else {
-    $client = new Client;
-    if (validate($_POST)) {
+$client = new Client;
+if (validate($_POST)) {
+    validateEmail($_POST["email"]);
+    $client->checkData($_POST);
+    fillSession($client);
 
-        validateEmail($_POST["email"]);
+    /** TODO DB work */
+    var_dump($client);
+    header("location: /thanks.php?name=" . $_POST["name"]);
+} else {
 
-        $client->checkData($_POST);
-
-        $_SESSION['name'] = $_POST['name'];
-
-        
-        /** TODO DB work */ 
-        var_dump($client);
-        header("location: /thanks.php?name=" . $_POST["name"]);
-    } else {
-        
-        $req_fields = ["name", "phone", "email"];
-        $error_msg = "location: /?";
-        foreach ($req_fields as $field) {
-            if (!(isset($_POST[$field]) && $_POST[$field])) {
-                $error_msg .= "error_" . $field . "='Not filled'&";
-            } 
+    $req_fields = ["name", "phone", "email"];
+    $error_msg = "location: /?";
+    foreach ($req_fields as $field) {
+        if (!(isset($_POST[$field]) && $_POST[$field])) {
+            $error_msg .= "error_" . $field . "='Not filled'&";
         }
-        header(substr($error_msg, 0, -1));
     }
-
-    // echo "Hey!";
-    // var_dump($client);
-// }
+    header(substr($error_msg, 0, -1));
+}
 
 
 
-function validateEmail($email) 
+function validateEmail($email)
 {
-    if(preg_match("/.com$/", $email)||preg_match("/.org$/", $email)) {
+    if (preg_match("/.com$/", $email) || preg_match("/.org$/", $email)) {
         return true;
     } else {
         header("location: /?error_spec_email='Invalid pattern'");
     }
 }
 
+function fillSession($client) {
+    $fields = ["time", "name", "phone", "email", "file", "places", "total"];
+    foreach($fields as $f) {
+        if (isset($client->$f)) {
+            $_SESSION[$f] = $client->$f;
+        }
+    }
+}
+
 function validate($data) // also can be used for cookey
 {
     $result = true;
-    if (!(isset($data["agree"]) && $data["agree"]=="on")) {
+    if (!(isset($data["agree"]) && $data["agree"] == "on")) {
         $result = false;
     }
 
     $req_fields = ["name", "phone", "email"];
-    
+
     foreach ($req_fields as $field) {
         if (!(isset($data[$field]) && $data[$field])) {
             $result = false;
@@ -67,13 +64,19 @@ function validate($data) // also can be used for cookey
 
 class Client
 {
-    public 
-    $name, 
-    $phone, 
-    $email, 
-    $file, 
-    $places, 
-    $total;
+    public
+        $time,
+        $name,
+        $phone,
+        $email,
+        $file,
+        $places,
+        $total;
+
+    function __construct()
+    {
+        $time = time();
+    }
 
     public function checkData($data)
     {
@@ -83,7 +86,7 @@ class Client
         $this->phone = $data[$field];
         $field = "email";
         $this->email = $data[$field];
-        
+
         $field = "file";
         if (isset($data[$field]) && $data[$field]) {
             $this->file = $data[$field];
