@@ -1,6 +1,4 @@
-form {
-  width: 20rem; /*Isn't it too small?*/
-}
+
 /*My modification to make text visible*/
 form * {
   color: #242424;
@@ -8,7 +6,7 @@ form * {
 }
 /*To make it look better*/
 .form__part {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 input,
 textarea,
@@ -76,10 +74,10 @@ input[type="file"] + label {
   color: #90d23d;
   position: relative;
   border: 1px solid #90d23d;
-  padding: 0.75rem;
+  padding: 0.5rem;
   z-index: 2;
   background: #fff;
-  width: 100%;
+  width: 80%;
   display: block;
   cursor: pointer;
   border-radius: 0.25rem;
@@ -90,48 +88,61 @@ button {
   border-right: 1px solid transparent;
   border-bottom: 1px solid transparent;
 }
-#order-form__container {
+.order-form__container {
   display: none;
   position: fixed;
   top: 1rem;
-  left: 25vw;
-  width: 38rem;
+  right: calc((100% - 51.5rem)/2);
+  width: 51.5rem;
+  margin: 0 auto; 
   background: rgba(256, 256, 256, 0.9);
-  border:2px solid black;
+  border: 2px solid black;
   border-radius: 2rem;
   z-index: 10;
 }
-/* Order form 4.8 */
+/* Order form */
 .order-form {
   position: relative;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 1rem;
 }
+.form__part:nth-child(2n-1) {
+  grid-column: 2;
+}
+.form__part:nth-child(2n) {
+  grid-column: 1;
+}
+.form__seats,
 .order-form__order-btn {
-  margin-top: 1.2rem;
+  grid-column: 1 / span 2;
+}
+.order-form__order-btn {
+  width: 60%;
+  margin: 1rem auto;
   border-radius: 0.75rem;
   border-width: 0;
-  /* background-color: #90d23d; */
-  /* position: absolute; */
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-  font-size: 1.2rem;
+  background-color: #a3cc40;
+  font-size: 1rem;
 }
 .order-form__close-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 1.5rem;
-  width: 2rem;
-  height: 2rem;
+  font-size: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
   text-align: center;
   border: none;
+  background: #a3cc40;
 }
 .order-form input {
   max-width: 70%;
 }
 .order-form__seats {
-  margin: 0.5rem;
+  margin: 0 auto;
+  width: 60%;
   display: grid;  
   grid-gap: 0.2rem;
 }

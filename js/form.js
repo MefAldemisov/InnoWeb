@@ -2,7 +2,7 @@
 
 let name_guest_1 = document.getElementById('input_name')
 console.log("name guest:", name_guest_1)
-let button_send_info = document.getElementById('send_present')
+let button_send_info = document.getElementById('send__present')
 console.log("button:", button_send_info)
 
 // action: onclick

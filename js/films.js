@@ -283,7 +283,7 @@ closeOrderForm.click(function () {
 
 // html of cinema places generation
 const placesChoiceContainer = $("<div></div>")
-placesChoiceContainer.addClass("form_part")
+placesChoiceContainer.addClass("form__seats")
 
 const placesDescription = $("<span></span>")
 placesDescription.addClass("centered")
