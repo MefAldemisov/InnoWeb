@@ -29,10 +29,10 @@ select {
   /* background: url(../img/down-arrow.svg) 96% center / 5% no-repeat #fff; */
 }
 /*Remove sumbols of checkbocses*/
-input[type="radio"],
+/* input[type="radio"],
 input[type="checkbox"] {
   display: none;
-}
+} */
 /*Labels configuration*/
 input[type="radio"] + label,
 input[type="checkbox"] + label {
@@ -41,18 +41,21 @@ input[type="checkbox"] + label {
   position: relative;
 }
 /*Draw radiobuttons/checkboxes */
-input[type="radio"] + label::before,
-input[type="checkbox"] + label::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.05rem;
+input[type="radio"],
+ /* + label::before, */
+input[type="checkbox"] 
+/* + label::before */
+ {
+  /* content: ""; */
+  /* position: absolute; */
+  /* left: 0; */
+  /* top: 0.05rem; */
   width: 0.7rem;
   height: 0.7rem;
   border: 1px solid #000;
 }
 /*Now radiobuttn is a cycle*/
-input[type="radio"] + label::before {
+input[type="radio"] {
   border-radius: 100%;
 }
 input[type="textarea"] {

@@ -57,14 +57,15 @@
     </header>
     <div id="city-modal" class="select-city__modal hidden-modal">
         <h4>Выберите ваш город</h4>
-        <input type="text" value="" name="city_choose"/>
+        <input type="text" value="" name="city_choose" />
         <div id="search_suggestions"></div>
     </div>
     <div class="welcome__container">
         <section class="welcome">
+                
             <h2 class="welcome__header">Добро пожаловать!</h2>
-            <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis
-                quibusdam
+            <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? 
+                Facere minima optio perferendis quibusdam
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
             <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis
                 quibusdam
@@ -178,7 +179,7 @@
         </div>
     </section>
     <section class="form__container">
-        <form autocomplete="off" method="GET" action="order.php">
+        <form autocomplete="off" method="POST" action="serv.php">
             <div class="form__part">
                 <label for="input_name">Укажите ваше имя</label>
                 <input id="input_name" type="text" value="Defalt_name" name="name" placeholder="Имя"
@@ -351,16 +352,17 @@
         </div>
     </footer>
     <!-- JS connection -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+
     <script type="text/babel" src="js/jquery-3.4.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Your custom script here -->
 
-    <script type="text/babel" src="js/ajax.js"></script>
+    <!-- <script type="text/babel" src="js/ajax.js"></script>
     <script type="text/babel" src="js/films.js"></script>
     <script type="text/babel" src="js/form.js"></script>
     <script type="text/babel" src="js/owl.carousel.min.js"></script>
-    <script type="text/babel" src="js/slider.js"></script>
+    <script type="text/babel" src="js/slider.js"></script> -->
     <script>
         $(document).ready(function () {
             // scrolling up
@@ -392,13 +394,14 @@
 
         })
     </script>
-    
+
     <!-- For ofline testing -->
-    <!-- <script src="js/films.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/films.js"></script>
+
     <script src="js/form.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/slider.js"></script> -->
+    <script src="js/slider.js"></script>
 </body>
 
 </html>

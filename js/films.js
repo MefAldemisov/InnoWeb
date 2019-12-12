@@ -438,7 +438,7 @@ const filmsSlider = document.getElementsByClassName("films__container")[0];
 let f;
 for (f of newFilms) {
 
-  const contentText = `
+  let contentText = `
     <div class="film__content">
     <a href="${film.getLink.call(f)}" target="_blank" title="Кинопоиск: ${film.getName.call(f)}">
         <h3 class="film__title">${film.getName.call(f)}</h3>
