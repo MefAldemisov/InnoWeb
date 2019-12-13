@@ -122,10 +122,10 @@
   .timetable td:nth-child(2):before {
     content: "Название фильма";
   }
-  .timetable td:nth-child(4):before {
+  .timetable td:nth-child(5):before {
     content: "Стоимость билета";
   }
-  .timetable td:nth-child(5):before {
+  .timetable td:nth-child(6):before {
     content: "Заказать билет";
   }
   .timetable tr:last-child {
