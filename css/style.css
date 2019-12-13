@@ -241,7 +241,8 @@ th {
     vertical-align: middle;
 }
 /*Triangles*/
-th::after {
+th:nth-of-type(1)::after,
+th:nth-of-type(2)::after { /*To bottom direction*/
     content: "";
     display: inline-block;
     margin-left: 0.25rem;
@@ -250,9 +251,6 @@ th::after {
     border-style: solid;  
     border-color: transparent;
     cursor: pointer;
-}
-th:nth-of-type(1)::after,
-th:nth-of-type(2)::after { /*To bottom direction*/
     border-width: 0 0.5rem 0.75rem 0.5rem;
     border-color: transparent transparent #fff transparent;
 }
@@ -281,10 +279,10 @@ td {
     word-break: break-word;
     text-align: center;
 }
-td:nth-of-type(1) {
-    width: 13.5rem;
-    max-width: 13.5rem;
-}
+/* td:nth-of-type(1) { */
+    /* width: 13.5rem; */
+    /* max-width: 13.5rem; */
+/* } */
 td:nth-of-type(2),
 td:nth-of-type(3) {
     padding-left: 1rem;

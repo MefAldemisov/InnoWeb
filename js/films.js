@@ -75,6 +75,9 @@ const film = {
   },
   getDescription: function () {
     return this.description;
+  },
+  getYear: function () {
+    return this.year;
   }
 }
 
@@ -99,7 +102,8 @@ const films = [
     hire: true,
     new: true,
     price: 380,
-    description: "Lorem ipsum dolor sit amet, consectetur"
+    description: "Lorem ipsum dolor sit amet, consectetur",
+    year: 2000
   },
   {
     start: "12:00",
@@ -116,7 +120,8 @@ const films = [
     hire: true,
     new: true,
     price: 320,
-    description: "Lorem ipsum dolor sit amet, consectetur"
+    description: "Lorem ipsum dolor sit amet, consectetur",
+    year: 2010
   },
   {
     start: "14:00",
@@ -125,7 +130,8 @@ const films = [
     hire: false,
     new: false,
     price: 400,
-    description: "Lorem ipsum dolor sit amet, consectetur"
+    description: "Lorem ipsum dolor sit amet, consectetur",
+    year: 2001
   },
   {
     start: "16:00",
@@ -142,7 +148,8 @@ const films = [
     hire: true,
     new: true,
     price: 340,
-    description: "Lorem ipsum dolor sit amet, consectetur"
+    description: "Lorem ipsum dolor sit amet, consectetur",
+    year: 2015
   },
   {
     start: "14:00",
@@ -151,7 +158,8 @@ const films = [
     hire: false,
     new: false,
     price: 390,
-    description: "Lorem ipsum dolor sit amet, consectetur"
+    description: "Lorem ipsum dolor sit amet, consectetur",
+    year:2000
   },
   {
     start: "16:00",
@@ -160,7 +168,8 @@ const films = [
     hire: true,
     new: false,
     price: 350,
-    description: "Lorem ipsum dolor sit amet, consectetur"
+    description: "Lorem ipsum dolor sit amet, consectetur",
+    year: 2015
   }
 ]
 
@@ -438,6 +447,7 @@ function fillTable(films) {
     const trText = `<tr><td>${film.getStart.bind(films[i])()}</td>
                           <td>${film.getName.call(films[i])}</td>
                           <td>${film.getGanre.bind(films[i])()}</td>
+                          <td>${film.getYear.bind(films[i])()}</td>
                           <td>${film.getPrice.bind(films[i])()}</td>
                           <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td></tr>`
 

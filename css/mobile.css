@@ -86,11 +86,6 @@
   table, thead, tbody, th, td, tr {
     display: block;
   }
-	th {
-    display: none;
-    border: none;
-    padding: none;
-  }
   .timetable td {
     padding-left: 35vw;
     font-size: 1.5rem;
@@ -101,6 +96,14 @@
     background-image: linear-gradient( #a3cc40, #a3cc40);
     background-repeat: no-repeat;
     background-size: 32vw 100%;
+  }
+  th, 
+  td:nth-child(3),
+  td:nth-child(4){
+    display: none;
+    border: none;
+    padding: none;
+    content: "";
   }
   .timetable tr:nth-child(2n+1) td {
     background-image: linear-gradient( #75ad31, #75ad31);
@@ -118,9 +121,6 @@
   }
   .timetable td:nth-child(2):before {
     content: "Название фильма";
-  }
-  .timetable td:nth-child(3):before {
-    content: "Жанр";
   }
   .timetable td:nth-child(4):before {
     content: "Стоимость билета";
