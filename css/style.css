@@ -252,12 +252,11 @@ th::after {
     cursor: pointer;
 }
 th:nth-of-type(1)::after,
-th:nth-of-type(2)::after,
-.bottom_triangle { /*To bottom direction*/
+th:nth-of-type(2)::after { /*To bottom direction*/
     border-width: 0 0.5rem 0.75rem 0.5rem;
     border-color: transparent transparent #fff transparent;
 }
-.upper_triangle { /*To top direction*/
+th.upper_triangle::after { /*To top direction*/
     border-width: 0.75rem 0.5rem 0 0.5rem;
     border-color:#fff transparent transparent transparent;
 }

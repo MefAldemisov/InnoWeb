@@ -496,32 +496,11 @@ function emptyTable() {
 }
 fillTable(hiredFilms)
 
-function flipper(th) {
-  const bottomTriangle = {
-    "border-width": "0 0.5rem 0.75rem 0.5rem",
-    "border-color": "transparent transparent #fff transparent"
-  }
-
-  const upperTriangle = {
-    "border-width": "0.75rem 0.5rem 0 0.5rem",
-    "border-color": "#fff transparent transparent transparent"
-  }
-  is_upper = $(th).css("border-top-color") === $(th).css("border-right-color")
-  if (is_upper) {
-    $(th).css(upperTriangle)
-    console.log("+", "fghjk")
-  } else {
-    $(th).css(bottomTriangle)
-    console.log("-", "fghjk")
-  }
-  console.log("ok", $(th).css("border-top-color"))
-
-}
-
-$("th:nth-of-type(1)").after().click(
+$("th:nth-of-type(1)").click (
   function () {
-    // this.css("upper_triangle")
-    flipper(this)
+    // styles
+    is_upper = $(this).hasClass("upper_triangle")
+    $(this).toggleClass("upper_triangle")
     // inside table 
     emptyTable()
     if (is_upper) {
@@ -532,11 +511,12 @@ $("th:nth-of-type(1)").after().click(
     fillTable(hiredFilms)
 
   })
-$("th:nth-of-type(2)").after().click(
-
+$("th:nth-of-type(2)").click (
   function () {
-    flipper(this)
-
+    // styles
+    is_upper = $(this).hasClass("upper_triangle")
+    $(this).toggleClass("upper_triangle")
+    // inside table
     emptyTable()
     if (is_upper) {
       hiredFilms = hiredFilms.sort(compareName)
