@@ -271,10 +271,12 @@ tbody tr:nth-of-type(2n) {
 tbody tr:nth-of-type(3n) {
     background: #6c6c6c;
 }
+th {
+    padding: 0.4rem 0.3rem;
+}
 /*Table columns*/
 td {
-    padding-top: 1.5rem;
-    padding-bottom: 1.1rem;
+    padding: 1.5rem 0.3rem 1.1rem 0.3rem;
     vertical-align: top;
     word-break: break-word;
     text-align: center;
@@ -401,6 +403,7 @@ td:last-child {
     justify-content: space-between;
     align-items: stretch;
     background-color: #fff;
+    overflow: hidden;
 }
 .empty_box {
     grid-column: 2;
@@ -444,6 +447,7 @@ td:last-child {
 	line-height: 0;
 }
 .film__box {
+    height: calc(50rem/3);
     position: relative;
     border-radius: 0.75rem;
     overflow: hidden;

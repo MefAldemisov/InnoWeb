@@ -13,6 +13,9 @@
   html { /*Mardins decrease*/
       font-size: 15px;
   }
+  .film__box {
+    height: calc(50rem/2);
+  }
 }
 @media (max-width: 850px) {
   html {
@@ -198,6 +201,9 @@
   .benefits__container :nth-child(2) {
     margin: 0;
   }
+  .film__box {
+    height: 51.5rem;
+  }
 }
 @media (max-width: 450px) {
   html {
@@ -234,7 +240,7 @@
     font-size: 3rem;
   }
   .film__box {
-    grid-column: 1 / 1; 
+    grid-column: 1 / 1;
   }
   .contacts__icons {
     width: 25rem;

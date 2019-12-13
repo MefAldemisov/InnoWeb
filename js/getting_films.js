@@ -1,4 +1,5 @@
 
+let filmsForSlider = {}
 
 let p = new Promise((resolve, reject) => {
 
@@ -11,49 +12,46 @@ let p = new Promise((resolve, reject) => {
     request.onload = function () {
       if (this.status >= 200 && this.status < 400) {
         // Success!
-  
         var data = JSON.parse(this.response);
-        //console.log(data)
         resolve(data)
       } else {
         // We reached our target server, but it returned an error
         reject()
       }
     };
-  
     request.onerror = function () {
-  
       // There was a connection error of some sort
     };
-  
     request.send();
   
   })
   
-  
   p.then((data) => {
     const films = data.results
   
-    // console.log('films:', films)
     const urlServerApiImages = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'
   
-    const filmsForSlider = films.map(film => {
+    filmsForSlider = films.map(film => {
       return ({
-        nameFilm: film.title,
-        genre_ids: film.genre_ids,
-        poster_path: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2' + film.poster_path,
-        release_date: film.release_date
+        start: Math.floor(Math.random()*24) + ".00",
+        name: film.title,
+        year: parseInt(film.release_date),
+        new: film.release_date > "2019-01-01",
+        price: Math.floor(Math.random()*20+20)*10,
+        ganre: film.overview,
+        link: urlServerApiImages + film.poster_path,
+        image: urlServerApiImages + film.poster_path,
+        hire: true,
+        social: {
+          facebook: "https://www.facebook.com",
+          twitter: "https://twitter.com",
+          behance: "https://www.behance.net",
+          dribble: "https://dribbble.com"
+        }
+
       })
     })
-  
-    //console.log('filmsForSlider', filmsForSlider)
-  
-    let htmlFilmsBlock = document.getElementById('films')
-    
-    htmlFilmsBlock.innerHTML = ''
-    console.log(htmlFilmsBlock)
-  
-  
+    filmsUser(filmsForSlider)
   })
   
   

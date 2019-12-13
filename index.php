@@ -381,6 +381,7 @@
     <!-- For ofline testing -->
     <script src="js/ajax.js"></script>
     <script src="js/films.js"></script>
+    <script src="js/getting_films.js"></script>
     <script src="js/form.js"></script>
 
     <script src="js/owl.carousel.min.js"></script>
