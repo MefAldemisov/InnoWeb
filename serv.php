@@ -10,7 +10,7 @@ if (validate($_POST)) {
 
     /** TODO DB work */
     var_dump($client);
-    header("location: /thanks.php?name=" . $_POST["name"]);
+    // header("location: /thanks.php?name=" . $_POST["name"]);
 } else {
 
     $req_fields = ["name", "phone", "email"];

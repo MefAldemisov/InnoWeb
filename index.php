@@ -108,11 +108,11 @@
     </section>
     <section class="albom__container" id="albom">
         <div class="albom__inner owl-carousel">
-        <img class="albom__img" src="images/places1.jpeg">
-        <img class="albom__img" src="images/places2.jpeg">
-        <img class="albom__img" src="images/places3.jpeg">
-        <img class="albom__img" src="images/places4.jpeg">
-        <img class="albom__img" src="images/places5.jpeg">
+            <img class="albom__img" src="images/places1.jpeg">
+            <img class="albom__img" src="images/places2.jpeg">
+            <img class="albom__img" src="images/places3.jpeg">
+            <img class="albom__img" src="images/places4.jpeg">
+            <img class="albom__img" src="images/places5.jpeg">
         </div>
     </section>
     <section id="tikets_table" class="timetable">
@@ -170,7 +170,7 @@
                 </p>
                 <button id="send__present" class="present__button">Получить подарок</button>
             </article>
-            
+
         </div>
         <div class="background-triangle"></div>
     </section>
@@ -299,10 +299,8 @@
                     ?>
                 </div>
                 <div class="form__part">
-
-                    <input id="file_selector" type="file" name="file">
-                    <label for="file_selector">Загрузить купон</label>
-                    </input>
+                    <!-- <label for="file_selector">Загрузить купон</label> -->
+                    <input id="file_selector" type="file" name="file" multiple/>
                 </div>
                 <div class=form__part>
                     <span>Количество билетов:</span>

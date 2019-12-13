@@ -66,15 +66,20 @@ input[type="textarea"] {
   resize: none;
 }
 input[type="file"] {
-  position: absolute;
+  display: inline-block;
+  z-index: 10;
+  opacity: 1;
+  width: 8rem;
+  height: 1.2rem;
+  /* position: absolute;
   opacity: 0;
   width: 1px;
   height: 1px;
   z-index: 1;
   box-shadow: none;
-  border: 0;
+  border: 0; */
 }
-input[type="file"] + label {
+/* input[type="file"] + label {
   font-size: 0.9rem;
   color: #90d23d;
   position: relative;
@@ -86,7 +91,7 @@ input[type="file"] + label {
   display: block;
   cursor: pointer;
   border-radius: 0.25rem;
-}
+} */
 /*Submit modification*/
 input[type="button"],
 button {

@@ -84,3 +84,4 @@ https://tech.yandex.ru/maps/jsapi/doc/2.1/ref/reference/geolocation-docpage/
 ### My TODO
 - [ ] Отладить форму под моб вёрстку
 - [ ] В слайлере добавить прокрутку описания (великовата)
+- [ ] Заменть все жанры на описание
