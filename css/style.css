@@ -483,6 +483,8 @@ td:last-child {
     background: #fff;
 }
 .film__description {
+    height: 7rem;
+    overflow-y: scroll;
     font-weight: 500;
     font-size: 0.9rem;
 }

@@ -4,22 +4,26 @@
   }
 }
 @media (max-width: 1300px) {
-    p {
-        font-size: 0.9rem;
-        line-height: 1.3em; 
-    }
+  p {
+    font-size: 0.9rem;
+    line-height: 1.3em;
+  }
 }
 @media (max-width: 1000px) {
-  html { /*Mardins decrease*/
-      font-size: 15px;
+  html {
+    /*Mardins decrease*/
+    font-size: 15px;
   }
   .film__box {
-    height: calc(50rem/2);
+    height: calc(50rem / 2);
+  }
+  .film__description {
+    height: 12rem;
   }
 }
 @media (max-width: 850px) {
   html {
-    font-size: 1.76vw; 
+    font-size: 1.76vw;
   }
   .header__first-line_right * {
     font-weight: 300;
@@ -34,7 +38,7 @@
   .benefits-container {
     width: 90vw;
   }
-  .benefits__benefit{
+  .benefits__benefit {
     flex-basis: 30vw;
   }
   table {
@@ -84,9 +88,14 @@
     margin-bottom: 0.1rem;
   }
   .header__first-line_right li {
-    display: none;  
+    display: none;
   }
-  table, thead, tbody, th, td, tr {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
     display: block;
   }
   .timetable td {
@@ -96,20 +105,20 @@
     max-width: 90vw;
     text-align: left;
     position: relative;
-    background-image: linear-gradient( #a3cc40, #a3cc40);
+    background-image: linear-gradient(#a3cc40, #a3cc40);
     background-repeat: no-repeat;
     background-size: 32vw 100%;
   }
-  th, 
+  th,
   td:nth-child(3),
-  td:nth-child(4){
+  td:nth-child(4) {
     display: none;
     border: none;
     padding: none;
     content: "";
   }
-  .timetable tr:nth-child(2n+1) td {
-    background-image: linear-gradient( #75ad31, #75ad31);
+  .timetable tr:nth-child(2n + 1) td {
+    background-image: linear-gradient(#75ad31, #75ad31);
   }
   .timetable td:before {
     position: absolute;
@@ -160,10 +169,10 @@
     grid-row: auto;
   }
   .films__container :last-child {
-      grid-column: auto;
+    grid-column: auto;
   }
   .films__container :nth-child(3n) {
-      grid-column: auto;
+    grid-column: auto;
   }
   .film__box p {
     font-size: 1.2rem;
@@ -203,7 +212,22 @@
   }
   .film__box {
     height: 51.5rem;
+    grid-column: 1 / 1;
   }
+  .film__description {
+    height: 20rem;
+  }
+  .films {
+    padding-left: 2rem;
+  }
+  .films__container {
+    grid-template-columns: 60%;
+    justify-content: center;
+  }
+  .films h3 {
+    font-size: 3rem;
+  }
+
 }
 @media (max-width: 450px) {
   html {
@@ -228,19 +252,6 @@
     top: 10rem;
     right: 2rem;
     width: 90vw;
-  }
-  .films {
-    padding-left: 2rem;
-  }
-  .films__container {
-    grid-template-columns: 60%;
-    justify-content: center;
-  }
-  .films h3 {
-    font-size: 3rem;
-  }
-  .film__box {
-    grid-column: 1 / 1;
   }
   .contacts__icons {
     width: 25rem;

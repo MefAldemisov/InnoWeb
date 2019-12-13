@@ -444,7 +444,7 @@ function filmsUser(films) {
         <h3 class="film__title">${film.getName.call(f)}</h3>
     </a>
     <hr class="film__hr">
-    <p class="film__description">${film.getDescription.call(f)}</p>
+    <p class="film__description">${film.getGanre.call(f)}</p>
     <div class="film__social">
                         `
     // add social links
