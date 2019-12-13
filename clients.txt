@@ -1,0 +1,27 @@
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------

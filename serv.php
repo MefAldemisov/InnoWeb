@@ -1,4 +1,6 @@
 <?php
+define('CLIENTS', __DIR__ . "/clients.txt");
+
 session_start();
 
 
@@ -9,7 +11,15 @@ if (validate($_POST)) {
     fillSession($client);
 
     /** TODO DB work */
+    if (isset($_FILES)) {
+        foreach ($_FILES as $file) {
+            saveFile($file);
+        }
+    }
+    $client->saveToFile();
+
     var_dump($client);
+    var_dump($_FILES);
     // header("location: /thanks.php?name=" . $_POST["name"]);
 } else {
 
@@ -23,7 +33,15 @@ if (validate($_POST)) {
     header(substr($error_msg, 0, -1));
 }
 
-
+function saveFile($file)
+{
+    $name = time();
+    $temp = explode('.', $file["name"]);
+    $extension = $temp[count($temp) - 1];
+    $dir = __DIR__ . "/uploads/";
+    $upload_file = $dir . $name . "." . $extension;
+    $result = move_uploaded_file($file["tmp_name"], $upload_file);
+}
 
 function validateEmail($email)
 {
@@ -34,12 +52,13 @@ function validateEmail($email)
     }
 }
 
-function fillSession($client) {
+function fillSession($client)
+{
     $fields = ["time", "name", "phone", "email", "file", "places", "total"];
-    foreach($fields as $f) {
-        
+    foreach ($fields as $f) {
+
         if (isset($client->$f)) {
-        
+
             $_SESSION[$f] = $client->$f;
         }
     }
@@ -101,5 +120,21 @@ class Client
         if (isset($data[$field]) && $data[$field]) {
             $this->total = $data[$field];
         }
+    }
+
+    public function saveToFile()
+    {
+        $data = file_get_contents(CLIENTS);
+        $new_data = "Name: " . $this->name . "\r\n";
+        $new_data .= "Phone: " . $this->phone . "\r\n";
+        $new_data .= "Email: " . $this->email . "\r\n";
+        if (isset($this->places)) {
+            $new_data .= "Places: " . $this->places . "\r\n";
+        }
+        if (isset($this->total)) {
+            $new_data .= "Total cost: " . $this->total . "\r\n";
+        }
+        $new_data .= "--------------------" . "\r\n";
+        $res = file_put_contents(CLIENTS, $data . $new_data);
     }
 }

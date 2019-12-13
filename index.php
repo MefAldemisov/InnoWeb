@@ -300,6 +300,7 @@
                 </div>
                 <div class="form__part">
                     <!-- <label for="file_selector">Загрузить купон</label> -->
+                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <input id="file_selector" type="file" name="file" multiple/>
                 </div>
                 <div class=form__part>
