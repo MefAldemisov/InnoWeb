@@ -66,9 +66,6 @@
             <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta?
                 Facere minima optio perferendis quibusdam
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
-            <?php
-            echo "Hello World!!!!";
-            ?>
             <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis
                 quibusdam
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
@@ -97,7 +94,7 @@
                 <h3 class="benefits__benefit-name">Объемный звук</h3>
                 <p>Lorem ipsum dolor sit amet.</p>
             </article>
-            <article class="benefits__benefit">
+            <article class="benefits__benefit" title="Нажми на меня, чтобы увидеть интерьер">
                 <div class="benefits__img-container">
                     <img id="albom_shower" class="benefits__img" src="images/b2_icon_3.jpg" alt="a comfortable sofa">
                 </div>
@@ -126,7 +123,7 @@
                     <tr>
                         <th><a href="#">Начало сеанса</a></th>
                         <th><a href="#">Название фильма</a></th>
-                        <th><a href="#">Жанр</a></th>
+                        <th><a href="#">Описание</a></th>
                         <th><a href="#">Стоимость билета</a></th>
                         <th></th>
                     </tr>

@@ -494,6 +494,7 @@ function emptyTable() {
     ch.remove()
   }
 }
+
 fillTable(hiredFilms)
 
 $("th:nth-of-type(1)").click (
