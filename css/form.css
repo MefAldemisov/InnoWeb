@@ -69,8 +69,7 @@ input[type="file"] {
   display: inline-block;
   z-index: 10;
   opacity: 1;
-  width: 8rem;
-  height: 1.2rem;
+  background: #fff;
   /* position: absolute;
   opacity: 0;
   width: 1px;

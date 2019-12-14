@@ -477,4 +477,5 @@ function filmsUser(films) {
 
     filmsSlider.appendChild(filmBox);
   }
+  addSlider()
 }

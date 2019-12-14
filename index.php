@@ -255,7 +255,7 @@
                     <span id="order-form__start-time"></span>
                 </div>
                 <div class="form__part">
-                    <span>Жанр:</span>
+                    <span>Описание:</span>
                     <span id="order-form__ganre"></span>
                 </div>
                 <div class="form__part">
@@ -279,7 +279,7 @@
                 </div>
                 <div class="form__part">
                     <label for="input_mail">email </label>
-                    <input id="input_mail" type="email" placeholder="something@gmail.com" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
+                    <input id="input_mail" title="your email should end with .com or .org" type="email" placeholder="something@gmail.com" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
                     <?php
                     if (isset($_GET["error_email"]) && $_GET["error_email"]) {
                         echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
@@ -300,8 +300,9 @@
                 </div>
                 <div class="form__part">
                     <!-- <label for="file_selector">Загрузить купон</label> -->
-                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                    <input id="file_selector" type="file" name="file" multiple/>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
+                    <input id="file_selector" type="file" name="file" accept="image/jpeg image/png image/gif" multiple/>
+                    <img id="form-img" class="form-img hidden-modal" src=# alt="your img">
                 </div>
                 <div class=form__part>
                     <span>Количество билетов:</span>
@@ -379,13 +380,13 @@
 
     <!-- For ofline testing -->
     <script src="js/ajax.js"></script>
+    <script src="js/slider.js"></script>
     <script src="js/films.js"></script>
     <script src="js/getting_films.js"></script>
     <script src="js/form.js"></script>
 
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/albom.js"></script>
-    <script src="js/slider.js"></script>
 </body>
 
 </html>

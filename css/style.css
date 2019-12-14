@@ -453,6 +453,7 @@ td:last-child {
 }
 .film__box {
   height: calc(50rem / 3);
+  /* width: calc(50rem / 3); */
   position: relative;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -623,4 +624,10 @@ td:last-child {
 .albom__img {
   width: 15rem;
   height: 20rem;
+}
+/* Form */
+.form-img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
 }
