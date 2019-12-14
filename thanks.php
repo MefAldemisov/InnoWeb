@@ -6,8 +6,8 @@
         <title>Спасибо!</title>
     </head>
     <body>
-        <?php if(isset( $_GET['name'])) { ?>
-        Спасибо, <?php echo $_GET['name']; ?>, мы свяжемся с вами в близжайшее время.
+        <?php if(isset( $_GET['name']) && isset( $_GET['id'])) { ?>
+        Спасибо, <?php echo $_GET['name']; ?>, мы свяжемся с вами в близжайшее время. Ваша заявка отправлена под номером <?php echo $_GET['id'];?>
         <?php } else {?>
             <script>
                 window.location = '/'; // changing of the address    
