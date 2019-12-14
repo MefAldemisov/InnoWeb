@@ -10,9 +10,34 @@
     <?php
 
     define('CLIENTS', __DIR__ . "/clients.txt");
-
-    session_start();
-
+    // session_start();
+    echo "WTF";
+    try {
+        $pdo = new PDO("sqlite:" . __DIR__ . "users.sqlite");
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo 'Exception : ' . $e->getMessage();
+        var_dump($e);
+    }
+    echo "if  ";
+    $pdo->exec("CREATE TABLE info (Id INTEGER PRIMARY KEY, Name TEXT, Phone TEXT, Time TEXT)");
+    echo "Executed";
+    echo $this->pdo_ > exec("SELECT name FROM sqlite_master WHERE type = \"table\"");
+    echo " <- result ";
+    $time = time();
+    $sql = "INSERT INTO info (name, phone, dtime) VALUES (\"alina\", '456789', " . $time . ");";
+    $request = $pdo->prepare($sql);
+    if ($request) {
+        $request->execute($data);
+        echo " EXECEUTE ";
+    } else {
+        echo " WRONG ";
+        echo $pdo->exec("SELECT * FROM info");
+    }
+    // $pdo->connect();
+    // echo 20;
+    // $pdo->createTable();
+    // echo 22;
 
     $client = new Client;
     if (validate($_POST)) {
@@ -30,7 +55,10 @@
             }
         }
         $client->saveToFile();
-
+        $data["name"] = $_POST["name"];
+        $data["phone"] = $_POST["phone"];
+        // $id = $pdo->createRecord($data);
+        echo "ID :" . $id;
         // var_dump($client);
         var_dump($_FILES);
         // header("location: /thanks.php?name=" . $_POST["name"]);
@@ -75,7 +103,8 @@
         return $target;
     }
 
-    function cookFile($file) {
+    function cookFile($file)
+    {
         $target = resizeTo($file, 100);
         setcookie("image", $target);
     }
@@ -200,6 +229,54 @@
     function fileIsImage($file)
     {
         return @is_array(getimagesize($file['tmp_name']));
+    }
+
+    class Database
+    {
+        private $pdo;
+
+        public function connect()
+        {
+            // if ($this->pdo == null) {
+            // $this->pdo = new PDO("sqlite:" . DATABASE);
+            // }
+            echo "Connected";
+        }
+        public function createTable()
+        {
+            $this->pdo->exec("CREATE TABLE Users (Id INTEGER PRIMARY KEY, Name TEXT, Phone TEXT, Time TEXT)");
+
+            echo "Executed";
+            echo $this->pdo_ > exec("SELECT name FROM sqlite_master WHERE type = \"table\"");
+            echo " <- result ";
+        }
+
+        public function createRecord($data)
+        {
+            // data - array with keys name and phone
+            $time = time();
+            $sql = "INSERT INTO users (name, phone, dtime) VALUES (\"alina\", '456789', " . $time . ");";
+            $request = $this->pdo->prepare($sql);
+            if ($request) {
+                $request->execute($data);
+                echo " EXECEUTE ";
+            } else {
+                echo " WRONG ";
+                echo $this->pdo->exec("SELECT * FROM users");
+            }
+            return $this->pdo->lastInsertId();
+        }
+
+        // public function showRecords()
+        // { 
+
+        //     $sql = "SELECT * FROM" . $this::TABLE . "ORDER by id DESC";
+        //     $request = $this->pdo->prepare($sql);
+        //     if ($request) {
+        //         $request->execute();
+        //     }
+        //     return $request;
+        // }
     }
 
     ?>
