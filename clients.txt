@@ -384,3 +384,13 @@ Phone: 89999997997
 Email: locusina@inbox.org
 Total cost: 520
 --------------------
+Name: Алина
+Phone: +7999999999
+Email: lokusina@inbox.org
+Total cost: 400
+--------------------
+Name: Алина
+Phone: +7999999999
+Email: lokusina@inbox.org
+Total cost: 400
+--------------------

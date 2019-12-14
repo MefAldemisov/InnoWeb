@@ -10,34 +10,12 @@
     <?php
 
     define('CLIENTS', __DIR__ . "/clients.txt");
-    // session_start();
-    echo "WTF";
-    try {
-        $pdo = new PDO("sqlite:" . __DIR__ . "users.sqlite");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo 'Exception : ' . $e->getMessage();
-        var_dump($e);
-    }
-    echo "if  ";
-    $pdo->exec("CREATE TABLE info (Id INTEGER PRIMARY KEY, Name TEXT, Phone TEXT, Time TEXT)");
-    echo "Executed";
-    echo $this->pdo_ > exec("SELECT name FROM sqlite_master WHERE type = \"table\"");
-    echo " <- result ";
-    $time = time();
-    $sql = "INSERT INTO info (name, phone, dtime) VALUES (\"alina\", '456789', " . $time . ");";
-    $request = $pdo->prepare($sql);
-    if ($request) {
-        $request->execute($data);
-        echo " EXECEUTE ";
-    } else {
-        echo " WRONG ";
-        echo $pdo->exec("SELECT * FROM info");
-    }
-    // $pdo->connect();
-    // echo 20;
-    // $pdo->createTable();
-    // echo 22;
+    session_start();
+
+    // DB init
+    $pdo = new Database;
+    $pdo->connect("users.db");
+    $pdo->createTable();
 
     $client = new Client;
     if (validate($_POST)) {
@@ -45,7 +23,7 @@
         $client->checkData($_POST);
         fillSession($client);
 
-        /** TODO DB work */
+        // files
         if (isset($_FILES)) {
             foreach ($_FILES as $file) {
                 if (fileIsImage($file)) {
@@ -54,13 +32,16 @@
                 }
             }
         }
-        $client->saveToFile();
-        $data["name"] = $_POST["name"];
-        $data["phone"] = $_POST["phone"];
-        // $id = $pdo->createRecord($data);
-        echo "ID :" . $id;
-        // var_dump($client);
-        var_dump($_FILES);
+
+        /** DB work */
+
+        $columns = ["name", "phone", "email", "places", "total"];
+        foreach($columns as $col){
+            $data[$col] = $_POST[$col];
+        }
+        $id = $pdo->createRecord($data);
+        echo "<br>ID :" . $id;
+        $pdo->showRecords();    
         // header("location: /thanks.php?name=" . $_POST["name"]);
     } else {
 
@@ -234,49 +215,81 @@
     class Database
     {
         private $pdo;
+        private $table_name;
 
-        public function connect()
+        public function connect($table_name)
         {
-            // if ($this->pdo == null) {
-            // $this->pdo = new PDO("sqlite:" . DATABASE);
-            // }
-            echo "Connected";
+            $this->table_name = $table_name;
+            if (!$this->pdo) {
+                try {
+                    $this->pdo = new PDO("sqlite:" . __DIR__ . "/" . $table_name);
+                    $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                } catch (PDOException $e) {
+                    echo 'Exception : ' . $e->getMessage();
+                }
+            }
         }
         public function createTable()
         {
-            $this->pdo->exec("CREATE TABLE Users (Id INTEGER PRIMARY KEY, Name TEXT, Phone TEXT, Time TEXT)");
-
-            echo "Executed";
-            echo $this->pdo_ > exec("SELECT name FROM sqlite_master WHERE type = \"table\"");
-            echo " <- result ";
+            $this->pdo->exec("CREATE TABLE IF NOT EXISTS users (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                            Name TEXT, 
+                            Phone TEXT, 
+                            Email TEXT,
+                            Places TEXT,
+                            Total INTEGER,
+                            Time TEXT
+                            )");
         }
 
         public function createRecord($data)
         {
             // data - array with keys name and phone
-            $time = time();
-            $sql = "INSERT INTO users (name, phone, dtime) VALUES (\"alina\", '456789', " . $time . ");";
+            $data["time"] = time();
+            $sql = "INSERT INTO users (Name, Phone, Email, Places, Total, Time) 
+                    VALUES (:name, :phone, :email, :places, :total, :time)";
             $request = $this->pdo->prepare($sql);
             if ($request) {
                 $request->execute($data);
-                echo " EXECEUTE ";
             } else {
-                echo " WRONG ";
                 echo $this->pdo->exec("SELECT * FROM users");
             }
             return $this->pdo->lastInsertId();
         }
 
-        // public function showRecords()
-        // { 
+        public function showRecords()
+        { 
+            $sql = "SELECT * FROM users ORDER BY Id;";
+            $request = $this->pdo->prepare($sql);
+            echo "<br> Prepared";
+            if ($request) {
+                $request->execute();
+            }
+            $records = [];
+ 
+            echo "<table><tr><th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Places</th>
+                            <th>Total</th></<tr>";
+            while ($row = $request->fetch(\PDO::FETCH_ASSOC)) {
+                
+                echo "<tr>";
+                echo "<td>" . $row['Id'] . "</td>";
+                echo "<td>" . $row['Name'] . "</td>";
+                echo "<td>" . $row['Phone'] . "</td>";
+                echo "<td>" . $row['Email'] . "</td>";
+                echo "<td>" . $row['Places'] . "</td>";
+                echo "<td>" . $row['Total'] . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
 
-        //     $sql = "SELECT * FROM" . $this::TABLE . "ORDER by id DESC";
-        //     $request = $this->pdo->prepare($sql);
-        //     if ($request) {
-        //         $request->execute();
-        //     }
-        //     return $request;
-        // }
+            
+            return $records;
+            // return $request;
+        }
     }
 
     ?>
