@@ -38,7 +38,7 @@
         /** DB work */
         $id = $client->saveToDatabase($pdo);
 
-        $pdo->showRecords();
+        // $pdo->showRecords($id);
         header("location: /thanks.php?name=" . $_POST["name"] . "&id=" . $id);
     } else {
 

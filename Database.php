@@ -44,24 +44,24 @@ class Database
         return $this->pdo->lastInsertId();
     }
 
-    public function showRecords()
+    public function getRecords($filter_by)
     {
-        $sql = "SELECT * FROM users ORDER BY Id;";
+        $sql = "SELECT * FROM users ORDER BY " . $filter_by;
         $request = $this->pdo->prepare($sql);
-        echo "<br> Prepared";
         if ($request) {
             $request->execute();
         }
-        $records = [];
-
+        return $request;
+    }
+    public function showRecords($request)
+    {
         echo "<table><tr><th>ID</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Places</th>
-                        <th>Total</th></<tr>";
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Places</th>
+                <th>Total</th></<tr>";
         while ($row = $request->fetch(\PDO::FETCH_ASSOC)) {
-            $records[] = $row;
             echo "<tr>";
             echo "<td>" . $row['Id'] . "</td>";
             echo "<td>" . $row['Name'] . "</td>";
@@ -72,6 +72,5 @@ class Database
             echo "</tr>";
         }
         echo "</table>";
-        return $records;
     }
 }
