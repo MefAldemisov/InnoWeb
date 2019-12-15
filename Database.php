@@ -55,7 +55,7 @@ class Database
     }
     public function showRecords($request)
     {
-        echo "<table><tr><th>ID</th>
+        echo "<tr><th>ID</th>
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
@@ -71,6 +71,31 @@ class Database
             echo "<td>" . $row['Total'] . "</td>";
             echo "</tr>";
         }
-        echo "</table>";
+        
+    }
+    public function deleteRecord($id) {
+        $sql = "DELETE FROM users WHERE Id = " . $id;
+        $request = $this->pdo->prepare($sql);
+        if ($request) {
+            $request->execute();
+        } else {
+            echo " ERROR IN DELETE ";
+        }
+    }
+    public function updateRecord($data) {
+        $sql = "UPDATE users 
+                SET Name=:name, 
+                Phone=:phone, 
+                Email=:email, 
+                Places=:places, 
+                Total=:total
+                WHERE Id=:id";
+        $request = $this->pdo->prepare($sql);
+        if ($request) {
+            $request->execute($data);
+        } else {
+            echo " ERROR IN UPDATE ";
+        }
+
     }
 }
