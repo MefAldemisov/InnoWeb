@@ -38,6 +38,13 @@
         /** DB work */
         $id = $client->saveToDatabase($pdo);
 
+        $data = [];
+        $columns = ["name", "phone", "email", "places", "total"];
+        foreach ($columns as $col) {
+            $data[$col] = $_POST[$col];
+        }
+        $mail = new Mail;
+        $mail->send($data);
         // $pdo->showRecords($id);
         header("location: /thanks.php?name=" . $_POST["name"] . "&id=" . $id);
     } else {
@@ -218,6 +225,27 @@
         return @is_array(getimagesize($file['tmp_name']));
     }
 
+    class Mail
+    {
+        const MAILTO = "alisha-omg@yandex.ru";
+
+        public function send($data)
+        {
+            /**
+             * Highly non-recommented (for testing only)
+             */
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            // text/html - possible
+            $headers .= "Content-type: text/html; charset-utf-8" . "\r\n";
+            $headers .= "From: ROBOT_SITE <info@{$_SERVER["SERVER_NAME"]}\r\n>";
+
+            $subject = "Заявка с сайта";
+            $message = "<body><p>Пользователь <b>" . $data["name"] . "</b> оставил заявку " . "</p><br>";
+            $message .= "<p>Телефон " . $data["phone"];
+            $message .= "</p></body>";
+            mail($this::MAILTO, $subject, $message, $headers);
+        }
+    }
 
 
     ?>
