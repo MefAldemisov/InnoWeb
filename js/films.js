@@ -41,9 +41,6 @@ function filmsUser(films) {
     getStart: function () {
       return this.start;
     },
-    getGanre: function () {
-      return this.ganre;
-    },
     getPrice: function () {
       return this.price;
     },
@@ -340,7 +337,7 @@ function filmsUser(films) {
       const tr = document.createElement("tr");
       const trText = `<tr><td>${film.getStart.bind(films[i])()}</td>
                           <td>${film.getName.call(films[i])}</td>
-                          <td>${film.getGanre.bind(films[i])()}</td>
+                          <td>${film.getDescription.bind(films[i])()}</td>
                           <td>${film.getYear.bind(films[i])()}</td>
                           <td>${film.getPrice.bind(films[i])()}</td>
                           <td><img class="timetable__plus-img" src="images/plus.png" alt="plus sign"></td></tr>`
@@ -357,7 +354,7 @@ function filmsUser(films) {
         // enter the data to the form
         $("#order-form__film-name").html(film.getName.call(films[i]));
         $("#order-form__start-time").html(film.getStart.call(films[i]));
-        $("#order-form__ganre").html(film.getGanre.call(films[i]));
+        $("#order-form__description").html(film.getDescription.call(films[i]));
         formFilmPrice.html(film.getPrice.call(films[i]));
         $("#order-form__delivery-price").html(getDeliveryPrice(film.getPrice.call(films[i])))
 
@@ -444,7 +441,7 @@ function filmsUser(films) {
         <h3 class="film__title">${film.getName.call(f)}</h3>
     </a>
     <hr class="film__hr">
-    <p class="film__description">${film.getGanre.call(f)}</p>
+    <p class="film__description">${film.getDescription.call(f)}</p>
     <div class="film__social">
                         `
     // add social links

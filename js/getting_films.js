@@ -38,7 +38,7 @@ let p = new Promise((resolve, reject) => {
         year: parseInt(film.release_date),
         new: film.release_date > "2019-01-01",
         price: Math.floor(Math.random()*20+20)*10,
-        ganre: film.overview,
+        description: film.overview,
         link: urlServerApiImages + film.poster_path,
         image: urlServerApiImages + film.poster_path,
         hire: true,

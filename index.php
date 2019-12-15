@@ -256,7 +256,7 @@
                 </div>
                 <div class="form__part">
                     <span>Описание:</span>
-                    <span id="order-form__ganre"></span>
+                    <span id="order-form__description"></span>
                 </div>
                 <div class="form__part">
                     <span>Цена за билет:</span>
@@ -291,7 +291,7 @@
                 </div>
                 <div class=form__part>
                     <span title="Формат:+7(8)9999999999">Номер телефона:</span>
-                    <input title="Формат:+7(8)9999999999" id="order-form__phone-number" type="tel" pattern="[\+7,8][0-9]{10}" name="phone" value="<?php echo isset($_COOKIE['phone']) ? $_COOKIE['phone'] : ''; ?>"></input>
+                    <input title="Формат:+7(8)9999999999" id="order-form__phone-number" type="tel" pattern="(\+7|8)[0-9]{10}" name="phone" value="<?php echo isset($_COOKIE['phone']) ? $_COOKIE['phone'] : ''; ?>"></input>
                     <?php
                     if (isset($_GET["error_phone"]) && $_GET["error_phone"]) {
                         echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";

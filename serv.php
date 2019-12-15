@@ -48,12 +48,6 @@
         /** DB work */
         $id = $client->saveToDatabase($pdo);
 
-        $data = [];
-        $columns = ["name", "phone", "email", "places", "total"];
-        foreach ($columns as $col) {
-            $data[$col] = $_POST[$col];
-        }
-        
         $log_data = [];
         $log_data["order_id"] = $id;
         $log_data["admin_time"] = time();
