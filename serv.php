@@ -8,6 +8,12 @@
 <body>
 
     <?php
+    require 'vendor/autoload.php';
+
+    use PHPMailer\PHPMailer\PHPMailer;
+
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
 
     include('Database.php');
 
@@ -16,8 +22,11 @@
 
     // DB init
     $pdo = new Database;
-    $pdo->connect("users.db");
+    $logpdo = new Database;
+    $pdo->connect("users.db", "users");
+    $logpdo->connect("logs.db", "logs");
     $pdo->createTable();
+    $logpdo->createTableLog();
 
     $client = new Client;
     if (validate($_POST)) {
@@ -26,10 +35,11 @@
         fillSession($client);
 
         // files
+        $file_path = "";
         if (isset($_FILES)) {
             foreach ($_FILES as $file) {
                 if (fileIsImage($file)) {
-                    saveFile($file);
+                    $file_path = saveFile($file);
                     cookFile($file);
                 }
             }
@@ -43,10 +53,23 @@
         foreach ($columns as $col) {
             $data[$col] = $_POST[$col];
         }
-        $mail = new Mail;
-        $mail->send($data);
+        
+        $log_data = [];
+        $log_data["order_id"] = $id;
+        $log_data["admin_time"] = time();
+        if (sendAdminMail($client)) {
+            echo "start sending";       
+            $log_data["result"] = sendMail($client, $file_path);
+            $log_data["user_time"] = time();
+        }else{
+            $log_data["result"] = "-";
+            $log_data["user_time"] = "-";
+        }
+        $logpdo->createRecordLog($log_data);
+        echo " Recorded";
+
         // $pdo->showRecords($id);
-        header("location: /thanks.php?name=" . $_POST["name"] . "&id=" . $id);
+        // header("location: /thanks.php?name=" . $_POST["name"] . "&id=" . $id);
     } else {
 
         $req_fields = ["name", "phone", "email"];
@@ -92,6 +115,7 @@
     {
         $target = resizeTo($file, 100);
         setcookie("image", $target);
+        echo "GGGG";
     }
 
     function saveFile($file)
@@ -103,7 +127,7 @@
 
         $dir = __DIR__ . "/uploads/";
         $upload_file = $dir . $name;
-
+        echo "<br>PATH: " . $upload_file;
         // image saving 
         if ($type == IMAGETYPE_JPEG) {
             imagejpeg($target, $upload_file . ".jpeg");
@@ -111,8 +135,10 @@
             imagegif($target, $upload_file . ".gif");
         } elseif ($type == IMAGETYPE_PNG) {
             imagepng($target, $upload_file . ".png");
+            $upload_file .= ".png";
             echo "<img src='uploads/" . $name . ".png' alt='png image'/><br>";
         }
+        return $upload_file;
     }
 
     function validateEmail($email)
@@ -225,6 +251,72 @@
         return @is_array(getimagesize($file['tmp_name']));
     }
 
+    function sendMail($client, $file_name)
+    {
+        // thought library
+        try {
+            $mail = new PHPMailer(true);                    // Enable verbose debug output
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.yandex.ru';                    // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'helbogd@yandex.ru';                     // SMTP username
+            $mail->Password   = '1234512345';                               // SMTP password
+            $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+            $mail->Port       = 465;     // TCP port to connect to
+
+            $mail->setFrom('helbogd@yandex.ru', 'Mailer');
+            $mail->addAddress('helbogd@yandex.ru');     // Add a recipient
+
+
+
+            $mail->addAttachment($file_name);         // Add attachments
+            $mail->isHTML(true);
+
+            $mail->subject = "Заявка с сайта";
+            $message = "<body><p>Пользователь <b>" . $client->name . "</b> оставил заявку " . "</p><br>";
+            $message .= "<p>Телефон " . $client->phone;
+            $message .= "</p></body>";
+
+            $mail->Body = $message;
+            echo "<br>Send....";
+            $mail->send();
+            echo "sended";
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            return "error";
+        }
+        return "success";
+    }
+    function sendAdminMail($client)
+    {
+        // thought library
+        try {
+            $mail = new PHPMailer(true);                    // Enable verbose debug output
+            echo "CreatedAdmin";
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.yandex.ru';                    // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'helbogd@yandex.ru';                     // SMTP username
+            $mail->Password   = '1234512345';                               // SMTP password
+            $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+            $mail->Port       = 465;     // TCP port to connect to
+
+            $mail->setFrom('helbogd@yandex.ru', 'Mailer');
+            $mail->addAddress('helbogd@yandex.ru');     // Add a recipient
+
+            $mail->subject = "Заявка с сайта";
+            $message = "<body><p>Пользователь <b>" . $client->name . "</b> оставил заявку " . "</p></body>";
+
+            $mail->Body = $message;
+            echo "<br>Send....";
+            $mail->send();
+            echo "sended";
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            return false;
+        }
+        return true;
+    }
     class Mail
     {
         const MAILTO = "alisha-omg@yandex.ru";

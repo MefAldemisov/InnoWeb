@@ -16,7 +16,9 @@
             border: 2px black solid;
             border-radius: 1rem;
         }
-
+        .small-table-container {
+            height: 40vh;
+        }
         .row {
             margin-bottom: 1rem;
         }
@@ -77,15 +79,30 @@
                 </div>
                 <button class="form-control btn btn-success" type="submit">Update selected</button>
             </form>
+            <section>
+                <h2>Log Table</h2>
+                <div class="small-table-container table-container">
+                    <table class="table table-hover">
+                        <?php
+                        include("../Database.php");
+                        $pdo = new Database;
+                        $pdo->connect("logs.db", "logs");
+                        $pdo->createTable(); 
+                        $request = $pdo->getLogRecords();
+                        $pdo->showLogRecords($request);
+                        ?>
+                    </table>
+                </div>
+            </section>
         </section>
         <section class="col-sm-8">
             <h2>Data</h2>
             <div class="table-container">
                 <table class="table table-hover">
                     <?php
-                    include("../Database.php");
                     $pdo = new Database;
-                    $pdo->connect("users.db");
+                    $pdo->connect("users.db", "users");
+                    
                     $pdo->createTable();
 
                     if (isset($_GET["id"]) && $_GET["id"]) {
@@ -113,8 +130,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
-    // 1. put event listener on all rows -> copy text to input fields
-    // 2. 
     $("tr").click(function() {
         console.log($(this).children().eq(1).html())
         let data = [];
