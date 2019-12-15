@@ -1,7 +1,4 @@
 AuthType Basic
 AuthName "Thats protected Area!"
-AuthUserFile /var/www/InnoWeb/admin.htpasswd
+AuthUserFile /var/www/InnoWeb/admin/.htpasswd
 Require valid-user
-<Files .htpasswd>
-   deny from all  #запрет доступа из браузера к .htpasswd
-</Files>
