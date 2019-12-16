@@ -132,7 +132,7 @@ button {
   border-radius: 0.75rem;
   border-width: 0;
   background-color: #a3cc40;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 .order-form__close-btn {
   position: absolute;
@@ -150,9 +150,8 @@ button {
   max-width: 70%;
 }
 .order-form__seats {
-  margin: 0 auto;
-  width: 60%;
   display: grid;  
+  grid-template-columns: repeat(10, 1fr);
   grid-gap: 0.2rem;
 }
 .centered {
@@ -161,7 +160,7 @@ button {
   text-align: center;
 }
 .placeDiv {
-  padding: 1em;
+  padding: 1rem;
   text-align: center;
   border-radius: 25%;
   background-color: #a3cc40;
