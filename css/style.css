@@ -518,10 +518,10 @@ td:last-child {
 .map {
   width: 100%;
   margin: 0 auto;
+  height: 21rem;
 }
 .map__img {
   width: 100%;
-  height: 21rem;
 }
 /*Contacts*/
 .contacts__container {

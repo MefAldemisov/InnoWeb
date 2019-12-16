@@ -190,7 +190,8 @@
         </div>
     </section>
     <section class="map">
-        <img class="map__img" src="./images/06_map-footer.jpg" alt="map">
+    <iframe src="https://yandex.ru/map-widget/v1/-/CGHPaZ77" width="100%" height="100%" frameborder="1" allowfullscreen="true"></iframe>
+        <!-- <img class="map__img" src="./images/06_map-footer.jpg" alt="map"> -->
     </section>
     <footer id="section_contacts" class="contacts__container">
         <div class="contacts">
