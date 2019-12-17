@@ -111,7 +111,7 @@ class Database
         $sql = "INSERT INTO " . $this->table_name . " (order_id, result, admin_time, user_time) 
                 VALUES (:order_id, :result, :admin_time, :user_time)";
         $request = $this->pdo->prepare($sql);
-        echo "PREPARED";
+        // echo "PREPARED";
         if ($request) {
             $request->execute($data);
         } else {

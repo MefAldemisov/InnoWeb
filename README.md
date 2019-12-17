@@ -88,3 +88,4 @@ https://tech.yandex.ru/maps/jsapi/doc/2.1/ref/reference/geolocation-docpage/
 - [ ] Сохранять город и подставлять его, если Untitled 
 - [ ] В клиентском письме вставить его email
 - [x] Исправиль баг с номером телефона
+- [ ] Стилизация формы (файл, чекбокс)

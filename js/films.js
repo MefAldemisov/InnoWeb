@@ -298,6 +298,10 @@ function filmsUser(films) {
     custName.html(getCookie("name"))
   }
 
+  const custEmail = $("#input_mail");
+  if (getCookie("email")) {
+    custEmail.html(getCookie("email"))
+  }
   const custPhone = $("#order-form__phone-number");
   if (getCookie("phone")) {
     custPhone.html(getCookie("phone"))
@@ -359,9 +363,9 @@ function filmsUser(films) {
         $("#order-form__delivery-price").html(getDeliveryPrice(film.getPrice.call(films[i])))
 
         // save order 
-        $("#order-form__order-btn").click(function () {
-
-
+        $("#order-form").on("submit", function (e) {
+          
+          e.preventDefault()
           function isEmptyInput(input) {
             if (input.val()) {
               input.css("border", "1px solid green");
@@ -370,18 +374,9 @@ function filmsUser(films) {
             }
             return Boolean(input.val());
           }
-
-          // if all required fields are filled, then add the order to the array
-          if (isEmptyInput(custName) && isEmptyInput(custPhone)) {
-
-            orders.push({
-              customerName: custName.val(),
-              customerPhone: custPhone.val(),
-              total: parseFloat(formTotal.val().textContent),
-              places: currentPlaces
-            });
-            // clearFormData();// TODO
-          }
+          isEmptyInput(custName)
+          isEmptyInput(custPhone)
+          isEmptyInput(custEmail)
 
         });
       };

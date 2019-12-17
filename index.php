@@ -269,9 +269,9 @@
                 </div>
                 <div class="form__part">
                 </div>
-                <div class=form__part>
+                <div class="form__part">
                     <span>Имя заказщика:</span>
-                    <input id="order-form__customer-name" type="text" name="name" value="<?php echo isset($_COOKIE['name']) ? $_COOKIE['name'] : ''; ?>"></input>
+                    <input class="req" id="order-form__customer-name" type="text" name="name" value="<?php echo isset($_COOKIE['name']) ? $_COOKIE['name'] : ''; ?>" required></input>
                     <?php
                     if (isset($_GET["error_name"]) && $_GET["error_name"]) {
                         echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
@@ -280,7 +280,7 @@
                 </div>
                 <div class="form__part">
                     <label for="input_mail">email </label>
-                    <input id="input_mail" title="your email should end with .com or .org" type="email" placeholder="something@gmail.com" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
+                    <input class="req" required id="input_mail" title="your email should end with .com or .org" type="email" placeholder="something@gmail.com" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
                     <?php
                     if (isset($_GET["error_email"]) && $_GET["error_email"]) {
                         echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
@@ -290,9 +290,9 @@
                     }
                     ?>
                 </div>
-                <div class=form__part>
+                <div class="form__part">
                     <span title="Формат:+7(8)9999999999">Номер телефона:</span>
-                    <input title="Формат:+7(8)9999999999" id="order-form__phone-number" type="tel" pattern="(\+7|8)[0-9]{10}" name="phone" value="<?php echo isset($_COOKIE['phone']) ? $_COOKIE['phone'] : ''; ?>"></input>
+                    <input class="req" title="Формат:+7(8)9999999999" id="order-form__phone-number" type="tel" pattern="(\+7|8)[0-9]{10}" name="phone" value="<?php echo isset($_COOKIE['phone']) ? $_COOKIE['phone'] : ''; ?>"></input>
                     <?php
                     if (isset($_GET["error_phone"]) && $_GET["error_phone"]) {
                         echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
@@ -318,12 +318,13 @@
                     <input type="number" id="order-form__total" name="total" readonly></input>
                 </div>
                 <div class="form__part">
-                    <input type="checkbox" required="required" name="agree">
+                    <input type="hidden" name="agree" value="">
+                    <input class="check-req" type="checkbox" required="required" name="agree">
                     <label>
                         Я согласен на обработку персональных данных
                     </label>
                 </div>
-                <button id="order-form__order-btn" class="order-form__order-btn">Забронировать</button>
+                <button type="submit" id="order-form__order-btn" class="order-form__order-btn">Забронировать</button>
             </form>
         </div>
     </footer>

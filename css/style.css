@@ -631,3 +631,14 @@ td:last-child {
     max-height: 100px;
     object-fit: cover;
 }
+/* Loader */
+.loader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: url("../images/loader.gif") no-repeat center, #fff;
+  z-index: 110;
+  opacity: 0.5;
+}
