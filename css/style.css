@@ -460,6 +460,7 @@ td:last-child {
 }
 .film__icon {
   width: 100%;
+  height: 100%;
 }
 .film__content {
   position: absolute;

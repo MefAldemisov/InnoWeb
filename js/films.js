@@ -238,7 +238,7 @@ function filmsUser(films) {
     placeDiv.addEventListener("mouseover", function (event) {
 
       if (!place.brone) {
-        this.classList.add("hooveredPlace")
+        this.classList.add("hoveredPlace")
       }
 
     })
@@ -247,7 +247,7 @@ function filmsUser(films) {
     placeDiv.addEventListener("mouseout", function (event) {
 
       if (!place.brone) {
-        this.classList.remove("hooveredPlace")
+        this.classList.remove("hoveredPlace")
       }
     })
 
@@ -364,7 +364,7 @@ function filmsUser(films) {
 
         // save order 
         $("#order-form").on("submit", function (e) {
-          
+
           e.preventDefault()
           function isEmptyInput(input) {
             if (input.val()) {
@@ -464,7 +464,7 @@ function filmsUser(films) {
     const filmBox = document.createElement("article");
     filmBox.className = "film__box";
     filmBox.innerHTML = `<img class="film__icon" src="${film.getImage.call(f)}" 
-                        alt="${film.getName.call(f)} illustration">`
+                         alt="${film.getName.call(f)} illustration">`
     filmBox.innerHTML += contentText;
 
     filmsSlider.appendChild(filmBox);

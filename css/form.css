@@ -1,4 +1,3 @@
-
 /*My modification to make text visible*/
 form * {
   color: #242424;
@@ -12,85 +11,40 @@ input[readonly] {
   border: none;
   background: transparent;
 }
-
 input:not([readonly]),
-textarea,
-select {
+.file-input-decorator {
   font-size: 0.95rem;
   color: #6c6c6c;
   padding: 0.3rem 0.55rem;
   border: 1px solid #bebebe;
   border-radius: 0.25rem;
-  /* width: 100%;  */
-  outline: 0;
-  transition: 0.2s;
 }
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  /* background: url(../img/down-arrow.svg) 96% center / 5% no-repeat #fff; */
+.myCheckbox span {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 10%;
 }
-/*Remove sumbols of checkbocses*/
-/* input[type="radio"],
+.myCheckbox input:checked + span {
+  background: url("../images/check.jpg") no-repeat 0 0;
+  background-size: 100% 100%;
+}
+input[type="file"],
 input[type="checkbox"] {
   display: none;
-} */
-/*Labels configuration*/
-input[type="radio"] + label,
-input[type="checkbox"] + label {
-  font-size: 0.8rem;
-  padding-left: 1.15rem;
-  position: relative;
 }
-/*Draw radiobuttons/checkboxes */
-input[type="radio"],
- /* + label::before, */
-input[type="checkbox"] 
-/* + label::before */
- {
-  /* content: ""; */
-  /* position: absolute; */
-  /* left: 0; */
-  /* top: 0.05rem; */
-  width: 0.7rem;
-  height: 0.7rem;
-  border: 1px solid #000;
-}
-/*Now radiobuttn is a cycle*/
-input[type="radio"] {
-  border-radius: 100%;
-}
-input[type="textarea"] {
-  height: 12.5rem;
-  resize: none;
-}
-input[type="file"] {
-  display: inline-block;
-  z-index: 10;
-  opacity: 1;
-  background: #fff;
-  /* position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-  z-index: 1;
-  box-shadow: none;
-  border: 0; */
-}
-/* input[type="file"] + label {
-  font-size: 0.9rem;
+.file-input-decorator {
+  padding: 0.4rem 0.55rem;
+  width: 60%;
   color: #90d23d;
-  position: relative;
   border: 1px solid #90d23d;
-  padding: 0.5rem;
   z-index: 2;
   background: #fff;
-  width: 80%;
   display: block;
   cursor: pointer;
-  border-radius: 0.25rem;
-} */
+}
 /*Submit modification*/
 input[type="button"],
 button {
@@ -101,9 +55,9 @@ button {
   display: none;
   position: fixed;
   top: 1rem;
-  right: calc((100% - 51.5rem)/2);
+  right: calc((100% - 51.5rem) / 2);
   width: 51.5rem;
-  margin: 0 auto; 
+  margin: 0 auto;
   background: rgba(256, 256, 256, 0.9);
   border: 2px solid black;
   border-radius: 2rem;
@@ -150,7 +104,7 @@ button {
   max-width: 70%;
 }
 .order-form__seats {
-  display: grid;  
+  display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 0.2rem;
 }
@@ -172,7 +126,7 @@ button {
   background-color: #ffa500;
   cursor: disabled;
 }
-.hooveredPlace {
+.hoveredPlace {
   background-color: #4b4d4f;
   cursor: pointer;
 }

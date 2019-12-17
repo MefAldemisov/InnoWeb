@@ -190,7 +190,7 @@
         </div>
     </section>
     <section class="map">
-    <iframe src="https://yandex.ru/map-widget/v1/-/CGHPaZ77" width="100%" height="100%" frameborder="1" allowfullscreen="true"></iframe>
+        <iframe src="https://yandex.ru/map-widget/v1/-/CGHPaZ77" width="100%" height="100%" frameborder="1" allowfullscreen="true"></iframe>
         <!-- <img class="map__img" src="./images/06_map-footer.jpg" alt="map"> -->
     </section>
     <footer id="section_contacts" class="contacts__container">
@@ -302,7 +302,9 @@
                 <div class="form__part">
                     <!-- <label for="file_selector">Загрузить купон</label> -->
                     <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
-                    <input id="file_selector" type="file" name="file" accept="image/jpeg image/png image/gif" multiple/>
+                    <label class="file-input-decorator">Загрузить купон
+                        <input id="file_selector" type="file" name="file" accept="image/jpeg image/png image/gif" multiple />
+                    </label>
                     <img id="form-img" class="form-img hidden-modal" src=# alt="your img">
                 </div>
                 <div class=form__part>
@@ -319,10 +321,11 @@
                 </div>
                 <div class="form__part">
                     <input type="hidden" name="agree" value="">
-                    <input class="check-req" type="checkbox" required="required" name="agree">
-                    <label>
-                        Я согласен на обработку персональных данных
+                    <label class="myCheckbox">
+                        <input class="check-req" type="checkbox" required="required" name="agree">
+                        <span></span>
                     </label>
+                    <label class="agree-text">Я согласен на обработку персональных данных</label>
                 </div>
                 <button type="submit" id="order-form__order-btn" class="order-form__order-btn">Забронировать</button>
             </form>
@@ -338,12 +341,6 @@
 
 
     <!-- Your custom script here -->
-
-    <!-- <script type="text/babel" src="js/ajax.js"></script>
-    <script type="text/babel" src="js/films.js"></script>
-    <script type="text/babel" src="js/form.js"></script>
-    <script type="text/babel" src="js/owl.carousel.min.js"></script>
-    <script type="text/babel" src="js/slider.js"></script> -->
     <script>
         $(document).ready(function() {
             // scrolling up
