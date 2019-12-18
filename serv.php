@@ -42,13 +42,11 @@ if (validate($_POST)) {
 
     /** DB work */
     $id = $client->saveToDatabase($pdo);
-
     /** Message sending */
     $log_data = [];
     $log_data["order_id"] = $id;
     $log_data["admin_time"] = time();
-    if (sendAdminMail($client)) {
-        // echo "start sending";       
+    if (sendAdminMail($client)) {      
         $log_data["result"] = sendMail($client, $file_path);
         $log_data["user_time"] = time();
     } else {
@@ -57,16 +55,11 @@ if (validate($_POST)) {
         $error_msg["status"] = 1;
     }
     $logpdo->createRecordLog($log_data);
-    // echo " Recorded";
 
-    // $pdo->showRecords($id);
     // header("location: /thanks.php?name=" . $_POST["name"] . "&id=" . $id);
 } else {
-    // echo "POST: " ;
-    // echo var_dump($_POST);
     $req_fields = ["name", "phone", "email"];
     // $error_msg = "location: /?";
-    
     foreach ($req_fields as $field) {
         if (!(isset($_POST[$field]) && $_POST[$field])) {
             $error_msg[$field] = "Not filled";
@@ -74,7 +67,6 @@ if (validate($_POST)) {
             // $error_msg .= "error_" . $field . "='Not filled'&";
         }
     }
-    
     // header(substr($error_msg, 0, -1));
 }
 echo json_encode($error_msg);
@@ -120,7 +112,7 @@ function saveFile($file)
 
     $dir = __DIR__ . "/uploads/";
     $upload_file = $dir . $name;
-    // echo "<br>PATH: " . $upload_file;
+    
     // image saving 
     if ($type == IMAGETYPE_JPEG) {
         imagejpeg($target, $upload_file . ".jpeg");
@@ -131,7 +123,6 @@ function saveFile($file)
     } elseif ($type == IMAGETYPE_PNG) {
         imagepng($target, $upload_file . ".png");
         $upload_file .= ".png";
-        // echo "<img src='uploads/" . $name . ".png' alt='png image'/><br>";
     }
     return $upload_file;
 }

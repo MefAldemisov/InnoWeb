@@ -272,35 +272,16 @@
                 <div class="form__part">
                     <span>Имя заказщика:</span>
                     <input class="req" id="order-form__customer-name" type="text" name="name" value="<?php echo isset($_COOKIE['name']) ? $_COOKIE['name'] : ''; ?>" required></input>
-                    <?php
-                    if (isset($_GET["error_name"]) && $_GET["error_name"]) {
-                        echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
-                    }
-                    ?>
                 </div>
                 <div class="form__part">
                     <label for="input_mail">email </label>
                     <input class="req" required id="input_mail" title="your email should end with .com or .org" type="email" placeholder="something@gmail.com" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
-                    <?php
-                    if (isset($_GET["error_email"]) && $_GET["error_email"]) {
-                        echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
-                    }
-                    if (isset($_GET["error_spec_email"]) && $_GET["error_spec_email"]) {
-                        echo "<p class='form__error-msg'> неправильный формат: адресс должен заканчиваться на .com или .org </p>";
-                    }
-                    ?>
                 </div>
                 <div class="form__part">
                     <span title="Формат:+7(8)9999999999">Номер телефона:</span>
-                    <input class="req" title="Формат:+7(8)9999999999" id="order-form__phone-number" type="tel" pattern="(\+7|8)[0-9]{10}" name="phone" value="<?php echo isset($_COOKIE['phone']) ? $_COOKIE['phone'] : ''; ?>"></input>
-                    <?php
-                    if (isset($_GET["error_phone"]) && $_GET["error_phone"]) {
-                        echo "<p class='form__error-msg'> поле обязательно к заполнению </p>";
-                    }
-                    ?>
+                    <input required class="req" title="Формат:+7(8)9999999999" id="order-form__phone-number" type="tel" pattern="(\+7|8)[0-9]{10}" name="phone" value="<?php echo isset($_COOKIE['phone']) ? $_COOKIE['phone'] : ''; ?>"></input>
                 </div>
                 <div class="form__part">
-                    <!-- <label for="file_selector">Загрузить купон</label> -->
                     <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
                     <label class="file-input-decorator">Загрузить купон
                         <input id="file_selector" type="file" name="file" accept="image/jpeg image/png image/gif" multiple />
