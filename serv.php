@@ -112,7 +112,7 @@ function saveFile($file)
 
     $dir = __DIR__ . "/uploads/";
     $upload_file = $dir . $name;
-    
+
     // image saving 
     if ($type == IMAGETYPE_JPEG) {
         imagejpeg($target, $upload_file . ".jpeg");
@@ -241,17 +241,17 @@ function sendMail($client, $file_name)
 {
     // thought library
     try {
-        $mail = new PHPMailer(true);                    // Enable verbose debug output
-        $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'smtp.yandex.ru';                    // Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'helbogd@yandex.ru';                     // SMTP username
-        $mail->Password   = '1234512345';                               // SMTP password
-        $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-        $mail->Port       = 465;     // TCP port to connect to
+        $mail = new PHPMailer(true);                            // Enable verbose debug output
+        $mail->isSMTP();                                        // Send using SMTP
+        $mail->Host       = 'smtp.yandex.ru';                   // Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                               // Enable SMTP authentication
+        $mail->Username   = 'helbogd@yandex.ru';                // SMTP username
+        $mail->Password   = '1234512345';                       // SMTP password
+        $mail->SMTPSecure = 'ssl';                              // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+        $mail->Port       = 465;                                // TCP port to connect to
 
         $mail->setFrom('helbogd@yandex.ru', 'Mailer');
-        $mail->addAddress('helbogd@yandex.ru');     // Add a recipient
+        $mail->addAddress($client->email);     // Add a recipient
 
         if ($file_name) {
             $mail->addAttachment($file_name);         // Add attachments
@@ -324,6 +324,4 @@ class Mail
         mail($this::MAILTO, $subject, $message, $headers);
     }
 }
-
-
 ?>
