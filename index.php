@@ -67,9 +67,6 @@
             <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? 
                 Facere minima optio perferendis quibusdam
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
-                <?php 
-                echo "Hello World!!!!";
-                ?>
             <p>Cumque dolorem eum harum laudantium libero molestias saepe soluta? Facere minima optio perferendis
                 quibusdam
                 quis reprehenderit, saepe! Debitis enim optio saepe voluptatibus.</p>
