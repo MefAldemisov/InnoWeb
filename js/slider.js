@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    const owl = $(".owl-carousel");
+function addSlider () {
+    const owl = $(".films__container");
     owl.owlCarousel({
         loop:true,
         margin:10,
@@ -8,7 +8,7 @@ $(document).ready(function () {
             0:{
                 items:1
             },
-            600:{
+            650:{
                 items:2
             },
             1000:{
@@ -22,4 +22,4 @@ $(document).ready(function () {
     $(".films__btn-before").click(function(){
         owl.trigger('prev.owl.carousel');
     })
-});
+}

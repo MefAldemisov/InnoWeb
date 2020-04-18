@@ -1,0 +1,54 @@
+[I 12:56:00.731 NotebookApp] The port 8888 is already in use, trying another port.
+[I 12:56:00.741 NotebookApp] Serving notebooks from local directory: /home/alina/workspase/InnoTasks/Hospital/HospitalManagementSystem
+[I 12:56:00.741 NotebookApp] The Jupyter Notebook is running at:
+[I 12:56:00.741 NotebookApp] http://localhost:8889/?token=5c9971f2c1459121bc91b6868b11311b99e611c598709ada
+[I 12:56:00.741 NotebookApp]  or http://127.0.0.1:8889/?token=5c9971f2c1459121bc91b6868b11311b99e611c598709ada
+[I 12:56:00.741 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 12:56:00.767 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/alina/.local/share/jupyter/runtime/nbserver-18975-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8889/?token=5c9971f2c1459121bc91b6868b11311b99e611c598709ada
+     or http://127.0.0.1:8889/?token=5c9971f2c1459121bc91b6868b11311b99e611c598709ada
+[19026:19026:1126/125600.995501:ERROR:chrome_content_client.cc(343)] Failed to locate and load the component updated flash plugin.
+[19063:19063:1126/125601.071321:ERROR:sandbox_linux.cc(369)] InitializeSandbox() called with multiple threads in process gpu-process.
+Opening in existing browser session.
+[I 12:56:14.856 NotebookApp] Kernel started: 629c4d38-b413-4e20-9d97-13afc3a5cc79
+[I 12:58:14.880 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:00:14.944 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:02:14.916 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:04:14.924 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:06:02.786 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:06:14.875 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:07:18.964 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:11:33.052 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:12:14.877 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:13:37.609 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:14:14.892 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 13:16:15.458 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[W 13:18:44.144 NotebookApp] 404 GET /gen204?invalidResponse=q=https%3A%2F%2Ftranslate.googleapis.com%2Ftranslate_a%2Fsingle%3Fclient%3Dgtx%26s,ql=162,r=,rl=0 (127.0.0.1) 6.34ms referer=http://localhost:8889/notebooks/GeneratorOfSQLDataGenerator.ipynb
+[I 13:20:14.859 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:27:24.888 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:29:24.880 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:31:24.890 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:37:24.923 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:39:24.876 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:41:24.909 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:42:19.507 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:42:29.097 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:43:01.063 NotebookApp] Starting buffering for 629c4d38-b413-4e20-9d97-13afc3a5cc79:4319920e272f451c90e8d3e4997313cb
+[I 14:43:01.685 NotebookApp] Kernel restarted: 629c4d38-b413-4e20-9d97-13afc3a5cc79
+[I 14:43:02.056 NotebookApp] Restoring connection for 629c4d38-b413-4e20-9d97-13afc3a5cc79:4319920e272f451c90e8d3e4997313cb
+[I 14:43:02.057 NotebookApp] Replaying 6 buffered messages
+[I 14:43:24.876 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:45:24.876 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:47:25.480 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.ipynb
+[I 14:53:44.612 NotebookApp] Starting buffering for 629c4d38-b413-4e20-9d97-13afc3a5cc79:4319920e272f451c90e8d3e4997313cb
+[I 14:54:04.701 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.py
+[I 14:54:14.344 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.py
+[I 14:54:55.753 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.py
+[I 14:55:01.505 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.py
+[I 14:57:04.066 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.py
+[I 15:05:04.958 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.py
+[I 15:05:20.691 NotebookApp] Saving file at /GeneratorOfSQLDataGenerator.py

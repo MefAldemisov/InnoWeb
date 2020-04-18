@@ -1,17 +1,28 @@
-// ============= FORMS =============
+// ============= FORM SESSION LOADER =============
+$("form").click(function() {
+    $.ajax({
+        url: "session_loader.php",
+        success: function(data) {
+            console.log("session", data)
+        }
+    })
+})
 
-let name_guest_1 = document.getElementById('input_name')
-console.log("name guest:", name_guest_1)
-let button_send_info = document.getElementById('send_present')
-console.log("button:", button_send_info)
+function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+        $('#form-img').attr('src', e.target.result);
+      }
+      
+      reader.readAsDataURL(input.files[0]);
+      $('#form-img').removeClass("hidden-modal")
+    }
+  }
 
-// action: onclick
-button_send_info.onclick = function(){
-    console.log('Info submited');
-    /* printing of the form's content is
-       reasonable only after 
-       form submition */
-     
-
-}
-
+$("#file_selector").change( 
+    function() {
+        readURL(this)
+    }
+)

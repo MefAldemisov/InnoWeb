@@ -1,0 +1,396 @@
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------
+Name: Иван
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 460
+--------------------
+Name: Алина
+Phone: 89999999999
+Email: lokusina@inbox.org
+Total cost: 500
+--------------------
+Name: Алина
+Phone: +7999999999
+Email: lokusina@inbox.org
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 460
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 460
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 460
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 330
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 330
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 330
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 330
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 310
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 430
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 430
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 390
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 490
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 500
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 440
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 510
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 590
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 590
+--------------------
+Name: Alina
+Phone: 89999999999
+Email: locusina@inbox.org
+Total cost: 590
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999999997
+Email: locusina@inbox.org
+Total cost: 450
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Alina
+Phone: 89999997997
+Email: locusina@inbox.org
+Total cost: 520
+--------------------
+Name: Алина
+Phone: +7999999999
+Email: lokusina@inbox.org
+Total cost: 400
+--------------------
+Name: Алина
+Phone: +7999999999
+Email: lokusina@inbox.org
+Total cost: 400
+--------------------
